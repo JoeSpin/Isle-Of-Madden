@@ -1,12 +1,11 @@
 import React from 'react'
+import logo from '../img/logo.png'
 
 export default function Header() {
     return (
-        <div id="header">
-		<a href="index.html" class="logo">
-			<img src="..\img\logo.png" alt="iom-logo" />
-		</a>
-		<ul id="navigation">
+        <div id="header" className="flex justify-center content-center flex-column w-screen">
+		<a href="index.html" id="logo" style={{backgroundImage: `url(${logo})`, backgroundSize: 'cover', backgroundRepeat:'no-repeat', backgroundPosition:'center',}}></a>
+		<ul id="navigation" className="flex justify-center content-center flex-row w-screen">
 			<li class="selected">
 				<a href="/">home</a>
 			</li>
