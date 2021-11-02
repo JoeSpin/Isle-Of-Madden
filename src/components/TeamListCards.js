@@ -1,4 +1,36 @@
 import React from "react";
+import cardinals from "../img/logos/cardinals.svg"
+import falcons from "../img/logos/falcons.svg"
+import panthers from "../img/logos/panthers.svg"
+import bears from "../img/logos/bears.svg"
+import cowboys from "../img/logos/cowboys.svg"
+import lions from "../img/logos/lions.svg"
+import packers from "../img/logos/packers.svg"
+import rams from "../img/logos/rams.svg"
+import vikings from "../img/logos/vikings.svg"
+import saints from "../img/logos/saints.svg"
+import giants from "../img/logos/giants.svg"
+import eagles from "../img/logos/eagles.svg"
+import sf from "../img/logos/49ers.svg"
+import seahawks from "../img/logos/seahawks.svg"
+import bucs from "../img/logos/bucs.svg"
+import wft from "../img/logos/wft.svg"
+import ravens from "../img/logos/ravens.svg"
+import bills from "../img/logos/bills.svg"
+import bengals from "../img/logos/bengals.svg"
+import browns from "../img/logos/browns.svg"
+import broncos from "../img/logos/broncos.svg"
+import texans from "../img/logos/texans.svg"
+import colts from "../img/logos/colts.svg"
+import jaguars from "../img/logos/jaguars.svg"
+import chiefs from "../img/logos/chiefs.svg"
+import raiders from "../img/logos/raiders.svg"
+import chargers from "../img/logos/chargers.svg"
+import dolphins from "../img/logos/dolphins.svg"
+import patriots from "../img/logos/patriots.svg"
+import jets from "../img/logos/jets.svg"
+import steelers from "../img/logos/steelers.svg"
+import titans from "../img/logos/titans.svg"
 
 export default function TeamListCards() {
   return (
@@ -89,7 +121,7 @@ export default function TeamListCards() {
           <button id="roster-btn">Roster</button>
         </div>
         <div id="team-pro-card">
-          <img src={ 49ers } alt="" />
+          <img src={ sf } alt="" />
           <h3>San Francisco 49ers</h3>
           <button id="profile-btn">Profile</button>
           <button id="schedule-btn">Schedule</button>

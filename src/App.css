@@ -1,15 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#header{
-	height: 15vh;
-}
-#logo{
-	height: 100px;
-	width: 100px;
-}
-#team-pro-card{
-	width: 5vw;
-	height: 50vh;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+body{
+	font-family: 'Roboto', sans-serif;
 }
