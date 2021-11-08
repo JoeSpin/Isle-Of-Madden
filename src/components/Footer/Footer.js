@@ -5,7 +5,7 @@ import twitter from '../../img/icons/twitter.svg'
 
 export default function Footer() {
     return (
-        <div id="footer" className="bg-gray text-white">
+        <div id="footer" className="bg-gray text-white py-6">
 		<div className="flex justify-center items-center">
 			<p className="pr-10">&copy; 2021 by Isle of Madden Dev Team. All rights reserved.</p>
 			<ul className="flex">
