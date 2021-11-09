@@ -4,6 +4,7 @@ import Home from './pages/home/Home';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import TeamPage from './pages/team/TeamPage';
 import TeamList from './pages/team/TeamList';
+import PlayerSearchPage from './pages/player/PlayerSearchPage'; 
 import './App.css'
 
 ReactDOM.render(
@@ -11,6 +12,8 @@ ReactDOM.render(
     <Route exact path="/" render={Home} />
     <Route exact path="/team/:tn" render={TeamPage} />
     <Route exact path="/team" render={TeamList} />
+    <Route exact path="/players" render={PlayerSearchPage} />
+
   </Router>,
   document.getElementById('root')
 );
