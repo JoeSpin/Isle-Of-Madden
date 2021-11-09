@@ -18,7 +18,7 @@ export default function CoachCard() {
       }
 
     return (
-        <div>
+        <div className="w-full text-center">
             <h3>Coach: {team.coachName}</h3>
         </div>
     )

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import CoachCard from "./CoachCard";
 
 export default function TeamCard(props) {
         const [isLoading, setLoading] = useState(true);
@@ -27,16 +28,27 @@ else {
 }
   }
 
-  return (
-    <div className="App">
-        <div id="body">
-		<h1><span>{team.cityName} {team.teamName}</span></h1>
-		<div id="teamcard">
-        <h2>{team.divisionName}</h2>
-      <h3>Record: ({team.totalWins} - {team.totalLosses} - {team.totalTies})</h3>
-      <h3>Overall: {team.ovrRating}</h3>
-      <h3>Cap Space: {calcCap(team.capAvailable)}</h3>
+  const getLogo = (teamn) => {
+    if (teamn === "Football Team"){ 
+      return `wft.svg` 
+    } else if (teamn === "Buccaneers"){
+      return 'bucs.svg'
+    } else {
+      return `${teamn.toLowerCase()}.svg`
+    } 
+  }
 
+  return (
+    <div className="App flex justify-center">
+        <div id="body" className="w-1/2 flex items-center flex-col">
+		<div id="teamcard" className="bg-black bg-opacity-5 rounded-xl w-full flex flex-wrap p-5 justify-center">
+      <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
+      <h1 className="w-full text-center text-4xl font-black"><span>{team.cityName} {team.teamName}</span></h1>
+      <CoachCard />
+      <h3 className="w-1/2 text-center">{team.divisionName}</h3>
+      <h3 className="w-1/2 text-center">Overall: {team.ovrRating}</h3>
+      <h3 className="w-1/2 text-center">Record: ({team.totalWins} - {team.totalLosses} - {team.totalTies})</h3>
+      <h3 className="w-1/2 text-center">Cap Space: {calcCap(team.capAvailable)}</h3>
 		</div>
 		<div id="teamlinks">
 			<a href="schedule.html">Schedule</a>
