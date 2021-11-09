@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from 'react'; 
-import { useSortBy, useTable, usePagination } from 'react-table';
 import axios from "axios";
 import { withRouter } from 'react-router';
 import PlayerSearchTable from './PlayerSearchTable'
@@ -8,7 +7,6 @@ import '../resources/PlayerSearch.css';
 function PlayerSearch(){
     const [tableData, setTableData] = useState([]);
     const [tableColumns, setTableColumns] = useState(""); 
-    const [filters, setFilters] = useState([]); 
     const [searchName, setSearchName] = useState(""); 
     const [positionSelect, setPositionSelect] = useState(""); 
     const [teamSelect, setTeamSelect] = useState("");
