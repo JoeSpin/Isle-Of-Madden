@@ -6,6 +6,8 @@ import TeamPage from './pages/team/TeamPage';
 import TeamList from './pages/team/TeamList';
 import PlayerSearchPage from './pages/player/PlayerSearchPage'; 
 import './App.css'
+import RulesPage from './components/RulesPage';
+import TeamSchedule from './components/TeamSchedule';
 
 ReactDOM.render(
   <Router>
@@ -13,6 +15,7 @@ ReactDOM.render(
     <Route exact path="/team/:tn" render={TeamPage} />
     <Route exact path="/team" render={TeamList} />
     <Route exact path="/players" render={PlayerSearchPage} />
+    <Route exact path="/rules" render={RulesPage} />
 
   </Router>,
   document.getElementById('root')

@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import CoachCard from "./CoachCard";
+import TeamRoster from "./TeamRoster";
+import TeamSchedule from "./TeamSchedule";
+import TeamStats from "./TeamStats";
 
 export default function TeamCard(props) {
         const [isLoading, setLoading] = useState(true);
         const [team, setTeamData] = useState();
+        const [teamComponent, setTeamComponent] = useState("");
         const { tn } = useParams();
 
   useEffect(() => {
@@ -15,7 +19,7 @@ export default function TeamCard(props) {
     });
   }, []);
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <div className="App text-3xl font-extrabold text-center">Loading...</div>;
   }
 
   const calcCap = (capAvail) => {
@@ -38,8 +42,19 @@ else {
     } 
   }
 
+  const showTeamRoster = () => {
+    setTeamComponent(<TeamRoster />)
+  }
+  const showTeamSchedule = () => {
+    setTeamComponent(<TeamSchedule />)
+  }
+  const showTeamStats = () => {
+    setTeamComponent(<TeamStats />)
+  }
+
+
   return (
-    <div className="App flex justify-center">
+    <div className="App flex justify-center py-6">
         <div id="body" className="w-1/2 flex items-center flex-col">
 		<div id="teamcard" className="bg-black bg-opacity-5 rounded-xl w-full flex flex-wrap p-5 justify-center">
       <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
@@ -51,10 +66,21 @@ else {
       <h3 className="w-1/2 text-center">Cap Space: {calcCap(team.capAvailable)}</h3>
 		</div>
 		<div id="teamlinks">
-			<a href="schedule.html">Schedule</a>
-			<a href="roster.html">Roster</a>
-			<a href="stats.html">Stats</a>
+      <ul id="navigation" className="flex justify-center items-center font-black pt-5">
+      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500">
+			<a onClick={showTeamSchedule}>SCHEDULE</a>
+      </li>
+      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500">
+			<a onClick={showTeamRoster}>ROSTER</a>
+      </li>
+      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500">
+			<a onClick={showTeamStats}>STATS</a>
+      </li>
+      </ul>
 		</div>
+    <div>
+      {teamComponent}
+    </div>
 	</div>
       
 

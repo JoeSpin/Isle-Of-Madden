@@ -75,13 +75,14 @@ function PlayerSearch(){
 
 
     return ( 
-        <div>
+        <>
+        <div className="flex justify-center py-3">
         <form> 
-            <label>Name: 
-                <input type="text" defaultValue="Enter name" name="nameSubmit" onChange={e => updateSearchName(e)} />
+            <label className="font-semibold">Name: 
+                <input type="text" placeholder="Enter name" name="nameSubmit" onChange={e => updateSearchName(e)} className="mx-3 border-2 rounded-md" />
             </label>
             <label>Position: 
-                <select id="positionSelect" name="positionSelect" onChange={e => updatePositionSelect(e)} >
+                <select id="positionSelect" name="positionSelect" onChange={e => updatePositionSelect(e)} className="mx-3">
                     <option value="Any">Any</option>
                     <option value="QB">QB</option>
                     <option value="HB">HB</option>
@@ -107,7 +108,7 @@ function PlayerSearch(){
                 </select>
             </label>
             <label>Team:
-                <select id="teamSelect" name="teamSelect" onChange={e => updateTeamSelect(e)}>
+                <select id="teamSelect" name="teamSelect" onChange={e => updateTeamSelect(e)} className="mx-3">
                     <option value="Any">Any</option>
                     <option value="980680711">ARI</option>
                     <option value="980680750">ATL</option>
@@ -144,7 +145,7 @@ function PlayerSearch(){
                 </select>
             </label>
             <label>Attributes: 
-                <select id="filterSelect" id="filterSelect" name="filterSelect" onChange={updateAttribute}>
+                <select id="filterSelect" id="filterSelect" name="filterSelect" onChange={updateAttribute} className="mx-3">
                     <option value="playerBestOvr">Overall Rating</option>
                     <option value="age">Age</option>
                     <option value="accelRating">Accel</option>
@@ -189,11 +190,12 @@ function PlayerSearch(){
                     <option value="zoneCoverRating">Zone Coverage</option>
                 </select>
             </label>
-            <button onClick={updateTable}>Search</button>
+            <button onClick={updateTable} className="mx-3 px-3 py-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">Search</button>
         </form>
         <hr />
-        <PlayerSearchTable data={tableData} columns={tableColumns} />
         </div>
+        <PlayerSearchTable data={tableData} columns={tableColumns} />
+        </>
     )
 
 }

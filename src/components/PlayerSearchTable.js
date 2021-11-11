@@ -68,14 +68,14 @@ function PlayerSearchTable(props){
     )
     
     return (
-        <>
-        <table {...getTableProps()}>
+        <div className="flex items-center flex-col">
+        <table {...getTableProps()} className=" w-3/5">
            <thead>
                {headerGroups.map((headerGroup) => (
                    <tr {...headerGroup.getHeaderGroupProps()}>
                        {
                            headerGroup.headers.map( column => (
-                               <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}</th>
+                               <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-gray bg-opacity-30">{column.render('Header')}</th>
                            ))
                        }
                </tr>
@@ -94,14 +94,16 @@ function PlayerSearchTable(props){
               })}
            </tbody>
        </table>
-        <div> 
-              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{"First"}</button>
-              <button onClick={previousPage} value="<" disabled={!canPreviousPage}>{"Previous"}</button>
-              <button onClick={nextPage} value=">" disabled={!canNextPage}>{"Next"}</button>
-              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage}>{"Last"}</button>   
-              <span>Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
+        <div className="flex items-center flex-col">
+              <span className="h-full pt-5">Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
+              <div>
+              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"First"}</button>
+              <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"Previous"}</button>
+              <button onClick={nextPage} value=">" disabled={!canNextPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"Next"}</button>
+              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"Last"}</button>  
+              </div>
         </div>
-        </>
+        </div>
     )
 }
 export default withRouter(PlayerSearchTable);

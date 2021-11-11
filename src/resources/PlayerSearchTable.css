@@ -1,7 +1,6 @@
 table, th, td {
     border: 1px solid black;
   }
-  
-  table {
-    width: 100%;
-  }
+tr:nth-of-type(2n){
+  background-color: lightgrey;
+}
