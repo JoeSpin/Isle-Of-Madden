@@ -2,24 +2,24 @@ import React from 'react'
 
 export default function Navbar() {
     return (
-        <div className="w-1/2">
-            <ul id="navigation" className="flex justify-center items-center font-black">
-			<li className="mx-5 px-5 text-xl hover:text-purple transition-colors duration-500">
+        <div className="w-full">
+            <ul id="navigation" className="flex items-center justify-center font-black">
+			<li className="text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple">
 				<a href="/">HOME</a>
 			</li>
-			<li className="mx-5 px-5 text-xl hover:text-purple transition-colors duration-500">
+			<li className="text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple">
 				<a href="/team">TEAMS</a>
 			</li>
-			<li className="mx-5 px-5 text-xl hover:text-purple transition-colors duration-500">
+			<li className="text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple">
 				<a href="/schedule">SCHEDULE</a>
 			</li>
-			<li className="mx-5 px-5 text-xl hover:text-purple transition-colors duration-500">
+			<li className="text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple">
 				<a href="/players">PLAYERS</a>
 			</li>
-			<li className="mx-5 px-5 text-xl hover:text-purple transition-colors duration-500">
+			<li className="text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple">
 				<a href="/rules">RULES</a>
 			</li>
-			<li className="mx-5 px-5 text-xl hover:text-purple transition-colors duration-500">
+			<li className="text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple">
 				<a href="/about">ABOUT</a>
 			</li>
 		</ul>
