@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'jit',
   purge: ['./src/**/*.{js, jsx, ts, tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -30,7 +29,8 @@ module.exports = {
     colors:{
       purple:'#522888',
       gray:'#1D1D20',
-      white:'#FFFFFF'
+      white:'#FFFFFF',
+      black:'#000000'
     },
     backgroundColor: theme => ({
       ...theme('colors'),
@@ -38,7 +38,11 @@ module.exports = {
      })
   },
   variants: {
-    extend: {},
+    extend: {
+      translate: ['active', 'group-hover'],
+      rotate: ['active', 'group-hover'],
+      transform: ['active', 'group-hover'],
+    },
   },
   plugins: [],
 }

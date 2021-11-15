@@ -14,12 +14,13 @@ export default function TeamCard(props) {
 
   useEffect(() => {
     axios.get(`http://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
-      setTeamData(response.data[0]);
+      setTeamData(response.data.teamInfo[0]);
+      setTeamComponent(<TeamSchedule />)
       setLoading(false);
     });
   }, []);
   if (isLoading) {
-    return <div className="App text-3xl font-extrabold text-center">Loading...</div>;
+    return <div className="text-3xl font-extrabold text-center App">Loading...</div>;
   }
 
   const calcCap = (capAvail) => {
@@ -54,11 +55,11 @@ else {
 
 
   return (
-    <div className="App flex justify-center py-6">
-        <div id="body" className="w-1/2 flex items-center flex-col">
-		<div id="teamcard" className="bg-black bg-opacity-5 rounded-xl w-full flex flex-wrap p-5 justify-center">
+    <div className="flex justify-center py-6 App">
+        <div id="body" className="flex flex-col items-center">
+		<div id="teamcard" className="flex flex-wrap justify-center w-full p-5 bg-black bg-opacity-5 rounded-xl">
       <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
-      <h1 className="w-full text-center text-4xl font-black"><span>{team.cityName} {team.teamName}</span></h1>
+      <h1 className="w-full text-4xl font-black text-center"><span>{team.cityName} {team.teamName}</span></h1>
       <CoachCard />
       <h3 className="w-1/2 text-center">{team.divisionName}</h3>
       <h3 className="w-1/2 text-center">Overall: {team.ovrRating}</h3>
@@ -66,14 +67,14 @@ else {
       <h3 className="w-1/2 text-center">Cap Space: {calcCap(team.capAvailable)}</h3>
 		</div>
 		<div id="teamlinks">
-      <ul id="navigation" className="flex justify-center items-center font-black pt-5">
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
+      <ul id="navigation" className="flex items-center justify-center pt-5 font-black">
+      <li className="px-3 mx-2 text-base transition-colors duration-500 ease-in hover:text-purple">
 			<a onClick={showTeamSchedule}>SCHEDULE</a>
       </li>
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
+      <li className="px-3 mx-2 text-base transition-colors duration-500 ease-in hover:text-purple">
 			<a onClick={showTeamRoster}>ROSTER</a>
       </li>
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
+      <li className="px-3 mx-2 text-base transition-colors duration-500 ease-in hover:text-purple">
 			<a onClick={showTeamStats}>STATS</a>
       </li>
       </ul>

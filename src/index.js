@@ -10,6 +10,7 @@ import RulesPage from './components/RulesPage';
 import TeamSchedule from './components/TeamSchedule';
 import About from './pages/about/About';
 
+
 ReactDOM.render(
   <Router>
     <Route exact path="/" render={Home} />
