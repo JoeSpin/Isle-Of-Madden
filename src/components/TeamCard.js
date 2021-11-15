@@ -70,13 +70,13 @@ else {
 		</div>
 		<div id="teamlinks">
       <ul id="navigation" className="flex justify-center items-center font-black pt-5">
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500">
+      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
 			<a onClick={showTeamSchedule}>SCHEDULE</a>
       </li>
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500">
+      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
 			<a onClick={showTeamRoster}>ROSTER</a>
       </li>
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500">
+      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
 			<a onClick={showTeamStats}>STATS</a>
       </li>
       </ul>
