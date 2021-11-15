@@ -5,17 +5,24 @@ import CoachCard from "./CoachCard";
 import TeamRoster from "./TeamRoster";
 import TeamSchedule from "./TeamSchedule";
 import TeamStats from "./TeamStats";
+import colors  from "../resources/teamColorCodes.json";
 
 export default function TeamCard(props) {
         const [isLoading, setLoading] = useState(true);
         const [team, setTeamData] = useState();
+        const [teamWeeklyStats, setTeamWeeklyStats] = useState();
+        const [teamSchedule, setTeamSchedule] = useState([]);
         const [teamComponent, setTeamComponent] = useState("");
+        const [roster, setRoster] = useState([]); 
         const { tn } = useParams();
 
   useEffect(() => {
     axios.get(`http://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
       setTeamData(response.data.teamInfo[0]);
-      setTeamComponent(<TeamSchedule />)
+      console.log(response.data);
+      setTeamWeeklyStats(response.data.teamStats);
+      setRoster(response.data.roster);
+      setTeamSchedule(response.data.schedule);
       setLoading(false);
     });
   }, []);
@@ -44,13 +51,13 @@ else {
   }
 
   const showTeamRoster = () => {
-    setTeamComponent(<TeamRoster />)
+    setTeamComponent(<TeamRoster data={roster}/>)
   }
   const showTeamSchedule = () => {
-    setTeamComponent(<TeamSchedule />)
+    setTeamComponent(<TeamSchedule data={teamSchedule}/>)
   }
   const showTeamStats = () => {
-    setTeamComponent(<TeamStats />)
+    setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={colors[team.teamName]}/>)
   }
 
 
@@ -62,19 +69,19 @@ else {
       <h1 className="w-full text-4xl font-black text-center"><span>{team.cityName} {team.teamName}</span></h1>
       <CoachCard />
       <h3 className="w-1/2 text-center">{team.divisionName}</h3>
-      <h3 className="w-1/2 text-center">Overall: {team.ovrRating}</h3>
+      <h3 className="w-1/2 text-center">Overall: {team.teamOvr}</h3>
       <h3 className="w-1/2 text-center">Record: ({team.totalWins} - {team.totalLosses} - {team.totalTies})</h3>
       <h3 className="w-1/2 text-center">Cap Space: {calcCap(team.capAvailable)}</h3>
 		</div>
 		<div id="teamlinks">
       <ul id="navigation" className="flex items-center justify-center pt-5 font-black">
-      <li className="px-3 mx-2 text-base transition-colors duration-500 ease-in hover:text-purple">
+      <li className="px-3 mx-2 transition-colors duration-500 ease-in text-x1 hover:text-purple">
 			<a onClick={showTeamSchedule}>SCHEDULE</a>
       </li>
-      <li className="px-3 mx-2 text-base transition-colors duration-500 ease-in hover:text-purple">
+      <li className="px-3 mx-2 transition-colors duration-500 ease-in text-x1 hover:text-purple">
 			<a onClick={showTeamRoster}>ROSTER</a>
       </li>
-      <li className="px-3 mx-2 text-base transition-colors duration-500 ease-in hover:text-purple">
+      <li className="px-3 mx-2 transition-colors duration-500 ease-in text-x1 hover:text-purple">
 			<a onClick={showTeamStats}>STATS</a>
       </li>
       </ul>

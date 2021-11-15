@@ -1,0 +1,11 @@
+h2 { 
+    text-align: center
+}
+#teamStatsDiv { 
+    display: flex; 
+    flex-wrap: wrap;
+    
+}
+#teamStatsDiv div { 
+    width: 25%;
+}

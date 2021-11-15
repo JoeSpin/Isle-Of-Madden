@@ -6,6 +6,9 @@ export const defaultColumns = [{
         return `${row.firstName} ${row.lastName}`;
     }
 }, {
+    Header: 'Position',
+    accessor: 'position'
+}, {
     Header: 'Dev Trait',
     accessor: row => { 
         return convertTrait(row.devTrait);
