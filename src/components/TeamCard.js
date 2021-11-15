@@ -5,19 +5,24 @@ import CoachCard from "./CoachCard";
 import TeamRoster from "./TeamRoster";
 import TeamSchedule from "./TeamSchedule";
 import TeamStats from "./TeamStats";
+import colors  from "../resources/teamColorCodes.json";
 
 export default function TeamCard(props) {
         const [isLoading, setLoading] = useState(true);
         const [team, setTeamData] = useState();
         const [teamWeeklyStats, setTeamWeeklyStats] = useState();
+        const [teamSchedule, setTeamSchedule] = useState([]);
         const [teamComponent, setTeamComponent] = useState("");
+        const [roster, setRoster] = useState([]); 
         const { tn } = useParams();
 
   useEffect(() => {
     axios.get(`http://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
       setTeamData(response.data.teamInfo[0]);
-      console.log(response.data.teamInfo[0]);
+      console.log(response.data);
       setTeamWeeklyStats(response.data.teamStats);
+      setRoster(response.data.roster);
+      setTeamSchedule(response.data.schedule);
       setLoading(false);
     });
   }, []);
@@ -46,19 +51,19 @@ else {
   }
 
   const showTeamRoster = () => {
-    setTeamComponent(<TeamRoster />)
+    setTeamComponent(<TeamRoster data={roster}/>)
   }
   const showTeamSchedule = () => {
-    setTeamComponent(<TeamSchedule />)
+    setTeamComponent(<TeamSchedule data={teamSchedule}/>)
   }
   const showTeamStats = () => {
-    setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={team.primaryColor}/>)
+    setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={colors[team.teamName]}/>)
   }
 
 
   return (
     <div className="App flex justify-center py-6">
-        <div id="body" className="w-1/2 flex items-center flex-col">
+        <div id="body" className="flex items-center flex-col">
 		<div id="teamcard" className="bg-black bg-opacity-5 rounded-xl w-full flex flex-wrap p-5 justify-center">
       <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
       <h1 className="w-full text-center text-4xl font-black"><span>{team.cityName} {team.teamName}</span></h1>
@@ -70,13 +75,13 @@ else {
 		</div>
 		<div id="teamlinks">
       <ul id="navigation" className="flex justify-center items-center font-black pt-5">
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
+      <li className="mx-2 px-3 text-x1 hover:text-purple transition-colors duration-500 ease-in">
 			<a onClick={showTeamSchedule}>SCHEDULE</a>
       </li>
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
+      <li className="mx-2 px-3 text-x1 hover:text-purple transition-colors duration-500 ease-in">
 			<a onClick={showTeamRoster}>ROSTER</a>
       </li>
-      <li className="mx-2 px-3 text-base hover:text-purple transition-colors duration-500 ease-in">
+      <li className="mx-2 px-3 text-x1 hover:text-purple transition-colors duration-500 ease-in">
 			<a onClick={showTeamStats}>STATS</a>
       </li>
       </ul>

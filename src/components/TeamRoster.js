@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { defaultColumns } from '../resources/RosterColumns';
+import PlayerSearchTable from './PlayerSearchTable';
 
-export default function TeamRoster() {
+export default function TeamRoster(props) {
+    const [data, setData] = useState([]); 
+    useEffect(() => { 
+        setData(props.data);
+    })
     return (
-        <div>
-            <h2>TeamRoster Placeholder</h2>
+        <div className="w-screen">
+            <PlayerSearchTable data={data} columns={defaultColumns} pageSize={10}/>
         </div>
     )
 }

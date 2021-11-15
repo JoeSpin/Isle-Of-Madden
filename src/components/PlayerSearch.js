@@ -194,7 +194,7 @@ function PlayerSearch(){
         </form>
         <hr />
         </div>
-        <PlayerSearchTable data={tableData} columns={tableColumns} />
+        <PlayerSearchTable data={tableData} columns={tableColumns}/>
         </>
     )
 

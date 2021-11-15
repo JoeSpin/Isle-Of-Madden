@@ -7,6 +7,7 @@ import '../resources/PlayerSearchTable.css';
 function PlayerSearchTable(props){ 
     const [data, setData] = useState([]); 
     const [columns, setColumns] = useState([]); 
+    const [pageSizeState, setPageSizeState] = useState();
     useEffect(()=> {
         setData(props.data); 
         if (props.columns == 'QB'){ 
