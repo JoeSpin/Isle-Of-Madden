@@ -9,12 +9,15 @@ import TeamStats from "./TeamStats";
 export default function TeamCard(props) {
         const [isLoading, setLoading] = useState(true);
         const [team, setTeamData] = useState();
+        const [teamWeeklyStats, setTeamWeeklyStats] = useState();
         const [teamComponent, setTeamComponent] = useState("");
         const { tn } = useParams();
 
   useEffect(() => {
     axios.get(`http://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
-      setTeamData(response.data[0]);
+      setTeamData(response.data.teamInfo[0]);
+      console.log(response.data.teamInfo[0]);
+      setTeamWeeklyStats(response.data.teamStats);
       setLoading(false);
     });
   }, []);
@@ -49,7 +52,7 @@ else {
     setTeamComponent(<TeamSchedule />)
   }
   const showTeamStats = () => {
-    setTeamComponent(<TeamStats />)
+    setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={team.primaryColor}/>)
   }
 
 
@@ -61,7 +64,7 @@ else {
       <h1 className="w-full text-center text-4xl font-black"><span>{team.cityName} {team.teamName}</span></h1>
       <CoachCard />
       <h3 className="w-1/2 text-center">{team.divisionName}</h3>
-      <h3 className="w-1/2 text-center">Overall: {team.ovrRating}</h3>
+      <h3 className="w-1/2 text-center">Overall: {team.teamOvr}</h3>
       <h3 className="w-1/2 text-center">Record: ({team.totalWins} - {team.totalLosses} - {team.totalTies})</h3>
       <h3 className="w-1/2 text-center">Cap Space: {calcCap(team.capAvailable)}</h3>
 		</div>
