@@ -69,14 +69,14 @@ function PlayerSearchTable(props){
     )
     
     return (
-        <div className="flex items-center flex-col">
-        <table {...getTableProps()} className=" w-3/5">
+        <div className="flex flex-col items-center">
+        <table {...getTableProps()} className="w-3/5 ">
            <thead>
                {headerGroups.map((headerGroup) => (
                    <tr {...headerGroup.getHeaderGroupProps()}>
                        {
                            headerGroup.headers.map( column => (
-                               <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-gray bg-opacity-30">{column.render('Header')}</th>
+                               <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-opacity-30 bg-gray dark:bg-white dark:text-white">{column.render('Header')}</th>
                            ))
                        }
                </tr>
@@ -86,7 +86,7 @@ function PlayerSearchTable(props){
               {page.map((row) => {
                   prepareRow(row);
                   return ( 
-                      <tr {...row.getRowProps()}>
+                      <tr {...row.getRowProps()} className="dark:bg-gray dark:text-white">
                       {row.cells.map((cell) => {
                           return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                       })}
@@ -95,13 +95,13 @@ function PlayerSearchTable(props){
               })}
            </tbody>
        </table>
-        <div className="flex items-center flex-col">
-              <span className="h-full pt-5">Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
+        <div className="flex flex-col items-center">
+              <span className="h-full pt-5 dark:text-white">Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
               <div>
-              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"First"}</button>
-              <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"Previous"}</button>
-              <button onClick={nextPage} value=">" disabled={!canNextPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"Next"}</button>
-              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage} className="px-3 py-1 my-5 mx-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">{"Last"}</button>  
+              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-white dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"First"}</button>
+              <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-white dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Previous"}</button>
+              <button onClick={nextPage} value=">" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-white dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Next"}</button>
+              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in dark:text-white dark:bg-white rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Last"}</button>  
               </div>
         </div>
         </div>

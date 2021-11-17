@@ -7,7 +7,6 @@ import TeamList from './pages/team/TeamList';
 import PlayerSearchPage from './pages/player/PlayerSearchPage'; 
 import './App.css'
 import RulesPage from './components/RulesPage';
-import TeamSchedule from './components/TeamSchedule';
 import About from './pages/about/About';
 
 

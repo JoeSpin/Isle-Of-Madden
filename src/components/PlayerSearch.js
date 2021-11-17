@@ -75,14 +75,14 @@ function PlayerSearch(){
 
 
     return ( 
-        <>
+        <div className="dark:bg-gray">
         <div className="flex justify-center py-3">
         <form> 
-            <label className="font-semibold">Name: 
+            <label className="font-semibold dark:text-white">Name: 
                 <input type="text" placeholder="Enter name" name="nameSubmit" onChange={e => updateSearchName(e)} className="mx-3 border-2 rounded-md" />
             </label>
-            <label>Position: 
-                <select id="positionSelect" name="positionSelect" onChange={e => updatePositionSelect(e)} className="mx-3">
+            <label className="dark:text-white">Position: 
+                <select id="positionSelect" name="positionSelect" onChange={e => updatePositionSelect(e)} className="mx-3 text-black">
                     <option value="Any">Any</option>
                     <option value="QB">QB</option>
                     <option value="HB">HB</option>
@@ -107,8 +107,8 @@ function PlayerSearch(){
                     <option value="P">P</option>
                 </select>
             </label>
-            <label>Team:
-                <select id="teamSelect" name="teamSelect" onChange={e => updateTeamSelect(e)} className="mx-3">
+            <label className="dark:text-white">Team:
+                <select id="teamSelect" name="teamSelect" onChange={e => updateTeamSelect(e)} className="mx-3 text-black">
                     <option value="Any">Any</option>
                     <option value="980680711">ARI</option>
                     <option value="980680750">ATL</option>
@@ -144,8 +144,8 @@ function PlayerSearch(){
                     <option value="980680751">WAS</option>
                 </select>
             </label>
-            <label>Attributes: 
-                <select id="filterSelect" id="filterSelect" name="filterSelect" onChange={updateAttribute} className="mx-3">
+            <label className="dark:text-white">Attributes: 
+                <select id="filterSelect" id="filterSelect" name="filterSelect" onChange={updateAttribute} className="mx-3 text-black">
                     <option value="playerBestOvr">Overall Rating</option>
                     <option value="age">Age</option>
                     <option value="accelRating">Accel</option>
@@ -190,12 +190,12 @@ function PlayerSearch(){
                     <option value="zoneCoverRating">Zone Coverage</option>
                 </select>
             </label>
-            <button onClick={updateTable} className="mx-3 px-3 py-1 rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white transition-colors duration-300 ease-in">Search</button>
+            <button onClick={updateTable} className="px-3 py-1 mx-3 text-white transition-colors duration-300 ease-in bg-white rounded-xl bg-opacity-10 hover:bg-purple hover:text-white">Search</button>
         </form>
         <hr />
         </div>
         <PlayerSearchTable data={tableData} columns={tableColumns}/>
-        </>
+        </div>
     )
 
 }

@@ -1,11 +1,8 @@
 module.exports = {
   purge: ['./src/**/*.{js, jsx, ts, tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode:'media', // or  or 'class'
   theme: {
     extend: {
-      backgroundImage: {
-        'main': "url('/src/img/home-main.jpg')",
-      },
         grayscale: {
           50: '50%',
       },

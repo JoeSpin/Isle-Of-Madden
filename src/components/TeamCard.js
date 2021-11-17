@@ -62,9 +62,9 @@ else {
 
 
   return (
-    <div className="flex justify-center py-6 App">
+    <div className="flex justify-center py-6 App dark:bg-gray dark:text-white">
         <div id="body" className="flex flex-col items-center">
-		<div id="teamcard" className="flex flex-wrap justify-center w-full p-5 bg-black bg-opacity-5 rounded-xl">
+		<div id="teamcard" className="flex flex-wrap justify-center w-full p-5 bg-black dark:bg-white bg-opacity-5 rounded-xl">
       <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
       <h1 className="w-full text-4xl font-black text-center"><span>{team.cityName} {team.teamName}</span></h1>
       <CoachCard />

@@ -4,19 +4,19 @@ const { useState } = React;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
-  const navlink = `text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple ${isOpen ? "text-5xl text-center" : ""}`;
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300`;
+  const navlink = `text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple ${isOpen ? "text-5xl text-center py-2" : ""}`;
 
   return (
     <div
       id="header"
-      className="flex flex-col justify-between w-screen overflow-hidden md:items-center md:pb-5 md:justify-start"
+      className={`flex flex-col justify-between w-screen overflow-x-hidden dark:bg-gray dark:text-white md:items-center md:pb-5 md:justify-start ${isOpen ? "h-screen absolute z-20" : ""}`}
     >
       <div className="flex items-center justify-between w-full md:flex-col">
-        <img src={logo} className="w-24 py-5 pl-8 md:pl-0 md:w-32" />
-        <div className="float-right py-5 pr-5 md:py-0">
+        <img src={logo} className="w-20 py-3 ml-8 md:py-5 md:pl-0 md:w-32" />
+        <div className="float-right py-5 pr-8 md:py-0">
           <button
-            className="flex flex-col items-center justify-center w-12 h-12 border-2 border-black rounded group md:hidden"
+            className="flex flex-col items-center justify-center w-10 h-10 group md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             <div
@@ -42,11 +42,11 @@ export default function Header() {
         </div>
         </div>
         <div
-          className={`md:flex ${isOpen ? "w-screen py-5 content flex justify-center items-center" : "hidden"}`}
+          className={`md:flex ${isOpen ? "w-screen py-5 content flex justify-center items-start h-full" : "hidden"}`}
         >
           <ul
             id="navigation"
-            className={`flex flex-grow font-black md:items-center md:justify-center md:flex ${
+            className={`flex font-black h-full justify-around md:h-auto md:items-center md:justify-center md:flex ${
               isOpen ? "flex-col" : "hidden"
             }`}
           >
