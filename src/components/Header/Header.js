@@ -57,9 +57,6 @@ export default function Header() {
               <a href="/team">TEAMS</a>
             </li>
             <li className={`${navlink}`}>
-              <a href="/schedule">SCHEDULE</a>
-            </li>
-            <li className={`${navlink}`}>
               <a href="/players">PLAYERS</a>
             </li>
             <li className={`${navlink}`}>

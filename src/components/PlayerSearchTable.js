@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import {useSortBy, useTable, usePagination } from 'react-table'; 
 import { defaultColumns, qbColumns, hbColumns, fbColumns, teColumns, wrColumns, olColumns, dlColumns, lbColumns, dbColumns, stColumns } from '../resources/RosterColumns';
 import '../resources/PlayerSearchTable.css';
+import colors from "../resources/teamColorCodes.json"
 
 function PlayerSearchTable(props){ 
     const [data, setData] = useState([]); 
@@ -76,7 +77,7 @@ function PlayerSearchTable(props){
                    <tr {...headerGroup.getHeaderGroupProps()}>
                        {
                            headerGroup.headers.map( column => (
-                               <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-opacity-30 bg-gray dark:bg-white dark:text-white">{column.render('Header')}</th>
+                               <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-opacity-30 bg-gray dark:text-white">{column.render('Header')}</th>
                            ))
                        }
                </tr>
@@ -86,7 +87,7 @@ function PlayerSearchTable(props){
               {page.map((row) => {
                   prepareRow(row);
                   return ( 
-                      <tr {...row.getRowProps()} className="dark:bg-gray dark:text-white">
+                      <tr {...row.getRowProps()} className="dark:text-white">
                       {row.cells.map((cell) => {
                           return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                       })}
@@ -98,13 +99,16 @@ function PlayerSearchTable(props){
         <div className="flex flex-col items-center">
               <span className="h-full pt-5 dark:text-white">Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
               <div>
-              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-white dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"First"}</button>
-              <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-white dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Previous"}</button>
-              <button onClick={nextPage} value=">" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-white dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Next"}</button>
-              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in dark:text-white dark:bg-white rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Last"}</button>  
+              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"First"}</button>
+              <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"Previous"}</button>
+              <button onClick={nextPage} value=">" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"Next"}</button>
+              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in dark:text-black dark:bg-white rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"Last"}</button>  
               </div>
         </div>
+        <script>
+        </script>
         </div>
+        
     )
 }
 export default withRouter(PlayerSearchTable);

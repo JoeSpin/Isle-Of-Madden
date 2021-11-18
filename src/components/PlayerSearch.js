@@ -144,52 +144,7 @@ function PlayerSearch(){
                     <option value="980680751">WAS</option>
                 </select>
             </label>
-            <label className="dark:text-white">Attributes: 
-                <select id="filterSelect" id="filterSelect" name="filterSelect" onChange={updateAttribute} className="mx-3 text-black">
-                    <option value="playerBestOvr">Overall Rating</option>
-                    <option value="age">Age</option>
-                    <option value="accelRating">Accel</option>
-                    <option value="agilityRating">Agility</option>
-                    <option value="cITRating">Catch in Traffic</option>
-                    <option value="changeOfDirectionRating">Change of Direction</option>
-                    <option value="finesseMovesRating">Finesse Moves</option>
-                    <option value="height">Height (in Inches) </option>
-                    <option value="hitPowerRating">Hit Power</option>
-                    <option value="impactBlockrating">Impact Block</option>
-                    <option value="jukeMoveRating">Juke Move</option>
-                    <option value="jumpRating">Jump</option>
-                    <option value="kicKAccRating">Kick Accuracy</option>
-                    <option value="kickPowerRating">Kick Power</option>
-                    <option value="kickRetRating">Kick Return</option>
-                    <option value="leadBlockRating">Lead Block</option>
-                    <option value="manCoverRating">Man Coverage</option>
-                    <option value="passBlockrating">Pass Block</option>
-                    <option value="playActionRating">Play Action</option>
-                    <option value="powerMovesRating">Power Moves</option>
-                    <option value="pressRating">Press</option>
-                    <option value="pursuitRating">Pursuit</option>
-                    <option value="routeRunDeepRating">Deep Route Running</option>
-                    <option value="routeRunMedRating">Medium Route Running</option>
-                    <option value="routeRunShortRating">Short Route Running</option>
-                    <option value="runBlockFinesseRating">Run Block Finesse</option>
-                    <option value="runBlockPowerRating">Run Block Power</option>
-                    <option value="runBlockRating">Run Block</option>
-                    <option value="specCatchRating">Spec Catch</option>
-                    <option value="speedRating">Speed</option>
-                    <option value="spinMoveRating">Spin Move</option>
-                    <option value="staminaRating">Stamina</option>
-                    <option value="stiffArmRating">StifF Arm</option>
-                    <option value="strengthRating">Strength</option>
-                    <option value="tackleRating">Tackle</option>
-                    <option value="throwAccDeepRating">Deep Throw Accuracy</option>
-                    <option value="throwAccMedRating">Medium Throw Accuracy</option>
-                    <option value="throwAccShortRating">Short Throw Accuracy</option>
-                    <option value="throwAccRating">Throw Accuracy</option>
-                    <option value="truckRating">Truck Rating</option>
-                    <option value="weight">Weight</option>
-                    <option value="zoneCoverRating">Zone Coverage</option>
-                </select>
-            </label>
+            
             <button onClick={updateTable} className="px-3 py-1 mx-3 text-white transition-colors duration-300 ease-in bg-white rounded-xl bg-opacity-10 hover:bg-purple hover:text-white">Search</button>
         </form>
         <hr />

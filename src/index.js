@@ -8,6 +8,7 @@ import PlayerSearchPage from './pages/player/PlayerSearchPage';
 import './App.css'
 import RulesPage from './components/RulesPage';
 import About from './pages/about/About';
+import GameStatsPage from './pages/GameStatsPage';
 
 
 ReactDOM.render(
@@ -17,8 +18,7 @@ ReactDOM.render(
     <Route exact path="/team" render={TeamList} />
     <Route exact path="/players" render={PlayerSearchPage} />
     <Route exact path="/rules" render={RulesPage} />
-    <Route exact path="/about" render={About} />
-
+    <Route exact path="/about" render={About} /> 
   </Router>,
   document.getElementById('root')
 );

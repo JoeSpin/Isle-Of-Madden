@@ -8,14 +8,24 @@ import TeamStats from "./TeamStats";
 import colors  from "../resources/teamColorCodes.json";
 
 export default function TeamCard(props) {
-        const [isLoading, setLoading] = useState(true);
-        const [team, setTeamData] = useState();
-        const [teamWeeklyStats, setTeamWeeklyStats] = useState();
-        const [teamSchedule, setTeamSchedule] = useState([]);
-        const [teamComponent, setTeamComponent] = useState("");
-        const [roster, setRoster] = useState([]); 
-        const { tn } = useParams();
+  const [isLoading, setLoading] = useState(true);
+  const [team, setTeamData] = useState();
+  const [teamWeeklyStats, setTeamWeeklyStats] = useState();
+  const [teamSchedule, setTeamSchedule] = useState([]);
+  const [teamComponent, setTeamComponent] = useState("");
+  const [roster, setRoster] = useState([]); 
+  const { tn } = useParams();
 
+  const showTeamRoster = () => {
+    setTeamComponent(<TeamRoster data={roster}/>)
+  }
+  const showTeamSchedule = () => {
+    console.log("in schedule");
+    setTeamComponent(<TeamSchedule className="w-full" data={teamSchedule}/>)
+  }
+  const showTeamStats = () => {
+    setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={colors[team.teamName]}/>)
+  }
   useEffect(() => {
     axios.get(`http://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
       setTeamData(response.data.teamInfo[0]);
@@ -24,21 +34,22 @@ export default function TeamCard(props) {
       setRoster(response.data.roster);
       setTeamSchedule(response.data.schedule);
       setLoading(false);
+      setTeamComponent(<TeamSchedule data={response.data.schedule}/>)
     });
-  }, []);
+  }, [tn]);
   if (isLoading) {
     return <div className="text-3xl font-extrabold text-center App">Loading...</div>;
   }
 
   const calcCap = (capAvail) => {
-    const oneMil = 1000000; 
-if (capAvail / oneMil < 1) {  
-  return `$${capAvail / 1000}k`
-}
-else { 
-  return `$${team.capAvailable / oneMil}M`
-}
+  const oneMil = 1000000; 
+  if (capAvail / oneMil < 1) {  
+    return `$${capAvail / 1000}k`
   }
+  else { 
+    return `$${team.capAvailable / oneMil}M`
+  }
+    }
 
   const getLogo = (teamn) => {
     if (teamn === "Football Team"){ 
@@ -50,21 +61,13 @@ else {
     } 
   }
 
-  const showTeamRoster = () => {
-    setTeamComponent(<TeamRoster data={roster}/>)
-  }
-  const showTeamSchedule = () => {
-    setTeamComponent(<TeamSchedule data={teamSchedule}/>)
-  }
-  const showTeamStats = () => {
-    setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={colors[team.teamName]}/>)
-  }
+ 
 
 
   return (
     <div className="flex justify-center py-6 App dark:bg-gray dark:text-white">
         <div id="body" className="flex flex-col items-center">
-		<div id="teamcard" className="flex flex-wrap justify-center w-full p-5 bg-black dark:bg-white bg-opacity-5 rounded-xl">
+		<div id="teamcard" style={{backgroundColor: colors[team.teamName]}}className="flex flex-wrap justify-center w-full p-5 bg-black dark:bg-white bg-opacity-5 rounded-xl text-black dark:text-purple">
       <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
       <h1 className="w-full text-4xl font-black text-center"><span>{team.cityName} {team.teamName}</span></h1>
       <CoachCard />
@@ -86,7 +89,7 @@ else {
       </li>
       </ul>
 		</div>
-    <div>
+    <div className="w-full">
       {teamComponent}
     </div>
 	</div>
