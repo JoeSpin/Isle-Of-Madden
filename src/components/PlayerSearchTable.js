@@ -70,8 +70,8 @@ function PlayerSearchTable(props){
     )
     
     return (
-        <div className="flex flex-col items-center">
-        <table {...getTableProps()} className="w-3/5 ">
+        <div className="flex flex-col items-center text-base">
+        <table {...getTableProps()} className="block w-10/12 overflow-x-scroll md:table md:w-4/5">
            <thead>
                {headerGroups.map((headerGroup) => (
                    <tr {...headerGroup.getHeaderGroupProps()}>
@@ -99,10 +99,10 @@ function PlayerSearchTable(props){
         <div className="flex flex-col items-center">
               <span className="h-full pt-5 dark:text-white">Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
               <div>
-              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"First"}</button>
-              <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"Previous"}</button>
-              <button onClick={nextPage} value=">" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"Next"}</button>
-              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 transition-colors duration-300 ease-in dark:text-black dark:bg-white rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white text-black">{"Last"}</button>  
+              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 text-black transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"First"}</button>
+              <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 py-1 mx-1 my-5 text-black transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Previous"}</button>
+              <button onClick={nextPage} value=">" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 text-black transition-colors duration-300 ease-in rounded-xl dark:text-black dark:bg-white bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Next"}</button>
+              <button onClick={() => gotoPage(pageOptions.length-1)} value="Last" disabled={!canNextPage} className="px-3 py-1 mx-1 my-5 text-black transition-colors duration-300 ease-in dark:text-black dark:bg-white rounded-xl bg-gray bg-opacity-10 hover:bg-purple hover:text-white">{"Last"}</button>  
               </div>
         </div>
         <script>

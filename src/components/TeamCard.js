@@ -21,7 +21,7 @@ export default function TeamCard(props) {
   }
   const showTeamSchedule = () => {
     console.log("in schedule");
-    setTeamComponent(<TeamSchedule className="w-full" data={teamSchedule}/>)
+    setTeamComponent(<TeamSchedule data={teamSchedule}/>)
   }
   const showTeamStats = () => {
     setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={colors[team.teamName]}/>)
@@ -38,7 +38,7 @@ export default function TeamCard(props) {
     });
   }, [tn]);
   if (isLoading) {
-    return <div className="text-3xl font-extrabold text-center App">Loading...</div>;
+    return <div className="py-16 text-5xl font-extrabold text-center App dark:bg-gray dark:text-white">Loading...</div>;
   }
 
   const calcCap = (capAvail) => {
@@ -67,9 +67,9 @@ export default function TeamCard(props) {
   return (
     <div className="flex justify-center py-6 App dark:bg-gray dark:text-white">
         <div id="body" className="flex flex-col items-center">
-		<div id="teamcard" style={{backgroundColor: colors[team.teamName]}}className="flex flex-wrap justify-center w-full p-5 bg-black dark:bg-white bg-opacity-5 rounded-xl text-black dark:text-black">
+		<div id="teamcard" style={{backgroundColor: colors[team.teamName]}}className="flex flex-wrap justify-center p-5 text-black dark:bg-white rounded-xl dark:text-black">
       <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
-      <h1 className="w-full text-4xl font-black text-center"><span>{team.cityName} {team.teamName}</span></h1>
+      <h1 className="w-full text-4xl font-black text-center">{team.cityName} {team.teamName}</h1>
       <CoachCard />
       <h3 className="w-1/2 text-center">{team.divisionName}</h3>
       <h3 className="w-1/2 text-center">Overall: {team.teamOvr}</h3>
@@ -78,13 +78,13 @@ export default function TeamCard(props) {
 		</div>
 		<div id="teamlinks">
       <ul id="navigation" className="flex items-center justify-center pt-5 font-black">
-      <li className="px-3 mx-2 transition-colors duration-500 ease-in text-x1 hover:text-purple">
+      <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in hover:text-purple">
 			<a onClick={showTeamSchedule}>SCHEDULE</a>
       </li>
-      <li className="px-3 mx-2 transition-colors duration-500 ease-in text-x1 hover:text-purple">
+      <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in hover:text-purple">
 			<a onClick={showTeamRoster}>ROSTER</a>
       </li>
-      <li className="px-3 mx-2 transition-colors duration-500 ease-in text-x1 hover:text-purple">
+      <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in hover:text-purple">
 			<a onClick={showTeamStats}>STATS</a>
       </li>
       </ul>

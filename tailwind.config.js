@@ -15,7 +15,10 @@ module.exports = {
       },
       height:{
         'logo':'64px',
+        '1/5screen' : '20vh',
+        '1/2screen' : '50vh',
         '3/4screen' : '75vh',
+        'bgvideo' : '38rem',
       },
     },
     screens: {

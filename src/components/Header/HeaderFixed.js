@@ -2,17 +2,14 @@ import React from "react";
 import logo from "../../img/logo.png";
 const { useState } = React;
 
-export default function Header(props) {
+export default function HeaderFixed() {
   const [isOpen, setIsOpen] = useState(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300`;
   const navlink = `text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple ${isOpen ? "text-5xl text-center py-2" : ""}`;
 
   return (
-    <div className={`flex flex-col justify-between w-screen overflow-x-hidden dark:bg-gray dark:text-white md:items-center md:pb-5 md:justify-start ${isOpen ? "h-screen absolute z-20" : ""}`}>
-    <div
-      id="header"
-      className={`flex flex-col justify-between w-screen overflow-x-hidden dark:bg-gray dark:text-white md:items-center md:pb-5 md:justify-start ${isOpen ? "h-screen absolute z-20" : ""}`}
-    >
+    <div className={`absolute top-0 z-10 bg-opacity-50 bg-gray ${isOpen ? "h-screen absolute z-40 bg-gray bg-opacity-100" : ""}`}>
+    <div className={`flex flex-col justify-between w-screen overflow-x-hidden dark:text-white md:items-center md:pb-5 md:justify-start ${isOpen ? "h-screen" : ""}`}>
       <div className="flex items-center justify-between w-full md:flex-col">
         <img src={logo} className="w-20 py-3 ml-8 md:py-5 md:pl-0 md:w-32" />
         <div className="float-right py-5 pr-8 md:py-0">
@@ -72,3 +69,4 @@ export default function Header(props) {
     </div>
   );
 }
+/* dark:bg-gray */
