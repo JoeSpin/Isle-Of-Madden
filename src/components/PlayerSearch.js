@@ -13,7 +13,7 @@ function PlayerSearch(){
     const [attribute, setAttribute] = useState("");  
    // const [tableIndex, setTableIndex] = useState(1); 
     useEffect(() => { 
-        axios.get('http://isle-of-madden-test.herokuapp.com/api/allPlayers/').then(response => { 
+        axios.get('https://isle-of-madden-test.herokuapp.com/api/allPlayers/').then(response => { 
             setTableData(response.data);
         })
         setTableColumns('default');

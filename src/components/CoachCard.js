@@ -8,7 +8,7 @@ export default function CoachCard() {
     const { tn } = useParams();
 
     useEffect(() => {
-        axios.get(`http://isle-of-madden-test.herokuapp.com/api/coach/${tn}`).then(response => {
+        axios.get(`https://isle-of-madden-test.herokuapp.com/api/coach/${tn}`).then(response => {
           setCoachData(response.data[0]);
           setLoading(false);
         });

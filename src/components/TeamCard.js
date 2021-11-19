@@ -27,7 +27,7 @@ export default function TeamCard(props) {
     setTeamComponent(<TeamStats weeklyStats={teamWeeklyStats} teamColor={colors[team.teamName]}/>)
   }
   useEffect(() => {
-    axios.get(`http://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
+    axios.get(`https://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
       setTeamData(response.data.teamInfo[0]);
       console.log(response.data);
       setTeamWeeklyStats(response.data.teamStats);

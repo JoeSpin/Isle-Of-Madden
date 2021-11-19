@@ -10,7 +10,7 @@ export default function GameStats() {
 
 
     useEffect(() => {
-        axios.get(`http://isle-of-madden-test.herokuapp.com/api/gamestats/${gameId}`).then(response => { 
+        axios.get(`https://isle-of-madden-test.herokuapp.com/api/gamestats/${gameId}`).then(response => { 
             generateHomeData(response.data); 
             generateAwayData(response.data);
             setIsLoading(false);
