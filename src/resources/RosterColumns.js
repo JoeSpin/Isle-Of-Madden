@@ -9,6 +9,11 @@ export const defaultColumns = [{
     Header: 'Position',
     accessor: 'position'
 }, {
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
     Header: 'Dev Trait',
     accessor: row => { 
         return convertTrait(row.devTrait);
@@ -46,6 +51,11 @@ export const qbColumns = [{
     accessor: row => { 
         return convertTrait(row.devTrait);
     }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
 },{
     Header: 'Age',
     accessor: 'age'
@@ -94,6 +104,11 @@ export const hbColumns = [{
     accessor: row => { 
         return convertTrait(row.devTrait);
     }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
 },{
     Header: 'Age',
     accessor: 'age'
@@ -152,6 +167,11 @@ export const fbColumns = [{
         return convertTrait(row.devTrait);
     }
 },{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
     Header: 'Age',
     accessor: 'age'
 },{
@@ -208,6 +228,11 @@ export const teColumns = [{
     accessor: row => { 
         return convertTrait(row.devTrait);
     }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
 },{
     Header: 'Age',
     accessor: 'age'
@@ -266,6 +291,11 @@ export const wrColumns = [{
         return convertTrait(row.devTrait);
     }
 },{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
     Header: 'Age',
     accessor: 'age'
 },{
@@ -323,6 +353,11 @@ export const olColumns = [{
         return convertTrait(row.devTrait);
     }
 },{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
     Header: 'Age',
     accessor: 'age'
 },{
@@ -374,6 +409,11 @@ export const dlColumns = [{
     accessor: row => { 
         return `${row.firstName} ${row.lastName}`; 
     }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
 },{
     Header: 'Dev Trait',
     accessor: row => { 
@@ -438,6 +478,11 @@ export const lbColumns = [{
         return convertTrait(row.devTrait);
     }
 },{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
     Header: 'Age',
     accessor: 'age'
 },{
@@ -495,6 +540,11 @@ export const dbColumns = [{
         return convertTrait(row.devTrait);
     }
 },{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
     Header: 'Age',
     accessor: 'age'
 },{
@@ -551,6 +601,11 @@ export const stColumns = [{
     accessor: row => { 
         return convertTrait(row.devTrait);
     }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
 },{
     Header: 'Age',
     accessor: 'age'
