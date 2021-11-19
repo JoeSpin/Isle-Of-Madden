@@ -67,7 +67,7 @@ export default function TeamCard(props) {
   return (
     <div className="flex justify-center py-6 App dark:bg-gray dark:text-white">
         <div id="body" className="flex flex-col items-center">
-		<div id="teamcard" style={{backgroundColor: colors[team.teamName]}}className="flex flex-wrap justify-center w-full p-5 bg-black dark:bg-white bg-opacity-5 rounded-xl text-black dark:text-purple">
+		<div id="teamcard" style={{backgroundColor: colors[team.teamName]}}className="flex flex-wrap justify-center w-full p-5 bg-black dark:bg-white bg-opacity-5 rounded-xl text-black dark:text-black">
       <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-1/6 " />
       <h1 className="w-full text-4xl font-black text-center"><span>{team.cityName} {team.teamName}</span></h1>
       <CoachCard />

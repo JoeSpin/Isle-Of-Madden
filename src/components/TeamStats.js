@@ -11,7 +11,7 @@ export default function TeamStats(props) {
     })
     return (
         <div id="teamStatsDiv" className="bg-gray bg-opacity-50">
-            <div className="w-full md:w-1/4" >
+            <div className="w-full lg:w-1/4" >
                 <h2>Offensive Yards Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart  data={data}> 

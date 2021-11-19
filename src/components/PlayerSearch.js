@@ -79,7 +79,7 @@ function PlayerSearch(){
         <div className="flex justify-center py-3">
         <form> 
             <label className="font-semibold dark:text-white">Name: 
-                <input type="text" placeholder="Enter name" name="nameSubmit" onChange={e => updateSearchName(e)} className="mx-3 border-2 rounded-md" />
+                <input type="text" placeholder="Enter name" name="nameSubmit" onChange={e => updateSearchName(e)} className="mx-3 border-2 rounded-md text-black" />
             </label>
             <label className="dark:text-white">Position: 
                 <select id="positionSelect" name="positionSelect" onChange={e => updatePositionSelect(e)} className="mx-3 text-black">
