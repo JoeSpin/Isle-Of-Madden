@@ -22,7 +22,7 @@ function PlayerSearch(){
         let haveFirstQuery = false; 
         event.preventDefault();
         console.log(`Update Table is running\n${searchName}\n${positionSelect}\n${teamSelect}`); 
-        let url = `http://isle-of-madden-test.herokuapp.com/api/playerSearch`;
+        let url = `https://isle-of-madden-test.herokuapp.com/api/playerSearch`;
         if (searchName !== "" || teamSelect !== "" || positionSelect !== "") { 
             url += "?"; 
             if (searchName !== "") {
