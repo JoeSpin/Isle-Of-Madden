@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'; 
 import { withRouter } from 'react-router';
 import {useSortBy, useTable, usePagination } from 'react-table'; 
-import { defaultColumns, qbColumns, hbColumns, fbColumns, teColumns, wrColumns, olColumns, dlColumns, lbColumns, dbColumns, stColumns, TeamRosterColumns } from '../resources/RosterColumns';
+import { defaultColumns, qbColumns, hbColumns, fbColumns, teColumns, wrColumns, olColumns, dlColumns, deColumns, olbColumns, mlbColumns, cbColumns, sColumns, stColumns, TeamRosterColumns } from '../resources/RosterColumns';
 import '../resources/PlayerSearchTable.css';
 import colors from "../resources/teamColorCodes.json"
 
@@ -23,12 +23,18 @@ function PlayerSearchTable(props){
             setColumns(wrColumns); 
         }else if (props.columns === 'RT' || props.columns === 'RG' || props.columns === 'C' || props.columns === 'LG' || props.columns === 'LT') { 
             setColumns(olColumns);
-        }else if (props.columns === 'RE' || props.columns === 'DT' || props.columns === 'LE') { 
-            setColumns(dlColumns); 
-        }else if (props.columns === "LOLB" || props.columns === "MLB" || props.columns === "ROLB") { 
-            setColumns(lbColumns); 
-        }else if (props.columns === "CB" || props.columns === "FS" || props.columns === "SS") { 
-            setColumns(dbColumns); 
+        }else if (props.columns === 'RE' ||  props.columns === 'LE') { 
+            setColumns(deColumns); 
+        }else if (props.columns === "DT") { 
+            setColumns(dlColumns);   
+        }else if (props.columns === "LOLB" || props.columns === "ROLB") { 
+            setColumns(olbColumns); 
+        }else if (props.columns === "MLB") { 
+            setColumns(mlbColumns);   
+        }else if (props.columns === "CB") { 
+            setColumns(cbColumns); 
+        }else if (props.columns === "FS" || props.columns === "SS"){
+            setColumns(sColumns);
         }else if (props.columns === "K" || props.columns === "P") { 
             setColumns(stColumns);
         }else if (props.columns === "Team") { 

@@ -70,7 +70,10 @@ export const qbColumns = [{
 }, { 
     Header: 'Weight',
     accessor: 'weight'
-}, { 
+}, {
+    Header: 'AWR', 
+    accessor: 'awareRating'
+},{ 
     Header: 'THP',
     accessor: 'throwPowerRating'
 },{ 
@@ -88,7 +91,16 @@ export const qbColumns = [{
 }, { 
     Header: 'DAC', 
     accessor: 'throwAccDeepRating'
-}, { 
+},{
+    Header: 'PA Rating',
+    accessor: 'playActionRating'
+}, {
+    Header: 'Break Sack',
+    accessor: 'breakSackRating'
+},{
+    Header: 'Under Pressure',
+    accessor: 'throwUnderPressureRating'
+},{ 
     Header: 'Speed',
     accessor: 'speedRating'
 }
@@ -129,12 +141,19 @@ export const hbColumns = [{
 },{
     Header: 'Speed',
     accessor: 'speedRating'
-},  { 
-    Header: 'STR',
-    accessor: 'strengthRating'
-}, { 
+},{ 
     Header: 'Agility', 
     accessor: 'agilityRating'
+},{
+    Header: 'Accel',
+    accessor: 'accelRating'
+},
+{ 
+    Header: 'STR',
+    accessor: 'strengthRating'
+}, {
+    Header: 'Break TKL', 
+    accessor: 'breakTackleRating'
 }, { 
     Header: 'TRK',
     accessor: 'truckRating'
@@ -153,6 +172,9 @@ export const hbColumns = [{
 }, { 
     Header: 'CAR',
     accessor: 'carryRating'
+}, { 
+    Header: 'BCV', 
+    accessor: 'bCVRating'
 }
 ]
 
@@ -197,7 +219,11 @@ export const fbColumns = [{
 }, { 
     Header: 'Run Blk',
     accessor: 'runBlockRating'
-}, { 
+}, {
+    Header: 'Pass Blk', 
+    accessor: 'passBlockRating'
+},
+{ 
     Header: 'Strength',
     accessor: 'strengthRating'
 }, { 
@@ -206,7 +232,13 @@ export const fbColumns = [{
 }, { //16
     Header: 'Truck',
     accessor: 'truckRating'
-}, { 
+}, {
+    Header: 'Stiff Arm',
+    accessor: 'stiffArmRating'
+},{
+    Header: 'Break TKL',
+    accessor: 'breakTackleRating'
+},{ 
     Header: 'Accel',
     accessor: 'accelRating'
 }, { 
@@ -250,7 +282,10 @@ export const teColumns = [{
 },{ 
     Header: 'Speed', 
     accessor: 'speedRating'
-}, { 
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
+},{ 
     Header: 'Catch', 
     accessor: 'catchRating'
 }, {
@@ -277,6 +312,18 @@ export const teColumns = [{
 }, { 
     Header: 'Impact Blk',
     accessor: 'impactBlockRating'
+}, {
+    Header: 'Pass Blk',
+    accessor: 'passBlockRating'
+},{
+    Header: 'Lead Blk',
+    accessor: 'leadBlockRating'
+},{ 
+    Header: 'AWR',
+    accessor: 'awareRating'
+}, {
+    Header: 'Break TKL',
+    accessor: 'breakTackleRating'
 }
 ]
 
@@ -316,6 +363,9 @@ export const wrColumns = [{
     Header: 'Accel',
     accessor: 'accelRating'
 }, {
+    Header: 'Agility',
+    accessor: 'agilityRating'
+},{
     Header: 'Short Route',
     accessor: 'routeRunShortRating'
 }, { 
@@ -463,11 +513,157 @@ export const dlColumns = [{
 }, { 
     Header: 'Speed',
     accessor: 'speedRating'
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
 }
 
 ]
 
-export const lbColumns = [{ 
+export const deColumns = [{ 
+    Header: 'Name',
+    accessor: row => { 
+        return `${row.firstName} ${row.lastName}`; 
+    }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
+    Header: 'Dev Trait',
+    accessor: row => { 
+        return convertTrait(row.devTrait);
+    }
+},{
+    Header: 'Age',
+    accessor: 'age'
+},{
+    Header: 'Height',
+    accessor: row => {
+        return convertHeight(row.height); 
+    }
+}, { 
+    Header: 'Weight',
+    accessor: 'weight'
+},{
+    Header: 'OVR',
+    accessor: 'playerBestOvr'
+}, { 
+    Header: 'Blockshed', 
+    accessor: 'blockShedRating'
+}, { 
+    Header: 'Power Move',
+    accessor: 'powerMovesRating'
+}, { 
+    Header: 'Finesse Move',
+    accessor: 'finesseMovesRating'
+}, { 
+    Header: 'Play Rec', 
+    accessor: 'playRecRating'
+}, { 
+    Header: 'Pursuit', 
+    accessor: 'pursuitRating'
+}, { 
+    Header: 'Hit Power',
+    accessor: 'hitPowerRating'
+}, { 
+    Header: 'Strength', 
+    accessor: 'strengthRating'
+}, { 
+    Header: 'Tackle',
+    accessor: 'tackleRating'
+}, { 
+    Header: 'Awareness',
+    accessor: 'awareRating'
+}, { 
+    Header: 'Speed',
+    accessor: 'speedRating'
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
+}, {
+    Header: 'Agility',
+    accessor: 'agilityRating'
+}
+
+]
+
+export const olbColumns = [{ 
+    Header: 'Name',
+    accessor: row => { 
+        return `${row.firstName} ${row.lastName}`; 
+    }
+},{
+    Header: 'Dev Trait',
+    accessor: row => { 
+        return convertTrait(row.devTrait);
+    }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
+    Header: 'Age',
+    accessor: 'age'
+},{
+    Header: 'Height',
+    accessor: row => {
+        return convertHeight(row.height); 
+    }
+}, { 
+    Header: 'Weight',
+    accessor: 'weight'
+},{
+    Header: 'OVR',
+    accessor: 'playerBestOvr'
+}, { 
+    Header: 'Speed', 
+    accessor: 'speedRating'
+}, { 
+    Header: 'Tackle', 
+    accessor: 'tackleRating'
+}, {
+    Header: 'Strength', 
+    accessor: 'strengthRating'
+},{ 
+    Header: 'Power Move', 
+    accessor: 'powerMovesRating'
+}, { 
+    Header: 'Finesse Move', 
+    accessor: 'finesseMovesRating'
+}, { 
+    Header: 'Play Rec', 
+    accessor: 'playRecRating'
+}, { 
+    Header: 'Zone Coverage', 
+    accessor: 'zoneCoverRating'
+}, { 
+    Header: 'Man Coverage',
+    accessor: 'manCoverRating'
+}, { 
+    Header: 'Pursuit',
+    accessor: 'pursuitRating'
+}, { 
+    Header: 'Agility',
+    accessor: 'agilityRating'
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
+},{ 
+    Header: 'Hit Power',
+    accessor: 'hitPowerRating'
+}, {
+    Header: 'Blockshed',
+    accessor: 'blockShedRating'
+}, {
+    Header: 'AWR', 
+    accessor: 'awareRating'
+}
+]
+
+export const mlbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
         return `${row.firstName} ${row.lastName}`; 
@@ -503,6 +699,12 @@ export const lbColumns = [{
     Header: 'Tackle', 
     accessor: 'tackleRating'
 }, { 
+    Header: 'Hit Power',
+    accessor: 'hitPowerRating'
+},{
+    Header: 'Strength', 
+    accessor: 'strengthRating'
+}, { 
     Header: 'Power Move', 
     accessor: 'powerMovesRating'
 }, { 
@@ -523,13 +725,19 @@ export const lbColumns = [{
 }, { 
     Header: 'Agility',
     accessor: 'agilityRating'
-}, { 
-    Header: 'Hit Power',
-    accessor: 'hitPowerRating'
+},  {
+    Header: 'Accel', 
+    accessor: 'accelRating'
+},{
+    Header: 'Blockshed', 
+    accessor: 'blockShedRating'
+}, {
+    Header: 'AWR', 
+    accessor: 'awareRating'
 }
 ]
 
-export const dbColumns = [{ 
+export const cbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
         return `${row.firstName} ${row.lastName}`; 
@@ -580,7 +788,76 @@ export const dbColumns = [{
     Header: 'Press',
     accessor: 'pressRating'
 }, { 
-    Headerr: 'Hit Power',
+    Header: 'Jumping',
+    accessor: 'jumpRating'
+}, { 
+    Header: 'Catch',
+    accessor: 'catchRating'
+}, { 
+    Header: 'Agility',
+    accessor: 'agilityRating'
+}, {
+    Header: 'Tackle',
+    accessor: 'tackleRating'
+}
+]
+
+
+export const sColumns = [{ 
+    Header: 'Name',
+    accessor: row => { 
+        return `${row.firstName} ${row.lastName}`; 
+    }
+},{
+    Header: 'Dev Trait',
+    accessor: row => { 
+        return convertTrait(row.devTrait);
+    }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
+    Header: 'Age',
+    accessor: 'age'
+},{
+    Header: 'Height',
+    accessor: row => {
+        return convertHeight(row.height); 
+    }
+}, { 
+    Header: 'Weight',
+    accessor: 'weight'
+},{
+    Header: 'OVR',
+    accessor: 'playerBestOvr'
+}, {
+    Header: 'Speed',
+    accessor: 'speedRating'
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
+}, {
+    Header: 'Zone Coverage',
+    accessor: 'zoneCoverRating'
+}, { 
+    Header: 'Man Coverage', 
+    accessor: 'manCoverRating'
+}, { 
+    Header: 'Play Rec', 
+    accessor: 'playRecRating'
+}, { 
+    Header: 'Awareness', 
+    accessor: 'awareRating'
+}, { 
+    Header: 'Pursuit',
+    accessor: 'pursuitRating'
+}, {
+    Header: 'Tackle',
+    accessor: 'tackleRating'
+},{ 
+    Header: 'Hit Power',
     accessor: 'hitPowerRating'
 }, { 
     Header: 'Catch',
@@ -588,6 +865,9 @@ export const dbColumns = [{
 }, { 
     Header: 'Agility',
     accessor: 'agilityRating'
+}, {
+    Header: 'Blockshed',
+    accessor: 'blockShedRating'
 }
 ]
 
@@ -632,6 +912,21 @@ export const stColumns = [{
 }, { 
     Header: 'Speed',
     accessor: 'speedRating'
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
+}, { 
+    Header: 'Agility',
+    accessor: 'agilityRating'
+}, { 
+    Header: 'Strength', 
+    accessor: 'strengthRating'
+}, { 
+    Header: 'Throw Power', 
+    accessor: 'throwPowerRating'
+}, { 
+    Header: 'Short Acc', 
+    accessor: 'throwAccShortRating'
 }
 
 ]
