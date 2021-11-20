@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import FooterFixed from "../../components/Footer/FooterFixed";
 
 function About() {
   return(
@@ -32,7 +32,7 @@ function About() {
       </p>
     </div>
   </div>
-  <Footer />
+  <FooterFixed />
   </div>
   )
 }

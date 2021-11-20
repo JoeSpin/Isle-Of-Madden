@@ -97,7 +97,7 @@ function PlayerSearchTable(props){
                   return ( 
                       <tr {...row.getRowProps()} className="dark:text-white">
                       {row.cells.map((cell) => {
-                          return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                          return <td {...cell.getCellProps()} className="text-center">{cell.render('Cell')}</td>
                       })}
                       </tr>
                   )
