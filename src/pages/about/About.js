@@ -28,7 +28,7 @@ function About() {
       <h2 className="pt-10 text-3xl text-center">Interested in Joining?</h2>
       <p>
         Currently, our league is full. However, you are still welcome to join and get on our waitlist and then once a team opens up, you'll be able to play.
-        A link to our Discord page is <a href="#" className="text-purple">here</a> or down below. Stop in, say hi, and become a part of the Isle of Madden today!
+        A link to our Discord page is <a href="https://discord.gg/T9SPCtzhg4" className="text-purple">here</a> or down below. Stop in, say hi, and become a part of the Isle of Madden today!
       </p>
     </div>
   </div>

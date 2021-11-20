@@ -9,7 +9,7 @@ export default function HeaderFixed() {
 
   return (
     <div className={`absolute top-0 z-10 bg-opacity-50 bg-gray ${isOpen ? "h-screen absolute z-40 bg-gray bg-opacity-100" : ""}`}>
-    <div className={`flex flex-col justify-between w-screen overflow-x-hidden dark:text-white md:items-center md:pb-5 md:justify-start ${isOpen ? "h-screen" : ""}`}>
+    <div className={`flex flex-col justify-between w-screen overflow-x-hidden text-white md:items-center md:pb-5 md:justify-start ${isOpen ? "h-screen" : ""}`}>
       <div className="flex items-center justify-between w-full md:flex-col">
         <img src={logo} className="w-20 py-3 ml-8 md:py-5 md:pl-0 md:w-32" />
         <div className="float-right py-5 pr-8 md:py-0">

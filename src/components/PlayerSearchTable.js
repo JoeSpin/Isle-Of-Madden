@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'; 
 import { withRouter } from 'react-router';
 import {useSortBy, useTable, usePagination } from 'react-table'; 
-import { defaultColumns, qbColumns, hbColumns, fbColumns, teColumns, wrColumns, olColumns, dlColumns, lbColumns, dbColumns, stColumns } from '../resources/RosterColumns';
+import { defaultColumns, qbColumns, hbColumns, fbColumns, teColumns, wrColumns, olColumns, dlColumns, lbColumns, dbColumns, stColumns, TeamRosterColumns } from '../resources/RosterColumns';
 import '../resources/PlayerSearchTable.css';
 import colors from "../resources/teamColorCodes.json"
 
@@ -31,9 +31,12 @@ function PlayerSearchTable(props){
             setColumns(dbColumns); 
         }else if (props.columns === "K" || props.columns === "P") { 
             setColumns(stColumns);
+        }else if (props.columns === "Team") { 
+            setColumns(TeamRosterColumns);
         }else { 
             setColumns(defaultColumns); 
         }
+        console.log(columns);
     }, [props.data, props.columns])
 
     const onPageSelect = e => { 

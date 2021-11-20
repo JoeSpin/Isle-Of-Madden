@@ -635,3 +635,40 @@ export const stColumns = [{
 }
 
 ]
+
+
+export const TeamRosterColumns = [{
+    Header: 'Name',
+    accessor: row => { 
+        return `${row.firstName} ${row.lastName}`;
+    }
+}, {
+    Header: 'Position',
+    accessor: 'position'
+},{
+    Header: 'Dev Trait',
+    accessor: row => { 
+        return convertTrait(row.devTrait);
+    }
+},{
+    Header: 'Age',
+    accessor: 'age'
+},{
+    Header: 'Height',
+    accessor: row => {
+        return convertHeight(row.height); 
+    }
+}, { 
+    Header: 'Weight',
+    accessor: 'weight'
+}, {
+    Header: 'Ovr',
+    accessor: 'playerBestOvr'
+}, { 
+    Header: 'Speed',
+    accessor: 'speedRating'
+}, { 
+    Header: 'Awr',
+    accessor: 'awareRating'
+}
+]
