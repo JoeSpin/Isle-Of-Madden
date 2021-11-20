@@ -243,7 +243,7 @@ export const fbColumns = [{
     accessor: 'accelRating'
 }, { 
     Header: 'Agility', 
-    accesor: 'agilityRating'
+    accessor: 'agilityRating'
 }, { 
     Header: 'Catch',
     accessor: 'catchRating'
