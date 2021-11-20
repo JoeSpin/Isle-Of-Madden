@@ -36,7 +36,6 @@ function PlayerSearchTable(props){
         }else { 
             setColumns(defaultColumns); 
         }
-        console.log(columns);
     }, [props.data, props.columns])
 
     const onPageSelect = e => { 

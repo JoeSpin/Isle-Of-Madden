@@ -5,7 +5,6 @@ export default function TeamRoster(props) {
     const [data, setData] = useState([]); 
     useEffect(() => { 
         setData(props.data);
-        console.log(TeamRosterColumns);
     })
     return (
         <div className="w-screen">
