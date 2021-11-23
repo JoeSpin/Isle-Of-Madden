@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import FooterFixed from "../../components/Footer/FooterFixed";
+import Footer from "../../components/Footer/Footer";
 
 function About() {
   return(
-    <div className="w-screen h-screen">
+    <>
+    <div className="w-screen h-screen dark:bg-gray">
     <Header />
-  <div className="flex flex-col items-center justify-between w-screen bg-gray">
-    <div className="flex flex-col items-center justify-center w-2/3 text-white md:w-1/2 bg-gray center">
+  <div className="flex flex-col items-center justify-between w-screen dark:bg-gray">
+    <div className="flex flex-col items-center justify-center w-2/3 text-semibold dark:text-white md:w-1/2 dark:bg-gray center">
       <h2 className="pt-10 text-3xl text-center">Who We Are</h2>
       <p className="text-base text-center">
         Founded in 2020 by dedicated users, Isle of Madden is a PC Madden Franchise that aims to bring a simulation-style experience
@@ -32,8 +33,9 @@ function About() {
       </p>
     </div>
   </div>
-  <FooterFixed />
   </div>
+  <Footer />
+  </>
   )
 }
 
