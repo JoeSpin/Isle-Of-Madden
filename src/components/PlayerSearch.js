@@ -84,27 +84,36 @@ function PlayerSearch(){
             <label className="py-1 dark:text-white">Position: 
                 <select id="positionSelect" name="positionSelect" onChange={e => updatePositionSelect(e)} className="mx-3 text-black">
                     <option value="Any">Any</option>
-                    <option value="QB">QB</option>
-                    <option value="HB">HB</option>
-                    <option value="FB">FB</option>
-                    <option value="TE">TE</option>
-                    <option value="WR">WR</option>
-                    <option value="RT">RT</option>
-                    <option value="RG">RG</option>
-                    <option value="C">C</option>
-                    <option value="LG">LG</option>
-                    <option value="LT">LT</option>
-                    <option value="RE">RE</option>
-                    <option value="DT">DT</option>
-                    <option value="LE">LE</option>
-                    <option value="LOLB">LOLB</option>
-                    <option value="MLB">MLB</option>
-                    <option value="ROLB">ROLB</option>
-                    <option value="CB">CB</option>
-                    <option value="FS">FS</option>
-                    <option value="SS">SS</option>
-                    <option value="K">K</option>
-                    <option value="P">P</option>
+                    <optgroup label="Grouped Positions"> 
+                        <option value="OL">OL</option>
+                        <option value="DL">DL</option>
+                        <option value="LB">LB</option>
+                        <option value="DB">DB</option>
+                        <option value="ST">Special Teams</option>
+                    </optgroup>
+                    <optgroup label="Individual Positions"> 
+                        <option value="QB">QB</option>
+                        <option value="HB">HB</option>
+                        <option value="FB">FB</option>
+                        <option value="TE">TE</option>
+                        <option value="WR">WR</option>
+                        <option value="RT">RT</option>
+                        <option value="RG">RG</option>
+                        <option value="C">C</option>
+                        <option value="LG">LG</option>
+                        <option value="LT">LT</option>
+                        <option value="RE">RE</option>
+                        <option value="DT">DT</option>
+                        <option value="LE">LE</option>
+                        <option value="LOLB">LOLB</option>
+                        <option value="MLB">MLB</option>
+                        <option value="ROLB">ROLB</option>
+                        <option value="CB">CB</option>
+                        <option value="FS">FS</option>
+                        <option value="SS">SS</option>
+                        <option value="K">K</option>
+                        <option value="P">P</option>
+                    </optgroup>
                 </select>
             </label>
             <label className="py-1 dark:text-white">Team:

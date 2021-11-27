@@ -736,7 +736,78 @@ export const mlbColumns = [{
     accessor: 'awareRating'
 }
 ]
-
+export const lbColumns = [{
+    Header: 'Name',
+    accessor: row => { 
+        return `${row.firstName} ${row.lastName}`; 
+    }
+},{
+    Header: 'Dev Trait',
+    accessor: row => { 
+        return convertTrait(row.devTrait);
+    }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
+    Header: 'Age',
+    accessor: 'age'
+},{
+    Header: 'Height',
+    accessor: row => {
+        return convertHeight(row.height); 
+    }
+}, { 
+    Header: 'Weight',
+    accessor: 'weight'
+},{
+    Header: 'OVR',
+    accessor: 'playerBestOvr'
+},{
+    Header: 'Speed',
+    accessor: 'speedRating'
+}, {
+    Header: 'Tackle',
+    accessor: 'tackleRating'
+},{
+    Header: 'Power Moves', 
+    accessor: 'powerMovesRating'
+}, {
+    Header: 'Finesse Moves',
+    accessor: 'finesseMovesRating'
+}, {
+    Header: 'Hit Power',
+    accessor: 'hitPowerRating'
+}, {
+    Header: 'Play Rec',
+    accessor: 'playRecRating'
+}, {
+    Header: 'Zone Cover',
+    accessor: 'zoneCoverRating'
+}, {
+    Header: 'Man Cover',
+    accessor: 'manCoverRating'
+}, {
+    Header: 'Pursuit',
+    accessor: 'pursuitRating'
+}, {
+    Header: 'Agility',
+    accessor: 'agilityRating'
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
+}, {
+    Header: 'Block Shed',
+    accessor: 'blockShedRating'
+}, {
+    Header: 'Awareness',
+    accessor: 'awareRating'
+}, {
+    Header: 'Strength',
+    accessor: 'strengthRating'
+}]
 export const cbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
@@ -867,6 +938,76 @@ export const sColumns = [{
     accessor: 'agilityRating'
 }, {
     Header: 'Blockshed',
+    accessor: 'blockShedRating'
+}
+]
+export const dbColumns = [{
+    Header: 'Name',
+    accessor: row => { 
+        return `${row.firstName} ${row.lastName}`; 
+    }
+},{
+    Header: 'Dev Trait',
+    accessor: row => { 
+        return convertTrait(row.devTrait);
+    }
+},{
+    Header: 'Team',
+    accessor: row => { 
+        return `${row.teamName}`;
+    }   
+},{
+    Header: 'Age',
+    accessor: 'age'
+},{
+    Header: 'Height',
+    accessor: row => {
+        return convertHeight(row.height); 
+    }
+}, { 
+    Header: 'Weight',
+    accessor: 'weight'
+},{
+    Header: 'OVR',
+    accessor: 'playerBestOvr'
+},{
+    Header: 'Speed',
+    accessor: 'speedRating'
+}, {
+    Header: 'Accel',
+    accessor: 'accelRating'
+}, {
+    Header: 'Zone Cover',
+    accessor: 'zoneCoverRating'
+}, {
+    Header: 'Man Cover',
+    accessor: 'manCoverRating'
+}, {
+    Header: 'Play Rec',
+    accessor: 'playRecRating'
+}, { 
+    Header: 'Awareness',
+    accessor: 'awareRating' 
+}, {
+    Header: 'Press',
+    accessor: 'pressRating'
+}, {
+    Header: 'Pursuit', 
+    accessor: 'pursuitRating'
+}, {
+    Header: 'Hit Power',
+    accessor: 'hitPowerRating'
+}, {
+    Header: 'Tackle',
+    accessor: 'tackleRating'
+}, {
+    Header: 'Agility',
+    accessor: 'agilityRating'
+}, {
+    Header: 'Jump',
+    accessor: 'jumpRating'
+}, {
+    Header: 'Block Shed',
     accessor: 'blockShedRating'
 }
 ]

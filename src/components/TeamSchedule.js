@@ -6,7 +6,6 @@ export default function TeamSchedule(props) {
     const [data, setData] = useState([]); 
     let index = 1;
     useEffect(() => {
-
         setData(props.data);
     })
     const getLogo = (teamn) => {

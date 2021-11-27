@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'; 
 import { withRouter } from 'react-router';
 import {useSortBy, useTable, usePagination } from 'react-table'; 
-import { defaultColumns, qbColumns, hbColumns, fbColumns, teColumns, wrColumns, olColumns, dlColumns, deColumns, olbColumns, mlbColumns, cbColumns, sColumns, stColumns, TeamRosterColumns } from '../resources/RosterColumns';
+import { defaultColumns, qbColumns, hbColumns, fbColumns, teColumns, wrColumns, olColumns, dlColumns, deColumns, olbColumns, mlbColumns, cbColumns, sColumns, stColumns, TeamRosterColumns, lbColumns, dbColumns } from '../resources/RosterColumns';
 import '../resources/PlayerSearchTable.css';
 import colors from "../resources/teamColorCodes.json"
 
@@ -21,7 +21,7 @@ function PlayerSearchTable(props){
             setColumns(teColumns); 
         }else if (props.columns === 'WR') {
             setColumns(wrColumns); 
-        }else if (props.columns === 'RT' || props.columns === 'RG' || props.columns === 'C' || props.columns === 'LG' || props.columns === 'LT') { 
+        }else if (props.columns === 'RT' || props.columns === 'RG' || props.columns === 'C' || props.columns === 'LG' || props.columns === 'LT' || props.columns === "OL")  { 
             setColumns(olColumns);
         }else if (props.columns === 'RE' ||  props.columns === 'LE') { 
             setColumns(deColumns); 
@@ -35,11 +35,19 @@ function PlayerSearchTable(props){
             setColumns(cbColumns); 
         }else if (props.columns === "FS" || props.columns === "SS"){
             setColumns(sColumns);
-        }else if (props.columns === "K" || props.columns === "P") { 
+        }else if (props.columns === "K" || props.columns === "P" || props.columns === "ST") { 
             setColumns(stColumns);
         }else if (props.columns === "Team") { 
             setColumns(TeamRosterColumns);
-        }else { 
+        }else if (props.columns === "DL"){ 
+            setColumns(dlColumns);
+        }else if (props.columns === "LB") { 
+            setColumns(lbColumns);
+        }else if (props.columns === "DB"){ 
+            setColumns(dbColumns);
+        }
+        
+        else { 
             setColumns(defaultColumns); 
         }
     }, [props.data, props.columns])

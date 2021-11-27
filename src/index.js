@@ -8,6 +8,7 @@ import PlayerSearchPage from './pages/player/PlayerSearchPage';
 import './App.css'
 import RulesPage from './components/RulesPage';
 import About from './pages/about/About';
+import LeagueSchedulePage from './pages/LeagueSchedule/LeagueSchedulePage'
 import GameStatsPage from './pages/GameStatsPage';
 
 
@@ -19,6 +20,9 @@ ReactDOM.render(
     <Route exact path="/players" render={PlayerSearchPage} />
     <Route exact path="/rules" render={RulesPage} />
     <Route exact path="/about" render={About} /> 
+    <Route exact path="/schedule">
+      <LeagueSchedulePage />
+    </Route>
   </Router>,
   document.getElementById('root')
 );
