@@ -10,6 +10,8 @@ import RulesPage from './components/RulesPage';
 import About from './pages/about/About';
 import LeagueSchedulePage from './pages/LeagueSchedule/LeagueSchedulePage'
 import GameStatsPage from './pages/GameStatsPage';
+import PlayerCard from './components/Player/PlayerCard';
+import PlayerPage from './pages/player/PlayerPage';
 
 
 ReactDOM.render(
@@ -22,6 +24,9 @@ ReactDOM.render(
     <Route exact path="/about" render={About} /> 
     <Route exact path="/schedule">
       <LeagueSchedulePage />
+    </Route>
+    <Route exact path ="/player/:rosterId">
+      <PlayerPage key={Date.now()}/>
     </Route>
   </Router>,
   document.getElementById('root')

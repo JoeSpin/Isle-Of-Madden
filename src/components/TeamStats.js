@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'; 
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Area, Label, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import '../resources/team_stats.css'
 
 export default function TeamStats(props) {
