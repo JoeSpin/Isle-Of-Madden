@@ -28,6 +28,9 @@ ReactDOM.render(
     <Route exact path ="/player/:rosterId">
       <PlayerPage key={Date.now()}/>
     </Route>
+    <Route exact path="/game/:gameId" >
+      <GameStatsPage key={Date.now()} />
+    </Route>
   </Router>,
   document.getElementById('root')
 );

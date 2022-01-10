@@ -1,167 +1,216 @@
 import React, { useEffect, useState } from "react"; 
 import axios from "axios"; 
 import { useParams } from "react-router";
+import colors  from "../resources/teamColorCodes.json";
+import { convertIDToName } from "../resources/convertIDToName";
 
 export default function GameStats() {
-    const [homeData, setHomeData] = useState({}); 
-    const [awayData, setAwayData] = useState({}); 
+    const [homeData, setHomeData] = useState(); 
+    const [awayData, setAwayData] = useState();
+    const [gameData, setGameData] = useState();  
     const [isLoading, setIsLoading] = useState(true);
+    const [winner, setWinner] = useState(0); 
     const { gameId }  = useParams();
 
-
     useEffect(() => {
-        axios.get(`https://isle-of-madden-test.herokuapp.com/api/gamestats/${gameId}`).then(response => { 
-            generateHomeData(response.data); 
-            generateAwayData(response.data);
+        generateData()
+        console.log(homeData); 
+        console.log(awayData);
+        console.log(gameData);
+    }, [])
+
+    const generateData = () => {
+        let home = {
+            defense: [],
+            passing: [],
+            rushing: [],
+            receiving: []
+        }; 
+        let away = {
+            defense: [],
+            passing: [],
+            rushing: [],
+            receiving: []
+        }; 
+        axios.get(`https://isle-of-madden-test.herokuapp.com/api/gamestats/${gameId}`).then(response => {
+            setGameData(response.data.game[0]);
+            console.log(response.data);
+            if (response.data.game[0].homeScore > response.data.game[0].awayScore){
+                setWinner(response.data.game[0].homeTeamId);
+            }else {
+                setWinner(response.data.game[0].awayTeamId);
+            }
+            for (const player of response.data.defenseNotables){
+                if (player.teamId === response.data.game[0].homeTeamId){
+                    home.defense.push(player);
+                }else {
+                    away.defense.push(player);
+                }
+            }
+            for (const player of response.data.passing){
+                if (player.teamId === response.data.game[0].homeTeamId){
+                    home.passing.push(player);
+                }else {
+                    away.passing.push(player);
+                }
+            }
+            for (const player of response.data.rushing){
+                if (player.teamId === response.data.game[0].homeTeamId){
+                    home.rushing.push(player); 
+                }else { 
+                    away.rushing.push(player);
+                }
+            }
+            for (const player of response.data.receiving){
+                if (player.teamId === response.data.game[0].homeTeamId){
+                    home.receiving.push(player);
+                }else {
+                    away.receiving.push(player);
+                }
+            }
+            setHomeData(home); 
+            setAwayData(away);
             setIsLoading(false);
         })
-    })
-
-    const generateHomeData = (data) => { 
-        let result = {
-            defense: [], 
-            passing: [],
-            rushing: [], 
-            receiving: [], 
-            score: data.game[0].homeScore, 
-            teamName: data.game[0].homeTeam
-        }; 
-        let homeId = data.game[0].homeTeamId;
-        for (const defData of data['defenseNotables']){ 
-            if (defData.teamId == homeId) { 
-                result.defense.push(defData);
-            }
-        } 
-        for (const passData of data['passing']) { 
-            if (passData.teamId == homeId) { 
-                result.passing.push(passData);
-            }
-        } 
-        for (const recData of data['receiving']) { 
-            if (recData.teamId == homeId) { 
-                result.receiving.push(recData);
-            }
-        }
-        for (const rushData of data['rushing']) { 
-            if (rushData.teamId == homeId) { 
-                result.rushing.push(rushData);
-            }
-        }
-        setHomeData(result);
     }
 
-    const generateAwayData = (data) => { 
-        let result = {
-            defense: [], 
-            passing: [],
-            rushing: [], 
-            receiving: [], 
-            score: data.game[0].awayScore, 
-            teamName: data.game[0].awayTeam
-        }; 
-        let awayId = data.game[0].awayTeamId; 
-        for (const defData of data['defenseNotables']) { 
-            if (defData.teamId == awayId) { 
-                result.defense.push(defData);
-            }
+    const displayPassingStats = (player) =>{
+        let output = `${player.fullName} ${player.passComp}/${player.passAtt}, ${player.passYds} Yds`; 
+        if (player.passTDs === 1){ 
+            output += `, ${player.passTDs} TD`; 
+        }else if (player.passTDs > 1){
+            output += `, ${player.passTDs} TDs`; 
         }
-        for (const passData of data['passing']) { 
-            if (passData.teamId == awayId) { 
-                result.passing.push(passData); 
-            }
+        if (player.passInts == 1){
+            output += `, ${player.passInts} INT`; 
+        }else if (player.passInts > 1){
+            output += `, ${player.passInts} INTs`; 
         }
-        for (const recData of data['receiving']) { 
-            if (recData.teamId == awayId) { 
-                result.receiving.push(recData);
-            }
-        }
-        for (const rushData of data['rushing']) { 
-            if (rushData.teamId == awayId) { 
-                result.rushing.push(rushData);
-            }
-        }
-        setAwayData(result);
+        return output;
     }
 
-    const displayName = (name) => { 
-        return <h2 className="my-5">{name}</h2>
+    const displayRushingStats = (player) => {
+            let output = `${player.fullName} ${player.rushAtt} Att, ${player.rushYds} Yds`; 
+            if (player.rushTDs == 1){
+                output += `, ${player.rushTDs} TD`;
+            }else if (player.rushTDs > 1){
+                output += `, ${player.rushTDs} TDs`; 
+            }
+            if (player.rushFum == 1){
+                output += `, ${player.rushFum} fumble`;
+            }else if (player.rushFum > 1){
+                output += `, ${player.rushFum} fumbles`; 
+            }
+            return output;
     }
 
-    const displayPassingInfo = (passingInfo) => { 
-        if (passingInfo) { 
-            passingInfo.map(player => { 
-                if (player.passInts == 0 && player.passTDs == 0) { 
-                    return <p>{`${player.fullName}: ${player.passComp}/${player.passAtt}, ${player.passYds} YDs`}</p>
-                }else if (player.passInts > 0 && player.passTDs == 0){ 
-                    return <p>{`${player.fullName}: ${player.passComp}/${player.passAtt}, ${player.passYds} YDs, ${player.passInts} Int`}</p>
-                }else if (player.passInts == 0 && player.passTds > 0){
-                    return <p>{`${player.fullName}: ${player.passComp}/${player.passAtt}, ${player.passYds} YDs`}</p>                    
-                }else { 
-                    return <p>{`${player.fullName}: ${player.passComp}/${player.passAtt}, ${player.passYds} YDs, ${player.passTDs} TD, ${player.passInts} Int `}</p>
-                }
-            })
+    const displayReceivingStats = (player) => {
+        let output = `${player.fullName} ${player.recCatches} Catch`; 
+        if (player.recCatches > 1){
+            output += "es";
         }
-    }
-    
-    const displayReceivingInfo = (receivingInfo) => { 
-        if (receivingInfo) { 
-            receivingInfo.map(player => { 
-                if (player.recTDs == 0) { 
-                    return <p>{`${player.fullName}: ${player.recCatches} Catches, Longest: ${player.recLongest}`}</p>
-                }else { 
-                    return <p>{`${player.fullName}: ${player.recCatches} Catches, ${player.recTDs} TD, Longest: ${player.recLongest}`}</p>
-                }
-            })
+        output += `, ${player.recYds} Yds`; 
+        if (player.recTDs == 1){
+            output += `, ${player.recTDs} TD`; 
+        } else if (player.recTDs > 1){
+            output += `, ${player.recTDs} TDs`; 
         }
-    }
-    
-    const displayRushingInfo = (rushingInfo) => { 
-        if (rushingInfo) { 
-            rushingInfo.map(player => {
-                if (player.rushTDs == 0 && player.rushFum == 0) { 
-                    return <p>{`${player.fullName}: ${player.rushAtt} Att, ${player.rushYds} Yds, Longest: ${player.rushLongest}`}</p>
-                }else if (player.rushTDs > 0 && player.rushFum == 0){ 
-                    return <p>{`${player.fullName}: ${player.rushAtt} Att, ${player.rushYds} Yds, ${player.rushTDs} TD, Longest: ${player.rushLongest}`}</p>
-                }else if (player.rushTDs == 0 && player.rushFum > 0){ 
-                    return <p>{`${player.fullName}: ${player.rushAtt} Att, ${player.rushYds} Yds, ${player.rushFum} Fum, Longest: ${player.rushLongest}`}</p>
-                }
-                else { 
-                    return <p>{`${player.fullName}: ${player.rushAtt} Att, ${player.rushYds} Yds, ${player.rushTDs} TD, ${player.rushFum} Fum, Longest: ${player.rushLongest}`}</p>
-                }
-            }) 
+
+        if (player.rushFum == 1){
+            output += `, ${player.rushFum} fumble`;
+        }else if (player.rushFum > 1){
+            output += `, ${player.rushFum} fumbles`;
         }
+
+        return output;
+
     }
 
-    const displayScore = (score) => { 
-        return <h3>{score}</h3>
-    }
+    const displayDefenseStats = (player) => {
+        let output = `${player.fullName} ${player.defTotalTackles} Tackle`; 
+        if (player.defTotalTackles > 1){
+            output += "s";
+        }
+        if (player.defInts == 1){
+            output += `, ${player.defInts} INT`
+        }else if (player.defInts > 1){
+            output += `, ${player.defInts} INTs`;
+        }
+        
+        if (player.defForcedFum > 0){
+            output += `, ${player.defForcedFum} FF`; 
+        }
 
+        return output;
+    }
 
     if (isLoading) {
-        return <div className="text-3xl font-extrabold text-center App">Loading...</div>;
-    }
-
-
+        return <div className="App">Loading...</div>;
+      }
 
     return ( 
-        
-        <div>
-            <div> 
-                <div>{displayName(homeData['teamName'])}</div>
-                <div>{displayPassingInfo(homeData['passing'])}</div>
-                <div>{displayReceivingInfo(homeData['receiving'])}</div>
-                <div>{displayRushingInfo(homeData['rushing'])}</div>
-                
-            </div>
-            <div> 
-                {`${homeData['score']} VS ${awayData['score']}`}
-            </div>
-            <div>
-                {displayName(awayData['teamName'])}
-                {displayPassingInfo(awayData['passing'])}
-                {displayReceivingInfo(awayData['receiving'])}
-                {displayRushingInfo(awayData['rushing'])}
+        <div className="flex justify-center">
+            <div className='flex w-3/6'>
+                <div className='w-3/6' style={{backgroundColor: colors[convertIDToName(gameData.homeTeamId)]}}>
+                    <div className='flex w-full justify-between'>
+                        <h1 className='text-4xl'>{convertIDToName(gameData.homeTeamId)}</h1>
+                        <h1 className='text-4xl pr-4'>{gameData.homeScore}</h1>                        
+                    </div>
+                    <div className='w-full'>
+                        <h1 className='text-center'>Passing</h1>
+                        <hr />
+                        {homeData.passing.map(player =>(
+                            <h5>{displayPassingStats(player)}</h5>
+                        ))}
+                        {console.log(homeData)}
+                        <h1 className='text-center'>Rushing</h1>
+                        <hr />
+                        {homeData.rushing.map(player =>(
+                            <h5>{displayRushingStats(player)}</h5>
+                        ))} 
+                        <h1 className='text-center'>Receiving</h1>
+                        <hr /> 
+                        {homeData.receiving.map(player => (
+                            <h5>{displayReceivingStats(player)}</h5>
+                        ))}
+                        <h1 className='text-center'>Defense</h1>
+                        <hr />
+                        {homeData.defense.map(player => (
+                            <h5>{displayDefenseStats(player)}</h5>
+                        ))}
+                    </div>
+                </div>
+                <div className='w-3/6' style={{backgroundColor: colors[convertIDToName(gameData.awayTeamId)]}}>
+                    <div className='flex w-full justify-between'>
+                        <h1 className='text-4xl pl-4'>{gameData.awayScore}</h1>
+                        <h1 className='text-4xl'>{convertIDToName(gameData.awayTeamId)}</h1>
+                    </div>
+                    <div className='w-full'>
+                        <h1 className='text-center'>Passing</h1>
+                        <hr />
+                        {awayData.passing.map(player =>(
+                            <h5 className='text-right'>{displayPassingStats(player)}</h5>
+                        )
+                        )}
+                        <h1 className='text-center'>Rushing</h1>
+                        <hr /> 
+                        {awayData.rushing.map(player => (
+                            <h5 className='text-right'>{displayRushingStats(player)}</h5>
+                        ))}
+                        <h1 className='text-center'>Receiving</h1>
+                        <hr />
+                        {awayData.receiving.map(player =>(
+                            <h5 className='text-right'>{displayReceivingStats(player)}</h5>
+                        ))}
+                        <h1 className='text-center'>Defense</h1>
+                        <hr /> 
+                        {awayData.defense.map(player => (
+                            <h5 className='text-right'>{displayDefenseStats(player)}</h5>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
+      
 
 )}
