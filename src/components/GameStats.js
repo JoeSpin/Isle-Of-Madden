@@ -143,74 +143,89 @@ export default function GameStats() {
 
         return output;
     }
+    const getLogo = (teamn) => {
+        if (teamn === "Football Team"){ 
+          return `wft.svg` 
+        } else if (teamn === "Buccaneers"){
+          return 'bucs.svg'
+        } else {
+          return `${teamn.toLowerCase()}.svg`
+        } 
+      }
 
     if (isLoading) {
         return <div className="App">Loading...</div>;
       }
 
-    return ( 
-        <div className="flex justify-center">
-            <div className='flex w-3/6'>
-                <div className='w-3/6' style={{backgroundColor: colors[convertIDToName(gameData.homeTeamId)]}}>
-                    <div className='flex w-full justify-between'>
-                        <h1 className='text-4xl'>{convertIDToName(gameData.homeTeamId)}</h1>
-                        <h1 className='text-4xl pr-4'>{gameData.homeScore}</h1>                        
+    return (
+        <div className="flex justify-center w-screen">
+            <div className='flex items-center justify-center w-full bg-gray rounded-3xl'>
+                <div className='flex flex-col items-center w-1/4 p-2 m-1 text-white rounded-3xl h-3/4screen'>
+                    <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.awayTeamId)]}}>
+                    <div className="flex w-1/2">
+                    <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.awayTeamId))}`).default} className="w-1/3 ml-5" />
+                        <h1 className='ml-5 text-4xl font-semibold'>{convertIDToName(gameData.awayTeamId)}</h1>
                     </div>
-                    <div className='w-full'>
-                        <h1 className='text-center'>Passing</h1>
-                        <hr />
-                        {homeData.passing.map(player =>(
-                            <h5>{displayPassingStats(player)}</h5>
+                        <h1 className='text-4xl font-extrabold'>{gameData.awayScore}</h1>                        
+                    </div>
+                    <div className='w-full h-3/5'>
+                        <h1 className='text-xl font-bold text-center'>Passing</h1>
+                        <hr className="w-1/6 m-auto" />
+                        {awayData.passing.map(player =>(
+                            <h5 className='text-center'>{displayPassingStats(player)}</h5>
                         ))}
                         {console.log(homeData)}
-                        <h1 className='text-center'>Rushing</h1>
-                        <hr />
-                        {homeData.rushing.map(player =>(
-                            <h5>{displayRushingStats(player)}</h5>
+                        <h1 className='text-xl font-bold text-center'>Rushing</h1>
+                        <hr className="w-1/6 m-auto" />
+                        {awayData.rushing.map(player =>(
+                            <h5 className='text-center'>{displayRushingStats(player)}</h5>
                         ))} 
-                        <h1 className='text-center'>Receiving</h1>
-                        <hr /> 
-                        {homeData.receiving.map(player => (
-                            <h5>{displayReceivingStats(player)}</h5>
+                        <h1 className='text-xl font-bold text-center'>Receiving</h1>
+                        <hr className="w-1/6 m-auto" /> 
+                        {awayData.receiving.map(player => (
+                            <h5 className='text-center'>{displayReceivingStats(player)}</h5>
                         ))}
-                        <h1 className='text-center'>Defense</h1>
-                        <hr />
-                        {homeData.defense.map(player => (
-                            <h5>{displayDefenseStats(player)}</h5>
-                        ))}
-                    </div>
-                </div>
-                <div className='w-3/6' style={{backgroundColor: colors[convertIDToName(gameData.awayTeamId)]}}>
-                    <div className='flex w-full justify-between'>
-                        <h1 className='text-4xl pl-4'>{gameData.awayScore}</h1>
-                        <h1 className='text-4xl'>{convertIDToName(gameData.awayTeamId)}</h1>
-                    </div>
-                    <div className='w-full'>
-                        <h1 className='text-center'>Passing</h1>
-                        <hr />
-                        {awayData.passing.map(player =>(
-                            <h5 className='text-right'>{displayPassingStats(player)}</h5>
-                        )
-                        )}
-                        <h1 className='text-center'>Rushing</h1>
-                        <hr /> 
-                        {awayData.rushing.map(player => (
-                            <h5 className='text-right'>{displayRushingStats(player)}</h5>
-                        ))}
-                        <h1 className='text-center'>Receiving</h1>
-                        <hr />
-                        {awayData.receiving.map(player =>(
-                            <h5 className='text-right'>{displayReceivingStats(player)}</h5>
-                        ))}
-                        <h1 className='text-center'>Defense</h1>
-                        <hr /> 
+                        <h1 className='text-xl font-bold text-center'>Defense</h1>
+                        <hr className="w-1/6 m-auto" />
                         {awayData.defense.map(player => (
-                            <h5 className='text-right'>{displayDefenseStats(player)}</h5>
+                            <h5 className='text-center'>{displayDefenseStats(player)}</h5>
                         ))}
+                        </div>
+                </div>
+                <div className='flex flex-col items-center w-1/4 p-2 m-1 text-white rounded-3xl h-3/4screen'>
+                    <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.homeTeamId)]}}>
+                    <div className="flex w-1/2">
+                    <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.homeTeamId))}`).default} className="w-1/3 ml-5" />
+                        <h1 className='ml-5 text-4xl font-semibold'>{convertIDToName(gameData.homeTeamId)}</h1>
                     </div>
+                        <h1 className='text-4xl font-extrabold'>{gameData.homeScore}</h1>                        
+                    </div>
+                    <div className='w-full h-3/5'>
+                        <h1 className='text-xl font-bold text-center'>Passing</h1>
+                        <hr className="w-1/6 m-auto" />
+                        {homeData.passing.map(player =>(
+                            <h5 className='text-center'>{displayPassingStats(player)}</h5>
+                        ))}
+                        {console.log(homeData)}
+                        <h1 className='text-xl font-bold text-center'>Rushing</h1>
+                        <hr className="w-1/6 m-auto" />
+                        {homeData.rushing.map(player =>(
+                            <h5 className='text-center'>{displayRushingStats(player)}</h5>
+                        ))} 
+                        <h1 className='text-xl font-bold text-center'>Receiving</h1>
+                        <hr className="w-1/6 m-auto" /> 
+                        {homeData.receiving.map(player => (
+                            <h5 className='text-center'>{displayReceivingStats(player)}</h5>
+                        ))}
+                        <h1 className='text-xl font-bold text-center'>Defense</h1>
+                        <hr className="w-1/6 m-auto" />
+                        {homeData.defense.map(player => (
+                            <h5 className='text-center'>{displayDefenseStats(player)}</h5>
+                        ))}
+                        </div>
+                </div>
                 </div>
             </div>
-        </div>
       
 
 )}
