@@ -41,7 +41,7 @@ export const hbCore = [{
     Header: 'Speed',
     accessor: 'speedRating'
 },{
-    Heaer: 'Acceleration',
+    Header: 'Acceleration',
     accessor: 'accelRating'
 },{
     Header: 'Agility',
@@ -60,10 +60,10 @@ export const hbCore = [{
     accessor: 'stiffArmRating'
 },{
     Header: 'Juke',
-    accessor: 'jukeRating'
+    accessor: 'jukeMoveRating'
 },{
     Header: 'Spin',
-    accessor: 'spinRating'
+    accessor: 'spinMoveRating'
 },{
     Header: 'COD',
     accessor: 'changeOfDirectionRating'

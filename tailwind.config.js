@@ -33,7 +33,15 @@ module.exports = {
       gray:'#1D1D20',
       lightgray:'#575760',
       white:'#FFFFFF',
-      black:'#000000'
+      black:'#000000', 
+      stageone:'#008450',
+      stagetwo:'#789e28',
+      stagethree:'#b3aa14',
+      stagefour:'#efb700',
+      stagefive:'#e19005',
+      stagesix:'#d46a0a',
+      stageseven:'#c33c0f',
+      stageeight:'#b81d13',
     },
     backgroundColor: theme => ({
       ...theme('colors'),

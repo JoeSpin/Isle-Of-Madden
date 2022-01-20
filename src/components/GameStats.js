@@ -159,65 +159,65 @@ export default function GameStats() {
 
     return (
         <div className="flex justify-center w-screen">
-            <div className='flex items-center justify-center w-full bg-gray rounded-3xl'>
-                <div className='flex flex-col items-center w-1/4 p-2 m-1 text-white rounded-3xl h-3/4screen'>
+            <div className='flex items-center justify-center w-full dark:bg-gray rounded-3xl'>
+                <div className='flex flex-col items-center w-1/4 p-2 m-2 border-8 dark:text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.awayTeamId)]}}>
                     <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.awayTeamId)]}}>
-                    <div className="flex w-1/2">
-                    <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.awayTeamId))}`).default} className="w-1/3 ml-5" />
-                        <h1 className='ml-5 text-4xl font-semibold'>{convertIDToName(gameData.awayTeamId)}</h1>
+                    <div className="flex items-center justify-between w-3/5">
+                    <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.awayTeamId))}`).default} className="w-20 ml-5" />
+                        <h2 className='ml-5 text-4xl font-semibold text-white'>{convertIDToName(gameData.awayTeamId)}</h2>
                     </div>
-                        <h1 className='text-4xl font-extrabold'>{gameData.awayScore}</h1>                        
+                        <h2 className='text-4xl font-extrabold'>{gameData.awayScore}</h2>                        
                     </div>
                     <div className='w-full h-3/5'>
-                        <h1 className='text-xl font-bold text-center'>Passing</h1>
+                        <h3 className='text-xl font-bold text-center'>Passing</h3>
                         <hr className="w-1/6 m-auto" />
                         {awayData.passing.map(player =>(
                             <h5 className='text-center'>{displayPassingStats(player)}</h5>
                         ))}
                         {console.log(homeData)}
-                        <h1 className='text-xl font-bold text-center'>Rushing</h1>
+                        <h3 className='text-xl font-bold text-center'>Rushing</h3>
                         <hr className="w-1/6 m-auto" />
                         {awayData.rushing.map(player =>(
                             <h5 className='text-center'>{displayRushingStats(player)}</h5>
                         ))} 
-                        <h1 className='text-xl font-bold text-center'>Receiving</h1>
+                        <h3 className='text-xl font-bold text-center'>Receiving</h3>
                         <hr className="w-1/6 m-auto" /> 
                         {awayData.receiving.map(player => (
                             <h5 className='text-center'>{displayReceivingStats(player)}</h5>
                         ))}
-                        <h1 className='text-xl font-bold text-center'>Defense</h1>
+                        <h3 className='text-xl font-bold text-center'>Defense</h3>
                         <hr className="w-1/6 m-auto" />
                         {awayData.defense.map(player => (
                             <h5 className='text-center'>{displayDefenseStats(player)}</h5>
                         ))}
                         </div>
                 </div>
-                <div className='flex flex-col items-center w-1/4 p-2 m-1 text-white rounded-3xl h-3/4screen'>
+                <div className='flex flex-col items-center w-1/4 p-2 m-2 border-8 dark:text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.homeTeamId)]}}>
                     <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.homeTeamId)]}}>
-                    <div className="flex w-1/2">
-                    <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.homeTeamId))}`).default} className="w-1/3 ml-5" />
-                        <h1 className='ml-5 text-4xl font-semibold'>{convertIDToName(gameData.homeTeamId)}</h1>
+                    <div className="flex items-center justify-between w-3/5">
+                    <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.homeTeamId))}`).default} className="w-20 ml-5 " />
+                        <h2 className='ml-5 text-4xl font-semibold text-white'>{convertIDToName(gameData.homeTeamId)}</h2>
                     </div>
-                        <h1 className='text-4xl font-extrabold'>{gameData.homeScore}</h1>                        
+                        <h2 className='text-4xl font-extrabold'>{gameData.homeScore}</h2>                        
                     </div>
                     <div className='w-full h-3/5'>
-                        <h1 className='text-xl font-bold text-center'>Passing</h1>
+                        <h3 className='text-xl font-bold text-center'>Passing</h3>
                         <hr className="w-1/6 m-auto" />
                         {homeData.passing.map(player =>(
                             <h5 className='text-center'>{displayPassingStats(player)}</h5>
                         ))}
                         {console.log(homeData)}
-                        <h1 className='text-xl font-bold text-center'>Rushing</h1>
+                        <h3 className='text-xl font-bold text-center'>Rushing</h3>
                         <hr className="w-1/6 m-auto" />
                         {homeData.rushing.map(player =>(
                             <h5 className='text-center'>{displayRushingStats(player)}</h5>
                         ))} 
-                        <h1 className='text-xl font-bold text-center'>Receiving</h1>
+                        <h3 className='text-xl font-bold text-center'>Receiving</h3>
                         <hr className="w-1/6 m-auto" /> 
                         {homeData.receiving.map(player => (
                             <h5 className='text-center'>{displayReceivingStats(player)}</h5>
                         ))}
-                        <h1 className='text-xl font-bold text-center'>Defense</h1>
+                        <h3 className='text-xl font-bold text-center'>Defense</h3>
                         <hr className="w-1/6 m-auto" />
                         {homeData.defense.map(player => (
                             <h5 className='text-center'>{displayDefenseStats(player)}</h5>
