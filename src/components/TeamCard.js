@@ -78,13 +78,13 @@ export default function TeamCard(props) {
         </div>
         <div id="teamlinks">
           <ul id="navigation" className="flex items-center justify-center pt-5 font-black">
-          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in hover:text-purple">
+          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">
           <a onClick={showTeamSchedule}>SCHEDULE</a>
           </li>
-          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in hover:text-purple">
+          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">
           <a onClick={showTeamRoster}>ROSTER</a>
           </li>
-          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in hover:text-purple">
+          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">
           <a onClick={showTeamStats}>STATS</a>
           </li>
           </ul>

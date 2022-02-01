@@ -160,7 +160,7 @@ export default function GameStats() {
     return (
         <div className="flex justify-center w-screen">
             <div className='flex items-center justify-center w-full dark:bg-gray rounded-3xl'>
-                <div className='flex flex-col items-center w-1/4 p-2 m-2 border-8 dark:text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.awayTeamId)]}}>
+                <div className='flex flex-col items-center w-1/3 p-2 m-2 border-8 dark:text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.awayTeamId)]}}>
                     <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.awayTeamId)]}}>
                     <div className="flex items-center justify-between w-3/5">
                     <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.awayTeamId))}`).default} className="w-20 ml-5" />
@@ -192,7 +192,7 @@ export default function GameStats() {
                         ))}
                         </div>
                 </div>
-                <div className='flex flex-col items-center w-1/4 p-2 m-2 border-8 dark:text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.homeTeamId)]}}>
+                <div className='flex flex-col items-center w-1/3 p-2 m-2 border-8 dark:text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.homeTeamId)]}}>
                     <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.homeTeamId)]}}>
                     <div className="flex items-center justify-between w-3/5">
                     <img src={require(`../../src/img/logos/${getLogo(convertIDToName(gameData.homeTeamId))}`).default} className="w-20 ml-5 " />
