@@ -5,7 +5,7 @@ import Header from "./Header/Header";
 export default function RulesPage() {
   return (
     <>
-      <Header />
+      <Header active="rules" />
       <div className="flex flex-col items-center justify-center dark:bg-gray">
         <div className="flex flex-col items-center justify-center w-2/3 text-white">
           <h1 className="m-5 text-5xl font-black">Rules and Regulations</h1>

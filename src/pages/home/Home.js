@@ -9,7 +9,7 @@ function Home() {
   return(
   <>
    <div className="relative w-screen overflow-x-hidden md:overflow-y-auto bg-gray">
-    <HeaderFixed />
+    <HeaderFixed active="home" />
     <div>
     <div className="absolute z-10 w-screen text-white top-32 md:top-64">
         <h1 className="pt-10 text-2xl font-black text-center text-white md:text-4xl lg:text-5xl">WELCOME TO ISLE OF MADDEN</h1>

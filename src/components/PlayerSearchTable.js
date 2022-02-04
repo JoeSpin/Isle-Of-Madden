@@ -90,7 +90,7 @@ function PlayerSearchTable(props){
         <table {...getTableProps()} className="block w-10/12 overflow-x-scroll md:table md:w-4/5">
            <thead>
                {headerGroups.map((headerGroup) => (
-                   <tr {...headerGroup.getHeaderGroupProps()}>
+                   <tr {...headerGroup.getHeaderGroupProps()} className="playerSearchTableRow">
                        {
                            headerGroup.headers.map( column => (
                                <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-opacity-30 bg-gray dark:text-white">{column.render('Header')}</th>

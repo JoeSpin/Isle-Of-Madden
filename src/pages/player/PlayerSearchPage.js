@@ -6,7 +6,7 @@ import '../../resources/PlayerSearchTable.css';
 function PlayerSearchPage() {
   return(
   <>
-    <Header />
+    <Header active="players"/>
     <PlayerSearch />
     <Footer />
   </>

@@ -12,6 +12,8 @@ import LeagueSchedulePage from './pages/LeagueSchedule/LeagueSchedulePage'
 import GameStatsPage from './pages/GameStatsPage';
 import PlayerCard from './components/Player/PlayerCard';
 import PlayerPage from './pages/player/PlayerPage';
+import StandingsPage from './components/Standings/StandingsPage';
+import LeagueLeaderPage from './components/LeagueLeaders/LeagueLeaderPage';
 
 
 ReactDOM.render(
@@ -30,6 +32,12 @@ ReactDOM.render(
     </Route>
     <Route exact path="/game/:gameId" >
       <GameStatsPage key={Date.now()} />
+    </Route>
+    <Route exact path="/standings">
+      <StandingsPage />
+    </Route>
+    <Route exact path="/leagueleaders">
+      <LeagueLeaderPage />
     </Route>
   </Router>,
   document.getElementById('root')

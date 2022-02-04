@@ -8,7 +8,7 @@ export default function FooterFixed() {
 		<div className="absolute bottom-0 z-10 w-screen bg-opacity-50 bg-gray">
         <div id="footer" className="py-6 text-white">
 		<div className="flex flex-col items-center justify-center md:flex-row">
-			<p className="py-3 pr-2 text-xs md:py-0 md:text-base md:pr-10">&copy; 2021 by Isle of Madden Dev Team. All rights reserved.</p>
+			<p className="py-3 pr-2 text-xs md:py-0 md:text-base md:pr-10">&copy; 2022 by Isle of Madden Dev Team. All rights reserved.</p>
 			<ul className="flex">
 				<li className="h-10 w-10 m-2.5">
 					<a href="https://twitter.com/IsleOfMadden" id="twitter"><img src={twitter}/></a>

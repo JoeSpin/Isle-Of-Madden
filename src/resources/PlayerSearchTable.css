@@ -1,9 +1,12 @@
-table, th, td {
-    border: 1px solid black;
-}
-th { 
+table, th, tr, td   {
+  border: 1px solid black;
+}z
+
+#playerSearchTableHeader {
+  border: 1px solid black;
   color: black;
 }
 tr:nth-of-type(2n){
   background-color: gray;
 }
+

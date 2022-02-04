@@ -16,6 +16,11 @@ export default function PlayerCard(props) {
     let {rosterId} = useParams();
     const getData = () => { 
         axios.get(`https://isle-of-madden-test.herokuapp.com/api/player/${rosterId}`).then(response => {
+            if (response.data.player.teamName === "Football Team") { 
+                response.data.player.teamName = 'wft';
+            }else if (response.data.player.teamName === null){
+                response.data.player.teamName = 'nfl'; 
+            }
             setPlayer(response.data.player); 
             setSeasonStats(response.data.seasonStats);
             setWeeklyStats(response.data.weeklyStats);
@@ -24,10 +29,7 @@ export default function PlayerCard(props) {
          })
     }
     useEffect(() => {
-        console.log(rosterId);
         getData();
-        console.log(player);
-
     }, [rosterId]);
 
     const showWeeklyStats = () => {
@@ -45,18 +47,18 @@ export default function PlayerCard(props) {
     const calcContract = (contract) => {
         const oneMil = 1000000; 
         if (contract / oneMil < 1) {  
-          return `$${contract / 1000}k`
+          return `$${(contract / 1000).toFixed(2)}k`
         }
         else { 
-          return `$${contract / oneMil}M`
+          return `$${(contract / oneMil).toFixed(2)}M`
         }
           }
 
     const calcYearlySalary = (salary, length) => {
-            return salary/length;
+            return (salary/length).toFixed(2);
         }
 
-    
+
 
     if (loading) {
         return <div className="py-16 text-5xl font-extrabold text-center App dark:bg-gray dark:text-white">Loading...</div>;
@@ -64,7 +66,7 @@ export default function PlayerCard(props) {
    
     return (
         <div className="flex flex-col items-center dark:bg-gray dark:text-white">
-            <div style={{backgroundColor: teamColorCodes[player.teamName]}} className="flex flex-wrap w-1/2 p-2 text-white rounded-3xl" style={{backgroundColor: teamColorCodes[player.teamName]}}>
+            <div style={{backgroundColor: teamColorCodes[player.teamName]}} className="flex flex-wrap w-full lg:w-1/2 p-2 text-white rounded-3xl" style={{backgroundColor: teamColorCodes[player.teamName]}}>
                 <div className='flex flex-col items-center justify-center w-1/3'>
                 <div className='m-2 rounded-t-full bg-gray'>
                     <img src={`https://madden-assets-cdn.pulse.ea.com/madden22/portraits/128/${player.portraitId}.png`}></img>
@@ -73,10 +75,15 @@ export default function PlayerCard(props) {
                 <h3>{player.position} #{player.jerseyNum}</h3>
                 </div>
                 <div className='flex flex-col items-start justify-center w-1/3 text-xl'>
+                    <div className='flex justify-between'>
+                        <h5>Team: </h5>
+                        <img src={require(`../../img/logos/${player.teamName.toLowerCase()}.svg`).default} width="40"/>
+                    </div>
                     <h5>Overall: {player.playerBestOvr}</h5>
                     <h5>Height: {convertHeight(player.height)}</h5>
                     <h5>Weight: {player.weight} lbs</h5>
                     <h5>Dev Trait: {convertTrait(player.devTrait)}</h5>
+                    <h5>Age: {player.age}</h5>
                 </div>
                 <div className='flex flex-col items-start justify-center w-1/3 text-l'> 
                     <h5>Total Years: {player.contractLength}</h5>
@@ -88,8 +95,11 @@ export default function PlayerCard(props) {
                 
             </div>
             <PlayerCoreAttributes player={player} position={player.position}/> 
-            <button onClick={showWeeklyStats}>Weekly</button>
-            <button onClick={showFullAttributes}>Attributes</button> 
+            <div className="flex justify-center">
+                <button onClick={showWeeklyStats} className='px-3 mx-2 my-2 text-2xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl'>Weekly Stats</button>
+                <button onClick={showFullAttributes} className='px-3 mx-2 my-2 text-2xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl'>Attributes</button>
+            </div>
+ 
 
             {lowerComponent}
        

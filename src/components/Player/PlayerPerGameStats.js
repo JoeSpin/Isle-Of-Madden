@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {qbGameColumns, hbGameColumns, wrGameColumns, teGameColumns, dfGameColumns, pGameColumns, kGameColumns } from '../../resources/GameStatsColumns';
-import {useRowSelect, useTable} from 'react-table'
+import {useTable} from 'react-table'
 
 export function PlayerPerGameStats(props) { 
     const [data, setData] = useState([]); 
     const [position, setPosition] = useState(""); 
     const [columns, setColumns] = useState([]);
     useEffect(() => { 
+
         setData(props.games); 
         setPosition(props.position); 
         if (position === "QB") { 
@@ -25,7 +26,7 @@ export function PlayerPerGameStats(props) {
         }else { 
             setColumns(dfGameColumns);
         };
-    }, [props.games, props.position]);
+    }, [props.games]);
 
     const { 
         getTableProps,
@@ -42,15 +43,18 @@ export function PlayerPerGameStats(props) {
 
     
     return ( 
-        <div> 
-            <h1>test</h1>
-            <table {...getTableProps()}> 
+        <div className='flex justify-center'> 
+            <table {...getTableProps()} style={{
+                backgroundColor: props.teamcolor,
+                border: '1px solid black',
+                width: '50%'
+            }}> 
                 <thead>
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map( column => (
-                                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                    <th {...column.getHeaderProps()} className='p-2'>{column.render('Header')}</th>
                                 ))
                             }
                         </tr>
@@ -60,9 +64,9 @@ export function PlayerPerGameStats(props) {
                     {rows.map((row) => { 
                         prepareRow(row);
                         return ( 
-                            <tr {...row.getRowProps()}>
+                            <tr {...row.getRowProps()} style={{border: '1px solid black'}}>
                                 {row.cells.map((cell) => { 
-                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                    return <td {...cell.getCellProps()} style={{textAlign: 'center'}}>{cell.render('Cell')}</td>
                                 })}
                             </tr>
                         )

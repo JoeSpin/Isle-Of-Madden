@@ -6,7 +6,7 @@ import TeamCard from "../../components/TeamCard";
 function TeamPage() {
   return(
   <>
-    <Header />
+    <Header active="teams" />
     <TeamCard />
     <Footer />
   </>

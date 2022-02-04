@@ -1,4 +1,7 @@
-export const qbGameColumns = [{ 
+export const qbGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent'
 }, {
@@ -28,6 +31,9 @@ export const qbGameColumns = [{
 }]
 
 export const hbGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent'
 }, { 
@@ -64,6 +70,9 @@ export const hbGameColumns = [{
 ]
 
 export const fbGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent'
 }, { 
@@ -99,6 +108,9 @@ export const fbGameColumns = [{
 }]
 
 export const teGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent'
 }, {
@@ -117,6 +129,9 @@ export const teGameColumns = [{
 
 
 export const wrGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent'
 }, { 
@@ -131,18 +146,12 @@ export const wrGameColumns = [{
 }, {
     Header: 'Long',
     accessor: 'recLongest'
-}, { 
-    Header: 'Rush Att',
-    accessor: 'rushAtt'
-}, { 
-    Header: 'Rush Yds',
-    accessor: 'rushYds'
-}, { 
-    Header: 'Rush TDs',
-    accessor: 'rushTDs'
 }]
 
 export const dfGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent'
 }, {
@@ -154,9 +163,6 @@ export const dfGameColumns = [{
 }, {
     Header: 'Ints',
     accessor: 'defInts'
-}, {
-    Header: 'Int Yds',
-    accessor: 'defIntReturnYds'
 },{
     Header: 'Deflections',
     accessor: 'defDeflections'
@@ -175,6 +181,9 @@ export const dfGameColumns = [{
 }]
 
 export const kGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent',
 }, {
@@ -195,6 +204,9 @@ export const kGameColumns = [{
 }]
 
 export const pGameColumns = [{
+    Header: 'Week',
+    accessor: 'weekIndex'
+},{ 
     Header: 'Opponent',
     accessor: 'opponent'
 }, {

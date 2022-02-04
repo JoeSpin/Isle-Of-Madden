@@ -10,7 +10,7 @@ export default function PlayerPage() {
 
     return ( 
         <div className="dark: bg-gray flex flex-col justify-between">
-            <Header />
+            <Header active="players" />
             <PlayerCard/>
             <Footer />
         </div>

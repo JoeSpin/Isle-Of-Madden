@@ -6,7 +6,7 @@ import TeamListCards from "../../components/TeamListCards";
 function TeamPage() {
   return(
   <>
-    <Header />
+    <Header active="teams"/>
     <TeamListCards />
     <Footer />
   </>

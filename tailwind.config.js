@@ -13,6 +13,13 @@ module.exports = {
         '1/16':'6%',
         '2/3': '66%'
       },
+      maxWidth: {
+        '1/4': '25%'
+      },
+      minWidth: {
+        'fit': 'fit-content',
+        'att': '180px'
+      },
       height:{
         'logo':'64px',
         '1/4screen' : '25vh',
@@ -42,11 +49,15 @@ module.exports = {
       stagesix:'#d46a0a',
       stageseven:'#c33c0f',
       stageeight:'#b81d13',
+
     },
     backgroundColor: theme => ({
       ...theme('colors'),
       'black': '#000000',
-     })
+     }), 
+    opacity: {
+      '10': .10
+    }
   },
   variants: {
     extend: {
