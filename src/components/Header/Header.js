@@ -4,6 +4,13 @@ import logo from "../../img/logo.png";
 
 export default function Header(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState(''); 
+
+  useEffect(() => {
+    setActive(props.active);
+  }, [props.active])
+
+
 
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300`;
   const navlink = `text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple ${isOpen ? "text-5xl text-center py-2" : ""}`;
@@ -60,6 +67,9 @@ export default function Header(props) {
             </li>
             <li className={(props.active === "players")? `${activeNav}` : `${navlink}`}>
               <a href="/players">PLAYERS</a>
+            </li>
+            <li className={(props.active === 'schedule') ? `${activeNav}`: `${navlink}`}>
+              <a href='/schedule'>SCHEDULE</a>
             </li>
             <li className={(props.active === "rules")? `${activeNav}` : `${navlink}`}>
               <a href="/rules">RULES</a>

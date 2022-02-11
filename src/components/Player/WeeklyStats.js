@@ -5,17 +5,17 @@ import { PlayerPerGameStats } from './PlayerPerGameStats';
 
 
 export default function WeeklyStats(props){
-    const [data, setData] = useState([]);
+    const [weeklyStats, setWeeklyStats] = useState([]);
     const [loading, setLoading] = useState(true);
     const [teamColor, setTeamColor] = useState();
 
 
     useEffect(() => {
-       setData(props.weeklystats);
+       setWeeklyStats(props.weeklystats);
        setTeamColor(props.teamcolor);
     }, [props.weeklystats])
 
-    if (!data){
+    if (!weeklyStats){
         return (<div>
             <h4>No games played this season</h4>
         </div>)
@@ -26,12 +26,12 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap w-full lg:w-3/6 content-center">
                 <div className="w-full">
-                    <PlayerPerGameStats games={data} position={props.position} color={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} color={teamColor}/>
                 </div>
                  <div className="w-full lg:w-3/6">
                     <h2>Pass Yards Per Game</h2> 
                         <ResponsiveContainer width="90%" height={400}>
-                            <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                            <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1"/>
                             <Line type="monotone" dataKey="passYds" stroke={props.teamcolor} strokeWidth={4}/> 
                             <XAxis tickLine={false} dataKey="weekIndex" />
@@ -43,7 +43,7 @@ export default function WeeklyStats(props){
                 <div className="w-full lg:w-3/6">
                     <h2>TDs Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" />
                             <Line type="monotone" dataKey="passTDs" stroke={props.teamcolor} strokeWidth={4} /> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -55,7 +55,7 @@ export default function WeeklyStats(props){
                 <div className="w-full lg:w-3/6">
                     <h2>Passer Rating Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="passerRating" stroke={props.teamcolor} strokeWidth={4} /> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -65,7 +65,7 @@ export default function WeeklyStats(props){
                     </ResponsiveContainer>
                 </div>
                 <div>
-                <PlayerPerGameStats position={props.position} games={data} />
+                <PlayerPerGameStats position={props.position} games={weeklyStats} />
                 </div>
             </div>
         )
@@ -73,12 +73,12 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap w-full lg:w-3/6 content-center">
                 <div className="w-full">
-                    <PlayerPerGameStats games={data} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
             <div className="w-full lg:w-3/6">
                <h2>Pass Yards Per Game</h2> 
                    <ResponsiveContainer width="90%" height={500}>
-                       <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                       <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                        <CartesianGrid strokeDasharray="1"/>
                        <Line type="monotone" dataKey="rushYds" stroke={props.teamcolor} strokeWidth={4}/> 
                        <XAxis tickLine={true} dataKey="weekIndex" />
@@ -90,7 +90,7 @@ export default function WeeklyStats(props){
            <div className="w-full lg:w-3/6">
                <h2>TDs Per Game</h2>
                <ResponsiveContainer width="90%" height={400}>
-                   <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                   <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                        <CartesianGrid strokeDasharray="1" />
                        <Line type="monotone" dataKey="rushTDs" stroke={props.teamcolor} strokeWidth={4} /> 
                        <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -102,7 +102,7 @@ export default function WeeklyStats(props){
            <div className="w-full lg:w-3/6">
                <h2>Passer Rating Per Game</h2>
                <ResponsiveContainer width="90%" height={400}>
-                   <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                   <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                        <CartesianGrid strokeDasharray="1" /> 
                        <Line type="monotone" dataKey="rushLongest" stroke={props.teamcolor} strokeWidth={4} /> 
                        <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -117,12 +117,12 @@ export default function WeeklyStats(props){
         return (
         <div className="flex flex-wrap w-full lg:w-3/6 content-center">
             <div className="w-full">
-                    <PlayerPerGameStats games={data} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
             </div>
             <div className="w-full lg:w-3/6">
                 <h2>Receiving Yards Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
-                    <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                         <CartesianGrid strokeDasharray="1" /> 
                         <Line type="monotone" dataKey="recYds" stroke={props.teamcolor} strokeWidth={4} /> 
                         <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -134,7 +134,7 @@ export default function WeeklyStats(props){
             <div className="w-full lg:w-3/6">
                 <h2>Receiving TDs Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
-                    <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                         <CartesianGrid strokeDasharray="1" /> 
                         <Line type="monotone" dataKey="recTDs" stroke={props.teamcolor} strokeWidth={4} /> 
                         <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -146,7 +146,7 @@ export default function WeeklyStats(props){
             <div className="w-full lg:w-3/6">
                 <h2>Catches Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
-                    <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                         <CartesianGrid strokeDasharray="1" /> 
                         <Line type="monotone" dataKey="recCatches" stroke={props.teamcolor} strokeWidth={4} /> 
                         <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -158,7 +158,7 @@ export default function WeeklyStats(props){
             <div className="w-full lg:w-3/6">
                 <h2>Longest Reception Per Game </h2>
                 <ResponsiveContainer width="90%" height={400}>
-                    <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                         <CartesianGrid strokeDasharray="1" /> 
                         <Line type="monotone" dataKey="recLongest" stroke={props.teamcolor} strokeWidth={4} /> 
                         <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -173,12 +173,12 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap w-full lg:w-3/6 content-center">
                 <div className="w-full">
-                    <PlayerPerGameStats games={data} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
                 <div className="w-full lg:w-3/6">
                     <h2>Tackles Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="defTotalTackles" stroke={props.teamcolor} strokeWidth={4} /> 
                             <XAxis tickLine={false} dataKey="weekIndex" />
@@ -190,7 +190,7 @@ export default function WeeklyStats(props){
                 <div className="w-full lg:w-3/6">
                     <h2>Sacks Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="defSacks" stroke={props.teamcolor} strokeWidth={4} /> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -205,12 +205,12 @@ export default function WeeklyStats(props){
         return (
         <div className="flex flex-wrap w-full lg:w-3/6 content-center">
             <div className="w-full">
-                <PlayerPerGameStats games={data} position={props.position} teamcolor={teamColor}/>
+                <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
             </div>
             <div className="w-full lg:w-3/6">
                 <h2>Tackles Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
-                    <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                         <CartesianGrid strokeDasharray="1" />
                         <Line type="monotone" dataKey="defTotalTackles" stroke={props.teamcolor} strokeWidth={4} /> 
                         <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -222,7 +222,7 @@ export default function WeeklyStats(props){
             <div className="w-full lg:w-3/6">
                 <h2>Sacks Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
-                    <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                         <CartesianGrid strokeDasharray="1" /> 
                         <Line type="monotone" dataKey="defSacks" stroke={props.teamcolor} strokeWidth={4} /> 
                         <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -234,7 +234,7 @@ export default function WeeklyStats(props){
             <div className="w-full lg:w-3/6">
                 <h2>Interceptions Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
-                    <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                         <CartesianGrid strokeDasharray="1" /> 
                         <Line type="monotone" dataKey="defInts" stroke={props.teamcolor} strokeWidth={4} /> 
                         <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -249,12 +249,12 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap w-full lg:w-3/6 content-center">
                 <div className="w-full">
-                    <PlayerPerGameStats games={data} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
                 <div className="w-full lg:w-3/6">
                     <h2>Pass Deflections Per Game</h2>
                     <ResponsiveContainer width="90%" height={400} >
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="defDeflections" stroke={props.teamcolor} strokeWidth={4} /> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -266,7 +266,7 @@ export default function WeeklyStats(props){
                 <div className="w-full lg:w-3/6">
                     <h2>Passes Allowed Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="defCatchAllowed"  stroke={props.teamcolor} strokeWidth={4}/> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -278,7 +278,7 @@ export default function WeeklyStats(props){
                 <div className="w-full lg:w-3/6">
                     <h2>Interceptions Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="defInts" stroke={props.teamcolor} strokeWidth={4}/> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -293,12 +293,12 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap w-full lg:w-3/6 content-center">
                 <div className="w-full">
-                    <PlayerPerGameStats games={data} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
                 <div className="w-full lg:w-3/6">
                     <h2>FGs Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="fGMade" stroke={props.teamcolor} strokeWidth={4} /> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
@@ -310,7 +310,7 @@ export default function WeeklyStats(props){
                 <div className="w-full lg:w-3/6">
                     <h2>Longest FG Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
-                        <LineChart data={data} margin={{top:0,right:0,left:0,bottom:50}}>
+                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
                             <CartesianGrid strokeDasharray="1" /> 
                             <Line type="monotone" dataKey="fGLongest" stroke={props.teamcolor} strokeWidth={4} /> 
                             <XAxis tickLine={false} dataKey="weekIndex" /> 
