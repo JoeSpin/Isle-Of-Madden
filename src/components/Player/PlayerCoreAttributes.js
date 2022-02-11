@@ -183,9 +183,4 @@ const calcRatingColor = (rating) => {
         </div>
         )
     }
-    return (
-        <div>
-            <h1>oops</h1>
-        </div>
-    )
 }

@@ -37,12 +37,12 @@ export default function LeagueLeaders(){
     return (
         <div className='flex flex-cols flex-wrap w-3/6' style={{marginLeft: 'auto', marginRight: 'auto'}}>
             <LeagueLeaderCard players={passingLeaders} stat={'passing'}/> 
-            {/* <LeagueLeaderCard players={rushingLeaders} stat={'rushing'}/>
+            <LeagueLeaderCard players={rushingLeaders} stat={'rushing'}/>
             <LeagueLeaderCard players={receivingLeaders} stat={'receiving'}/>
             <LeagueLeaderCard players={tackleLeaders} stat={'tackle'}/>
             <LeagueLeaderCard players={intLeaders} stat={'int'}/>
             <LeagueLeaderCard players={ffLeaders} stat={'ff'}/>
-            <LeagueLeaderCard players={fgLeaders} stat={'fg'}/> */}
+            <LeagueLeaderCard players={fgLeaders} stat={'fg'}/>
         </div>
     )
 }

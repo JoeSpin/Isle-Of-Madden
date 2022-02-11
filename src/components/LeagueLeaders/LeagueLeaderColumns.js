@@ -1,4 +1,7 @@
 export const passingCols = [{
+    Header: 'Name', 
+    accessor: 'fullName'
+},{       
     Header: 'Completions',
     accessor: 'passComp'
 }, {
@@ -10,6 +13,9 @@ export const passingCols = [{
 }]
 
 export const rushingCols = [{
+    Header: 'Name',
+    accessor: 'fullName'
+},{
     Header: 'Attempts',
     accessor: 'rushAtt'
 }, {
@@ -21,6 +27,9 @@ export const rushingCols = [{
 }]
 
 export const receivingCols = [{
+    Header: 'Name', 
+    accessor: 'fullName'
+},{
     Header: 'Catches',
     accessor: 'recCatches'
 }, {
@@ -28,10 +37,13 @@ export const receivingCols = [{
     accessor: 'recYds'
 }, {
     Header: 'Toucdowns',
-    accessor: 'recYds'
+    accessor: 'recTDs'
 }];
 
 export const tackleCols = [{
+    Header: 'Name', 
+    accessor: 'fullName'
+},{
     Header: 'Tackles',
     accessor: 'defTotalTackles'
 }, {
@@ -43,6 +55,9 @@ export const tackleCols = [{
 }]
 
 export const intCols = [{
+    Header: 'Name',
+    accessor: 'fullName'
+},{
     Header: 'Interceptions',
     accessor: 'defInts'
 }, {
@@ -54,17 +69,23 @@ export const intCols = [{
 }]
 
 export const ffCols = [{
+    Header: 'Name',
+    accessor: 'fullName'
+},{
     Header: 'Forced Fumbles',
     accessor: 'defForcedFum'
 }, {
     Header: 'Tackles',
-    accessor: 'defTotalTackles'
+    accessor: 'defTackles'
 }, {
     Header: 'Fumble Recoveries',
     accessor: 'defFumRec'
 }]
 
 export const fgCols = [{
+    Header: 'Name',
+    accessor: 'fullName'
+},{
     Header: 'FG Made',
     accessor: 'fgMade'
 }, {
