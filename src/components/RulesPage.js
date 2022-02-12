@@ -6,7 +6,7 @@ export default function RulesPage() {
   return (
     <>
       <Header active="rules" />
-      <div className="flex flex-col items-center justify-center dark:bg-gray">
+      <div className="flex flex-col items-center justify-center text-center dark:bg-gray">
         <div className="flex flex-col items-center justify-center w-2/3 text-white">
           <h1 className="m-5 text-5xl font-black">Rules and Regulations</h1>
         <h2 className="mb-2 text-3xl font-bold underline">

@@ -64,6 +64,12 @@ export default function HeaderFixed(props) {
             <li className={(active === "players")? `${activeNav}` : `${navlink}`}>
               <a href="/players">PLAYERS</a>
             </li>
+            <li className={(active === 'schedule') ? `${activeNav}`: `${navlink}`}>
+              <a href='/schedule'>SCHEDULE</a>
+            </li>
+            <li className={(active === 'leagueleaders') ? `${activeNav}`: `${navlink}`}>
+              <a href='/leagueleaders'>LEAGUE LEADERS</a>
+            </li>
             <li className={(active === "rules")? `${activeNav}` : `${navlink}`}>
               <a href="/rules">RULES</a>
             </li>

@@ -19,8 +19,12 @@ export default function PlayerCoreAttributes(props) {
         setPlayer(props.player)
         setPosition(props.position);
         
-    }, []); 
-const calcRatingColor = (rating) => {
+    }, [props.player, props.position]); 
+
+
+
+
+    const calcRatingColor = (rating) => {
         if (rating >= 95)
             return '#008450'
         else if (rating < 95 && rating >= 90)
@@ -37,14 +41,20 @@ const calcRatingColor = (rating) => {
             return '#c33c0f'
         else
             return '#b81d13'
-}
+    }
+
+    const containerStyle = "flex flex-wrap content-center justify-center w-full lg:w-7/12";
+    const attributeBorderStyle = "flex flex-col items-center justify-center w-36 m-1 border-2 rounded-2xl border-lightgray";
+    const attributeHeaderStyle = 'text-lg text-center';
+    const attributeNumberStyle = 'flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray';
+
 
     if (position === "QB") { 
         return ( 
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{qbCore.map((attribute) => (
-                    <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                        <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                        <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{qbCore.map((attribute) => (
+                    <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                        <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                        <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                     </div>
                 ))}
                   
@@ -52,10 +62,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "HB"){ 
         return ( 
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{hbCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{hbCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -63,10 +73,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "FB"){ 
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{fbCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{fbCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -74,10 +84,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "TE") { 
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{teCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{teCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -85,10 +95,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "WR"){
         return ( 
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{wrCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{wrCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -96,10 +106,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "LT" || position === "LG" || position === "C" || position === "RG" || position === "RT"){
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{olCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{olCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -107,10 +117,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "LE" || position === "RE"){
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{deCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{deCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -118,10 +128,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "DT"){ 
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{dtCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{dtCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -129,10 +139,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "ROLB" || position === "LOLB"){
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{olbCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{olbCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -140,10 +150,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "MLB"){
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{mlbCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{mlbCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -151,10 +161,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "CB"){ 
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{cbCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{cbCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -162,10 +172,10 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "FS" || position === "SS") {
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{sCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{sCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
@@ -173,14 +183,19 @@ const calcRatingColor = (rating) => {
         )
     }else if (position === "K" || position === "P"){
         return (
-            <div className="flex flex-wrap content-center justify-center w-full lg:w-7/12">{stCore.map((attribute) => (
-                <div className="flex flex-col items-center justify-center w-40 m-1 border-2 rounded-2xl border-lightgray" style={{borderColor:'gray'}}>
-                    <h3 className='text-lg text-center'>{attribute.Header}</h3>  
-                    <p className='flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray' style={{backgroundColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
+            <div className={containerStyle}>{stCore.map((attribute) => (
+                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
+                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
+                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
                 </div>
             ))}
               
         </div>
         )
+    }else {
+        return (
+            <div></div>
+        )
+       
     }
 }

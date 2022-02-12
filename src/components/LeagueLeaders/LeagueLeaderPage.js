@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 export default function LeagueLeaderPage() {
     return (
         <div>
-            <Header />
+            <Header active='leagueleaders'/>
             <LeagueLeaders />
             <Footer />
         </div>

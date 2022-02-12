@@ -9,8 +9,10 @@ function LeagueSchedule(props) {
     const [activeButtonId, setActiveButtonId] = useState(1); 
     const getDefaultWeek = async () => {
         let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/`); 
+        console.log(response.data.weekIndex);
         setGames(response.data.games);
         setWeek(response.data.weekIndex);
+        setActiveButtonId(response.data.weekIndex);
         setLoading(false);
     }
 
@@ -18,6 +20,7 @@ function LeagueSchedule(props) {
         let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${event.target.id}`); 
         setActiveButtonId(response.data.weekIndex);
         setWeek(response.data.weekIndex);
+        setActiveButtonId(response.data.weekIndex);
         setGames(response.data.games); 
  
     }
@@ -147,8 +150,7 @@ function LeagueSchedule(props) {
         <div className='w-1/2 m-auto'>
             <div className="flex flex-row flex-wrap justify-center m-auto">
                 {btnList.map(btn =>{
-                    console.log(btn.id);
-                    console.log(`active: ${activeButtonId}`)
+
                     if (btn.id === activeButtonId){
                         btn.className = activeButtonClass;
                     } 
@@ -177,7 +179,7 @@ function LeagueSchedule(props) {
                                 <h3>{game.awayTeam}</h3>
                             </div>
                             <div className="w-1/5 text-center">
-                                <p>VS</p>
+                                <p>@</p>
                             </div>
                             <div className="w-1/5 text-center">
                                 <h3>{game.homeTeam}</h3>

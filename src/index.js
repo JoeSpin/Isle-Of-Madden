@@ -27,7 +27,7 @@ ReactDOM.render(
     <Route exact path="/schedule">
       <LeagueSchedulePage />
     </Route>
-    <Route exact path ="/player/:rosterId">
+    <Route exact path ="/player/:playerId">
       <PlayerPage key={Date.now()}/>
     </Route>
     <Route exact path="/game/:gameId" >

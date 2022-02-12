@@ -1,10 +1,9 @@
-import axios from 'axios';
-import React, {useState, useEffect} from 'react'; 
+
+import React from 'react'; 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import PlayerCard from '../../components/Player/PlayerCard';
-import PlayerCoreAttributes from '../../components/Player/PlayerCoreAttributes';
-import { useParams } from 'react-router';
+
 
 export default function PlayerPage() { 
 

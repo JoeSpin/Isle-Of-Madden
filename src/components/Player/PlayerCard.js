@@ -13,9 +13,9 @@ export default function PlayerCard(props) {
     const [lowerComponent, setLowerComponent] = useState(""); 
     const [seasonStats, setSeasonStats] = useState(); 
     const [weeklyStats, setWeeklyStats] = useState([]); 
-    let {rosterId} = useParams();
+    let {playerId} = useParams();
     const getData = () => { 
-        axios.get(`https://isle-of-madden-test.herokuapp.com/api/player/${rosterId}`).then(response => {
+        axios.get(`https://isle-of-madden-test.herokuapp.com/api/player/${playerId}`).then(response => {
             if (response.data.player.teamName === "Football Team") { 
                 response.data.player.teamName = 'wft';
             }else if (response.data.player.teamName === null){
@@ -25,16 +25,16 @@ export default function PlayerCard(props) {
             setSeasonStats(response.data.seasonStats);
             setWeeklyStats(response.data.weeklyStats);
             setLoading(false);
-            setLowerComponent(<WeeklyStats position={response.data.player.position} rosterid={response.data.player.rosterId} teamcolor={teamColorCodes[response.data.player.teamName]} weeklystats={response.data.weeklyStats} />)
+            setLowerComponent(<WeeklyStats position={response.data.player.position} playerId={response.data.player.playerId} teamcolor={teamColorCodes[response.data.player.teamName]} weeklystats={response.data.weeklyStats} />)
          })
     }
     useEffect(() => {
         getData();
-    }, [rosterId]);
+    }, [playerId]);
 
     const showWeeklyStats = () => {
         setLowerComponent(
-            <WeeklyStats position={player.position} rosterid={player.rosterId} teamcolor={teamColorCodes[player.teamName]} weeklystats={weeklyStats} />
+            <WeeklyStats position={player.position} playerId={player.playerId} teamcolor={teamColorCodes[player.teamName]} weeklystats={weeklyStats} />
         )
     }
 
@@ -77,7 +77,7 @@ export default function PlayerCard(props) {
                 <div className='flex flex-col items-start justify-center w-1/3 text-xl'>
                     <div className='flex justify-between'>
                         <h5>Team: </h5>
-                        <img src={require(`../../img/logos/${player.teamName.toLowerCase()}.svg`).default} width="40"/>
+                        <img src={require(`../../img/logos/${player.teamName.toLowerCase()}.svg`).default} style={{height: '28px', width: '40px'}}/>
                     </div>
                     <h5>Overall: {player.playerBestOvr}</h5>
                     <h5>Height: {convertHeight(player.height)}</h5>
@@ -87,10 +87,10 @@ export default function PlayerCard(props) {
                 </div>
                 <div className='flex flex-col items-start justify-center w-1/3 text-l'> 
                     <h5>Total Years: {player.contractLength}</h5>
-                    <h5>Total Salary: {calcContract(player.contractSalary)}</h5>
-                    <h5>Bonus: {calcContract(player.contractBonus)}</h5>
+                    <h5>Total Salary: {player.teamId !== 1 ? calcContract(player.contractSalary): '0'}</h5>
+                    <h5>Bonus: {player.teamId !== 1 ? calcContract(player.contractBonus): '0'}</h5>
                     <h5>Years Left: {player.contractYearsLeft}</h5>
-                    <h5>Yearly Salary: {calcContract(calcYearlySalary(player.contractSalary, player.contractLength))}</h5>   
+                    <h5>Yearly Salary: {player.teamId !== 1 ? calcContract(calcYearlySalary(player.contractSalary, player.contractLength)): '0'}</h5>   
                 </div>
                 
             </div>

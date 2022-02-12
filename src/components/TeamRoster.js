@@ -5,7 +5,7 @@ export default function TeamRoster(props) {
     const [data, setData] = useState([]); 
     useEffect(() => { 
         setData(props.data);
-    })
+    }, [props.data])
     return (
         <div className="w-screen">
             <PlayerSearchTable data={data} columns={"Team"} pageSize={10}/>

@@ -1,6 +1,11 @@
+import { Link } from 'react-router-dom';
+
+
 export const passingCols = [{
-    Header: 'Name', 
-    accessor: 'fullName'
+    Header: 'Name',
+    accessor: row => { 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
+    }
 },{       
     Header: 'Completions',
     accessor: 'passComp'
@@ -14,7 +19,9 @@ export const passingCols = [{
 
 export const rushingCols = [{
     Header: 'Name',
-    accessor: 'fullName'
+    accessor: row => { 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
+    }
 },{
     Header: 'Attempts',
     accessor: 'rushAtt'
@@ -28,7 +35,9 @@ export const rushingCols = [{
 
 export const receivingCols = [{
     Header: 'Name', 
-    accessor: 'fullName'
+    accessor: row => { 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
+    }
 },{
     Header: 'Catches',
     accessor: 'recCatches'
@@ -42,7 +51,9 @@ export const receivingCols = [{
 
 export const tackleCols = [{
     Header: 'Name', 
-    accessor: 'fullName'
+    accessor: row => { 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
+    }
 },{
     Header: 'Tackles',
     accessor: 'defTotalTackles'
@@ -56,7 +67,9 @@ export const tackleCols = [{
 
 export const intCols = [{
     Header: 'Name',
-    accessor: 'fullName'
+    accessor: row => { 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
+    }
 },{
     Header: 'Interceptions',
     accessor: 'defInts'
@@ -70,13 +83,15 @@ export const intCols = [{
 
 export const ffCols = [{
     Header: 'Name',
-    accessor: 'fullName'
+    accessor: row => { 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
+    }
 },{
     Header: 'Forced Fumbles',
     accessor: 'defForcedFum'
 }, {
     Header: 'Tackles',
-    accessor: 'defTackles'
+    accessor: 'defTotalTackles'
 }, {
     Header: 'Fumble Recoveries',
     accessor: 'defFumRec'
@@ -84,7 +99,9 @@ export const ffCols = [{
 
 export const fgCols = [{
     Header: 'Name',
-    accessor: 'fullName'
+    accessor: row => { 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
+    }
 },{
     Header: 'FG Made',
     accessor: 'fgMade'

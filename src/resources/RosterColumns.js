@@ -1,11 +1,10 @@
-import react from 'react';
 import { convertTrait, convertHeight } from './ColumnAccessorFunctions';
 import { Link } from 'react-router-dom';
 
 export const defaultColumns = [{
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 }, {
     Header: 'Position',
@@ -13,7 +12,7 @@ export const defaultColumns = [{
 }, {
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Dev Trait',
@@ -46,7 +45,7 @@ export const defaultColumns = [{
 export const qbColumns = [{
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 }, {
     Header: 'Dev Trait',
@@ -56,7 +55,7 @@ export const qbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -111,7 +110,7 @@ export const qbColumns = [{
 export const hbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 }, {
     Header: 'Dev Trait',
@@ -121,7 +120,7 @@ export const hbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -183,7 +182,7 @@ export const hbColumns = [{
 export const fbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 },{
     Header: 'Dev Trait',
@@ -193,7 +192,7 @@ export const fbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -255,7 +254,7 @@ export const fbColumns = [{
 export const teColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 },{
     Header: 'Dev Trait',
@@ -265,7 +264,7 @@ export const teColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -332,7 +331,7 @@ export const teColumns = [{
 export const wrColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 },{
     Header: 'Dev Trait',
@@ -342,7 +341,7 @@ export const wrColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -397,7 +396,7 @@ export const wrColumns = [{
 export const olColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 },{
     Header: 'Dev Trait',
@@ -410,7 +409,7 @@ export const olColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -463,12 +462,12 @@ export const olColumns = [{
 export const dlColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Dev Trait',
@@ -532,12 +531,12 @@ export const dlColumns = [{
 export const deColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Dev Trait',
@@ -601,7 +600,7 @@ export const deColumns = [{
 export const olbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Dev Trait',
@@ -611,7 +610,7 @@ export const olbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -675,7 +674,7 @@ export const olbColumns = [{
 export const mlbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Dev Trait',
@@ -685,7 +684,7 @@ export const mlbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -748,7 +747,7 @@ export const mlbColumns = [{
 export const lbColumns = [{
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Dev Trait',
@@ -761,7 +760,7 @@ export const lbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -823,7 +822,7 @@ export const lbColumns = [{
 export const cbColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Dev Trait',
@@ -833,7 +832,7 @@ export const cbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -889,7 +888,7 @@ export const cbColumns = [{
 export const sColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Dev Trait',
@@ -899,7 +898,7 @@ export const sColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -956,7 +955,7 @@ export const sColumns = [{
 export const dbColumns = [{
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Dev Trait',
@@ -969,7 +968,7 @@ export const dbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -1030,7 +1029,7 @@ export const dbColumns = [{
 export const stColumns = [{ 
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link> 
     }
 },{
     Header: 'Dev Trait',
@@ -1040,7 +1039,7 @@ export const stColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamName}`;
+        return `${row.teamname}`;
     }   
 },{
     Header: 'Age',
@@ -1094,7 +1093,7 @@ export const stColumns = [{
 export const TeamRosterColumns = [{
     Header: 'Name',
     accessor: row => { 
-        return <Link to={`/player/${row.rosterId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
+        return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.firstName} ${row.lastName}`}</Link>
     }
 }, {
     Header: 'Position',

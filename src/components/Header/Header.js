@@ -71,6 +71,9 @@ export default function Header(props) {
             <li className={(props.active === 'schedule') ? `${activeNav}`: `${navlink}`}>
               <a href='/schedule'>SCHEDULE</a>
             </li>
+            <li className={(props.active === 'leagueleaders')? `${activeNav}` : `${navlink}`}>
+              <a href='/leagueleaders'>LEAGUE LEADERS</a>
+            </li>
             <li className={(props.active === "rules")? `${activeNav}` : `${navlink}`}>
               <a href="/rules">RULES</a>
             </li>
