@@ -57,10 +57,10 @@ export default function LeagueLeaderCard(props) {
 
 
     return (
-        <div className='flex flex-col w-full lg:w-1/2 dark:text-white '>
-            <div className='w-10/12'>
+        <div className='flex flex-col w-full lg:w-1/2 dark:text-white'>
+            <div className='w-full'>
             <h1 className='text-center bg-purple'>{title}</h1>
-            <table {...getTableProps()} className="block w-full overflow-x-scroll md:w-full lg:table lg:w-full">
+            <table {...getTableProps()} className="w-4/5 overflow-x-scroll lg:table" style={{marginLeft: '10%', marginRight: '10%'}}>
                 <thead>
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>

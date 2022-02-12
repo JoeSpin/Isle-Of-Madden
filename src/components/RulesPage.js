@@ -13,7 +13,7 @@ export default function RulesPage() {
             SECTION 1 - BASICS
           </h2>
         <div className="flex flex-col flex-wrap items-center justify-center">
-          <div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          <div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 1 - MEMBERSHIP</h3>
           <p>Roles &amp; Responsibilities</p>
           <p>The league will be constituted as follows:</p>
@@ -30,14 +30,14 @@ export default function RulesPage() {
             Team Coach &nbsp;(Quantity: 27) - Follow the rules and guidelines in
             this document. Be awesome.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 2 - JOINING</h3>
           <p>
             Isle of Madden &rsquo;s waitlist is not guaranteed to be cleared via
             seniority. When filling spots, we will take into consideration the
             following: Chat activity, previous CFM experience, references, etc.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 3 - TRANSPARENCY</h3>
           <p>
             It is the opinion of the league&rsquo;s forming body that league
@@ -49,7 +49,7 @@ export default function RulesPage() {
             Any edits to players by in-game admins will be recorded and posted
             to #record-keeping to ensure complete transparency.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 4 - RULE CHANGES</h3>
           <p>
             We want to allow the league to have a choice in its own direction
@@ -76,7 +76,7 @@ export default function RulesPage() {
             SECTION 2 - CODE OF CONDUCT
           </h2>
         <div className="flex flex-col flex-wrap items-center justify-center">
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 1 - REPORTING</h3>
           <p>
             Anyone can report a player for breaking a league rule using{" "}
@@ -98,7 +98,7 @@ export default function RulesPage() {
             notice if that is the case and be allowed to resubmit with
             appropriate information.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 2 - GENERAL CONDUCT</h3>
           <p>
             Friendly trash talk and back and forth conversations about games
@@ -123,7 +123,7 @@ export default function RulesPage() {
             Actions done in other leagues will be held against you in the Isle
             of Madden. Please act appropriately while in other Discords.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 3 - PENALTIES</h3>
           <p>GENERAL CONDUCT</p>
           <p>
@@ -165,7 +165,7 @@ export default function RulesPage() {
             All warnings and formal suspensions will be posted in our discipline
             channel so the entire league can see these updates.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 4 - APPEALS PROCESS</h3>
           <p>
             There is a hope that a thorough review process by Admins yields fair
@@ -179,7 +179,7 @@ export default function RulesPage() {
             A result will be returned within a day. Methods for returning a
             judgment can include league vote or admin vote.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 5 - SCHEDULING</h3>
           <p>Advance Schedule: Tuesday, Thursday and Sunday @ 11:59 PM EST</p>
           <p>
@@ -223,7 +223,7 @@ export default function RulesPage() {
             SECTION 3 - GAMEPLAY RULES
           </h2>
         <div className="flex flex-col flex-wrap items-center justify-center">
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 1 - GENERAL</h3>
           <p>STREAMING</p>
           <p>
@@ -250,7 +250,7 @@ export default function RulesPage() {
             behavior may be reversed if the admin team deems it appropriate.
           </p>
           <p>&nbsp;</p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 2 - PLAYCALLING</h3>
           <p>OFFENSE</p>
           <p>
@@ -459,7 +459,7 @@ export default function RulesPage() {
             If either team objects to the contrast of the jerseys they must say
             so before the opening drive.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 3 - DISCONNECTS</h3>
           <p>We want coaches to work disconnects out.</p>
           <p>
@@ -471,7 +471,7 @@ export default function RulesPage() {
             SECTION 4 - TEAM MANAGEMENT
           </h2>
         <div className="flex flex-col flex-wrap items-center justify-center">
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 1 - TRADE COMMITTEE</h3>
           <p>
             The TC&rsquo;s goals when approving trades will be to ensure league
@@ -489,7 +489,7 @@ export default function RulesPage() {
             members to expand knowledge of roster management league-wide and
             increase the future likelihood of roster parity.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 2 - ROSTER /COORDINATOR MANAGEMENT</h3>
           <p>
             Each team must maintain a 5 2-man roster by Week One of the regular
@@ -522,7 +522,7 @@ export default function RulesPage() {
             carryover.
           </p>
           <p>*A player may only be re-rolled once per Madden.</p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 3 - POSITION CHANGES</h3>
           <p>Upgrade to Superstar by overall</p>
           <p>
@@ -610,7 +610,7 @@ export default function RulesPage() {
             specific criteria will be subject to discipline. If you are unsure,
             check with an admin.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 4 - TRADE RULES</h3>
           <p>Trades are submitted using this google form.</p>
           <p>
@@ -663,7 +663,7 @@ export default function RulesPage() {
             may not lie or knowingly present false information in negotiations.
             Penalties for doing so will be harsh.
           </p>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 5 - FREE AGENCY</h3>
           <p>
             Limited to 2 FA pickups a week during the regular season -
@@ -738,7 +738,7 @@ export default function RulesPage() {
               ask an admin.
             </li>
           </ul>
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 6 - DRAFT</h3>
           <p>
             Coaches are given 30 seconds per pick for rounds 4-7. If no pick is
@@ -751,7 +751,7 @@ export default function RulesPage() {
             SECTION 5. SETTINGS &amp; SLIDERS
           </h2>
         <div className="flex flex-col flex-wrap items-center justify-center">
-          </div><div className="w-1/2 m-5 border-2 border-white rounded-sm">
+          </div><div className="w-full m-2 border-2 border-white rounded-sm">
           <h3>ARTICLE 1 - SETTINGS</h3>
           <p>The most &nbsp;Up to date Roster will be used</p>
           <p>&nbsp;</p>

@@ -7,13 +7,13 @@ export const passingCols = [{
         return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
     }
 },{       
-    Header: 'Completions',
+    Header: 'Comp',
     accessor: 'passComp'
 }, {
-    Header: 'Yards',
+    Header: 'Yds',
     accessor: 'passYds'
 }, {
-    Header: 'Touchdowns',
+    Header: 'TDs',
     accessor: 'passTDs'
 }]
 
@@ -23,13 +23,13 @@ export const rushingCols = [{
         return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
     }
 },{
-    Header: 'Attempts',
+    Header: 'Att',
     accessor: 'rushAtt'
 }, {
-    Header: 'Yards',
+    Header: 'Yds',
     accessor: 'rushYds'
 }, {
-    Header: 'Touchdowns',
+    Header: 'TDs',
     accessor: 'rushTDs'
 }]
 
@@ -39,13 +39,13 @@ export const receivingCols = [{
         return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
     }
 },{
-    Header: 'Catches',
+    Header: 'Rec',
     accessor: 'recCatches'
 }, {
-    Header: 'Yards',
+    Header: 'Yds',
     accessor: 'recYds'
 }, {
-    Header: 'Toucdowns',
+    Header: 'TDs',
     accessor: 'recTDs'
 }];
 
@@ -55,10 +55,10 @@ export const tackleCols = [{
         return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
     }
 },{
-    Header: 'Tackles',
+    Header: 'Tkl',
     accessor: 'defTotalTackles'
 }, {
-    Header: 'Forced Fumbles',
+    Header: 'FF',
     accessor: 'defForcedFum'
 }, {
     Header: 'Sacks',
@@ -71,13 +71,13 @@ export const intCols = [{
         return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
     }
 },{
-    Header: 'Interceptions',
+    Header: 'INTs',
     accessor: 'defInts'
 }, {
-    Header: 'Deflections',
+    Header: 'Def',
     accessor: 'defDeflections'
 }, {
-    Header: 'Touchdowns',
+    Header: 'TDs',
     accessor: 'defTDs'
 }]
 
@@ -87,13 +87,13 @@ export const ffCols = [{
         return <Link to={`/player/${row.playerId}`} className="underline hover:text-purple">{`${row.fullName}`}</Link>
     }
 },{
-    Header: 'Forced Fumbles',
+    Header: 'FF',
     accessor: 'defForcedFum'
 }, {
-    Header: 'Tackles',
+    Header: 'Tkl',
     accessor: 'defTotalTackles'
 }, {
-    Header: 'Fumble Recoveries',
+    Header: 'FR',
     accessor: 'defFumRec'
 }]
 

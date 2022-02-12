@@ -12,7 +12,7 @@ export default function Header(props) {
 
 
 
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300`;
+  const genericHamburgerLine = `h-2 w-10 my-1 rounded-full bg-white transition ease transform duration-300`;
   const navlink = `text-base transition-colors duration-500 ease-in lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-purple ${isOpen ? "text-5xl text-center py-2" : ""}`;
   const activeNav = `text-base transition-colors duration-500 ease-in text-purple lg:mx-5 md:mx-2 md:px-2 lg:px-5 lg:text-xl hover:text-white ${isOpen ? "text-5xl text-center py-2" : ""}`;
   return (
@@ -31,19 +31,19 @@ export default function Header(props) {
             <div
               className={`${genericHamburgerLine} ${
                 isOpen
-                  ? "rotate-45 translate-y-3 opacity-50 group-hover:opacity-100"
+                  ? "rotate-45 translate-y-2 opacity-50 group-hover:opacity-100"
                   : "opacity-50 group-hover:opacity-100"
               }`}
             />
             <div
               className={`${genericHamburgerLine} ${
-                isOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"
+                isOpen ? "hidden" : "opacity-50 group-hover:opacity-100"
               }`}
             />
             <div
               className={`${genericHamburgerLine} ${
                 isOpen
-                  ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100"
+                  ? "-rotate-45 -translate-y-2 opacity-50 group-hover:opacity-100"
                   : "opacity-50 group-hover:opacity-100"
               }`}
             />

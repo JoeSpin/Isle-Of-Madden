@@ -35,7 +35,7 @@ export default function LeagueLeaders(){
     }
 
     return (
-        <div className='flex flex-cols flex-wrap w-3/6' style={{marginLeft: 'auto', marginRight: 'auto'}}>
+        <div className='flex flex-wrap items-center justify-center flex-cols'>
             <LeagueLeaderCard players={passingLeaders} stat={'passing'}/> 
             <LeagueLeaderCard players={rushingLeaders} stat={'rushing'}/>
             <LeagueLeaderCard players={receivingLeaders} stat={'receiving'}/>
