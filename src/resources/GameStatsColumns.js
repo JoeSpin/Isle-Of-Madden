@@ -13,6 +13,9 @@ export const qbGameColumns = [{
 }, {
     Header: 'Yds',
     accessor: 'passYds'
+},{
+    Header: 'TDs',
+    accessor: 'passTDs'
 }, { 
     Header: 'Ints',
     accessor: 'passInts'
