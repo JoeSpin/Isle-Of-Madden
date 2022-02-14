@@ -43,7 +43,7 @@ export default function TeamListCards() {
   const teamLabel ='flex text-center dark:text-white text-black font-base text-sm lg:font-bold'
   return (
     <div className="flex w-screen">
-    <div className="flex flex-col items-center justify-around w-1/2 lg:items-start lg:flex-row dark:bg-gray">
+    <div className="flex flex-col items-center justify-around w-1/2 lg:h-screen lg:items-start lg:flex-row dark:bg-gray">
       <div id="nfc-north" className="flex flex-col w-3/4 md:w-2/3 h-3/4screen lg:w-1/5">
         <div><h2 className="pt-5 text-2xl dark:text-white font-semi-bold">NFC North</h2></div>
       <div className={`${defaultTeamCard}`}>
