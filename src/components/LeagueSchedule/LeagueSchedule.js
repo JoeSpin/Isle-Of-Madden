@@ -17,11 +17,23 @@ function LeagueSchedule(props) {
     }
 
     const getCustomWeek = async (event) => {
-        let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${event.target.id}`); 
-        setActiveButtonId(response.data.weekIndex);
-        setWeek(response.data.weekIndex);
-        setActiveButtonId(response.data.weekIndex);
-        setGames(response.data.games); 
+        if (event === 'dropdown') {
+            let dropdownEl = document.querySelector("#weekDropdown");
+            let weekIndex = dropdownEl.options[dropdownEl.selectedIndex].value; 
+            let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${weekIndex}`)
+            setActiveButtonId(response.data.weekIndex);
+            setWeek(response.data.weekIndex);
+            setActiveButtonId(response.data.weekIndex);
+            setGames(response.data.games); 
+        }else {
+            let weekIndex = event.target.id; 
+            let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${weekIndex}`); 
+            setActiveButtonId(response.data.weekIndex);
+            setWeek(response.data.weekIndex);
+            setActiveButtonId(response.data.weekIndex);
+            setGames(response.data.games); 
+        }
+        
  
     }
 
@@ -147,8 +159,22 @@ function LeagueSchedule(props) {
     }
 
     return (
-        <div className='w-1/2 m-auto'>
-            <div className="flex flex-row flex-wrap justify-center m-auto">
+        <div className='lg:w-1/2 m-auto'>
+            <div className='flex visible lg:hidden'>
+                <select onChange={event => getCustomWeek('dropdown')} id='weekDropdown' className='m-auto'>
+                    {btnList.map(btn => {
+                        if (btn.id === activeButtonId){
+                            return <option value={btn.id} selected={true}>{btn.title}</option>
+                        }else {
+                            return <option value={btn.id}>{btn.title}</option>
+                        }
+                    
+                        
+                        
+                    })}
+                </select>
+            </div>
+            <div className="flex flex-row flex-wrap justify-center m-auto hidden lg:flex">
                 {btnList.map(btn =>{
 
                     if (btn.id === activeButtonId){
@@ -173,18 +199,18 @@ function LeagueSchedule(props) {
                 return (
                         <div className="flex flex-row bg-white bg-opacity-10 rounded m-auto py-2 hover:bg-purple hover:bg-opacity-100 dark:text-white">
                             <div className="w-1/5 text-center ">
-                                <h2>{game.awayScore}</h2>
+                                <h2 className='ml-3'>{game.awayScore}</h2>
                             </div>
-                            <div className="w-1/5 text-center">
+                            <div className="w-1/5 text-center pl-3">
                                 <h3>{game.awayTeam}</h3>
                             </div>
                             <div className="w-1/5 text-center">
                                 <p>@</p>
                             </div>
-                            <div className="w-1/5 text-center">
-                                <h3>{game.homeTeam}</h3>
+                            <div className="w-1/5 text-center ">
+                                <h3 className='mr-3'>{game.homeTeam}</h3>
                             </div>
-                            <div className="w-1/5 text-center">
+                            <div className="w-1/5 text-center ">
                                 <h2>{game.homeScore}</h2>
                             </div>
                         </div>
