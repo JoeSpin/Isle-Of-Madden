@@ -55,15 +55,15 @@ module.exports = {
       ...theme('colors'),
       'black': '#000000',
      }), 
-    opacity: {
-      '10': .10
-    }
+
   },
   variants: {
     extend: {
       translate: ['active', 'group-hover'],
       rotate: ['active', 'group-hover'],
       transform: ['active', 'group-hover'],
+      display: ["group-hover"],
+      visibility: ["group-hover"],
     },
   },
   plugins: [],

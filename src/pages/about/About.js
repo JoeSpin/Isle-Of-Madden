@@ -5,7 +5,7 @@ import Footer from "../../components/Footer/Footer";
 function About() {
   return(
     <>
-    <Header active="about"/>
+    <Header active="info"/>
     <div className="w-screen dark:bg-gray">
   <div className="flex flex-col items-center justify-between w-screen dark:bg-gray">
     <div className="flex flex-col items-center justify-center w-2/3 text-semibold dark:text-white md:w-1/2 dark:bg-gray center">

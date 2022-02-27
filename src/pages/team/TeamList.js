@@ -5,11 +5,11 @@ import TeamListCards from "../../components/TeamListCards";
 
 function TeamPage() {
   return(
-  <>
+  <div className="h-screen xl:h-full">
     <Header active="teams"/>
     <TeamListCards />
     <Footer />
-  </>
+  </div>
   )
 }
 
