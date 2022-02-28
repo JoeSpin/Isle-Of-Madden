@@ -35,7 +35,7 @@ const navLink = `text-4xl text-white font-bold`;
 				</li>
 			</ul> 
 		</div>
-		<button className="flex flex-col items-center justify-center w-16 h-16 rounded-full group" onClick={() => setIsOpen(!isOpen)}>
+		<button className="flex flex-col items-center justify-center w-16 h-16 bg-opacity-50 border-4 border-black border-opacity-50 rounded-full group" onClick={() => setIsOpen(!isOpen)}>
             <div className={`${hamburgerLine} ${isOpen ? "rotate-45 translate-y-1.5" : ""}`}/>
             <div className={`${hamburgerLine} ${isOpen ? "hidden" : ""}`}/>
             <div className={`${hamburgerLine} ${isOpen ? "-rotate-45 -translate-y-1.5 " : ""}`}/>

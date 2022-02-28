@@ -159,7 +159,7 @@ function LeagueSchedule(props) {
     }
 
     return (
-        <div className='lg:w-1/2 m-auto'>
+        <div className='m-auto lg:w-1/2'>
             <div className='flex visible lg:hidden'>
                 <select onChange={event => getCustomWeek('dropdown')} id='weekDropdown' className='m-auto'>
                     {btnList.map(btn => {
@@ -174,7 +174,7 @@ function LeagueSchedule(props) {
                     })}
                 </select>
             </div>
-            <div className="flex flex-row flex-wrap justify-center m-auto hidden lg:flex">
+            <div className="flex-row flex-wrap justify-center hidden m-auto lg:flex">
                 {btnList.map(btn =>{
 
                     if (btn.id === activeButtonId){
@@ -194,14 +194,14 @@ function LeagueSchedule(props) {
                     )
                 })}
             </div>
-            <h1 className="text-center text-3xl dark:text-white">Week {week}</h1>
+            <h1 className="text-3xl text-center dark:text-white">Week {week}</h1>
             {games.map(game=> {
                 return (
-                        <div className="flex flex-row bg-white bg-opacity-10 rounded m-auto py-2 hover:bg-purple hover:bg-opacity-100 dark:text-white">
+                        <div className="flex flex-row py-2 m-auto bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100 dark:text-white">
                             <div className="w-1/5 text-center ">
                                 <h2 className='ml-3'>{game.awayScore}</h2>
                             </div>
-                            <div className="w-1/5 text-center pl-3">
+                            <div className="w-1/5 pl-3 text-center">
                                 <h3>{game.awayTeam}</h3>
                             </div>
                             <div className="w-1/5 text-center">

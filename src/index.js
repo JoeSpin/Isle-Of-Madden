@@ -10,7 +10,6 @@ import RulesPage from './components/RulesPage';
 import About from './pages/about/About';
 import LeagueSchedulePage from './pages/LeagueSchedule/LeagueSchedulePage'
 import GameStatsPage from './pages/GameStatsPage';
-import PlayerCard from './components/Player/PlayerCard';
 import PlayerPage from './pages/player/PlayerPage';
 import StandingsPage from './components/Standings/StandingsPage';
 import LeagueLeaderPage from './components/LeagueLeaders/LeagueLeaderPage';

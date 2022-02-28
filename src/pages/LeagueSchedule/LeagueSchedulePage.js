@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, {useState } from 'react'; 
 import Footer from '../../components/Footer/Footer';
-import HeaderFixed from '../../components/Header/HeaderFixed';
 import Header from '../../components/Header/Header';
 import LeagueSchedule from '../../components/LeagueSchedule/LeagueSchedule';
 
