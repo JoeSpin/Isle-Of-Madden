@@ -61,11 +61,11 @@ export default function PlayerCard(props) {
 
 
     if (loading) {
-        return <div className="py-16 text-5xl font-extrabold text-center App dark:bg-gray dark:text-white">Loading...</div>;
+        return <div className="py-16 text-5xl font-extrabold text-center App bg-gray text-white">Loading...</div>;
       }
    
     return (
-        <div className="flex flex-col items-center dark:bg-gray dark:text-white">
+        <div className="flex flex-col items-center bg-gray text-white">
             <div style={{backgroundColor: teamColorCodes[player.teamName]}} className="flex flex-wrap w-full lg:w-1/2 p-2 text-white rounded-3xl" style={{backgroundColor: teamColorCodes[player.teamName]}}>
                 <div className='flex flex-col items-center justify-center w-1/3'>
                 <div className='m-2 rounded-t-full bg-gray'>

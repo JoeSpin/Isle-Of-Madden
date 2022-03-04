@@ -93,7 +93,7 @@ function PlayerSearchTable(props){
                    <tr {...headerGroup.getHeaderGroupProps()} className="playerSearchTableRow">
                        {
                            headerGroup.headers.map( column => (
-                               <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-opacity-30 bg-gray dark:text-white">{column.render('Header')}</th>
+                               <th {...column.getHeaderProps(column.getSortByToggleProps())} className="bg-opacity-30 bg-gray text-white">{column.render('Header')}</th>
                            ))
                        }
                </tr>
@@ -103,7 +103,7 @@ function PlayerSearchTable(props){
               {page.map((row) => {
                   prepareRow(row);
                   return ( 
-                      <tr {...row.getRowProps()} className="dark:text-white">
+                      <tr {...row.getRowProps()} className="text-white">
                       {row.cells.map((cell) => {
                           return <td {...cell.getCellProps()} className="text-center">{cell.render('Cell')}</td>
                       })}
@@ -113,7 +113,7 @@ function PlayerSearchTable(props){
            </tbody>
        </table>
         <div className="flex flex-col items-center">
-              <span className="h-full pt-5 dark:text-white">Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
+              <span className="h-full pt-5 text-white">Page{" "}<strong>{state.pageIndex + 1} of {pageOptions.length}</strong></span>
               <div>
               <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">{"First"}</button>
               <button onClick={previousPage} value="<" disabled={!canPreviousPage} className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">{"Previous"}</button>

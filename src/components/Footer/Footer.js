@@ -13,7 +13,7 @@ const navLink = `text-4xl text-white font-bold`;
     setActive(props.active);
   }, [props.active])
     return (
-		<div className="flex items-center justify-center">
+		<div className="flex items-center justify-center bg-gray">
 		<div className={`z-50 bg-purple xl:hidden ${isOpen ? "h-screen w-screen fixed left-0 top-0 overflow-hidden flex flex-col justify-between items-center bg-purple opacity-100" : "w-16 h-16 rounded-full fixed bottom-5"}`}>
 		<div className={`${isOpen ? "flex justify-around items-center text-center flex-col h-full " : "hidden"}`}>
 			<div><a href="/" className={navLink}>HOME</a></div>

@@ -36,7 +36,7 @@ export default function LeagueStandings() {
 
 
      if (isLoading) {
-        return <div className="py-16 text-5xl font-extrabold text-center App dark:bg-gray dark:text-white">Loading...</div>;
+        return <div className="py-16 text-5xl font-extrabold text-center App bg-gray text-white">Loading...</div>;
       }
 
     return ( 

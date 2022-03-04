@@ -15,6 +15,9 @@ export default function TeamCard(props) {
   const [teamComponent, setTeamComponent] = useState("");
   const [roster, setRoster] = useState([]); 
   const { tn } = useParams();
+  const navContainer = `px-5 py-3 mx-3 my-2 text-white duration-500 transition-border ease-in-out hover:border-white border-4 rounded-xl border-purple`;
+  const navLink = `text-xl font-bold cursor-pointer`;
+  const navActive = `text-white text-xl font-bold border-purple border-4 rounded-xl px-5 py-3`;
 
   const showTeamRoster = () => {
     setTeamComponent(<TeamRoster data={roster}/>)
@@ -38,7 +41,7 @@ export default function TeamCard(props) {
     });
   }, [tn]);
   if (isLoading) {
-    return <div className="py-16 text-5xl font-extrabold text-center App dark:bg-gray dark:text-white">Loading...</div>;
+    return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
   }
 
   const calcCap = (capAvail) => {
@@ -65,10 +68,10 @@ export default function TeamCard(props) {
 
 
   return (
-    <div className="flex justify-center py-6 App dark:bg-gray dark:text-white">
+    <div className="flex justify-center py-6 text-white App bg-gray">
       <div id="body" className="flex flex-col items-center md:w-full">
         <div style={{borderColor: colors[team.teamName]}} className="w-4/5 border-8 md:w-3/5 rounded-3xl">
-        <div id="teamcard" style={{backgroundColor: colors[team.teamName]}} className="flex flex-col items-center m-2 text-white rounded-xl">
+        <div id="teamcard" style={{backgroundColor: colors[team.teamName]}} className="flex flex-col items-center py-5 m-2 text-white rounded-xl">
           <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-32 p-3" />
           <h1 className="w-full text-2xl font-black text-center">{team.cityName} {team.teamName}</h1>
           <CoachCard />
@@ -80,14 +83,14 @@ export default function TeamCard(props) {
         </div>
         <div id="teamlinks">
           <ul id="navigation" className="flex items-center justify-center pt-5 font-black">
-          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">
-          <a onClick={showTeamSchedule}>SCHEDULE</a>
+          <li className={navContainer}>
+          <a className={navLink} onClick={showTeamSchedule}>SCHEDULE</a>
           </li>
-          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">
-          <a onClick={showTeamRoster}>ROSTER</a>
+          <li className={navContainer}>
+          <a className={navLink} onClick={showTeamRoster}>ROSTER</a>
           </li>
-          <li className="px-3 mx-2 text-xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl">
-          <a onClick={showTeamStats}>STATS</a>
+          <li className={navContainer}>
+          <a className={navLink} onClick={showTeamStats}>STATS</a>
           </li>
           </ul>
         </div>

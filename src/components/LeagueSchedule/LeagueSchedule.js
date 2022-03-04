@@ -155,7 +155,7 @@ function LeagueSchedule(props) {
 
 
     if (loading) {
-        return <div className="py-16 text-5xl font-extrabold text-center App dark:bg-gray dark:text-white">Loading...</div>;
+        return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
     }
 
     return (
@@ -194,10 +194,10 @@ function LeagueSchedule(props) {
                     )
                 })}
             </div>
-            <h1 className="text-3xl text-center dark:text-white">Week {week}</h1>
+            <h1 className="text-3xl text-center text-white">Week {week}</h1>
             {games.map(game=> {
                 return (
-                        <div className="flex flex-row py-2 m-auto bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100 dark:text-white">
+                        <div className="flex flex-row py-2 m-auto text-white bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100">
                             <div className="w-1/5 text-center ">
                                 <h2 className='ml-3'>{game.awayScore}</h2>
                             </div>

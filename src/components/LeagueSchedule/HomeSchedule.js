@@ -51,7 +51,7 @@ function HomeSchedule(props) {
 
 
     if (loading) {
-        return <div className="py-16 text-5xl font-extrabold text-center App dark:bg-gray dark:text-white">Loading...</div>;
+        return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
     }
 
     const getLogo = (teamn) => {
@@ -66,11 +66,11 @@ function HomeSchedule(props) {
 
     return (
         <div className='flex flex-col items-center justify-center w-full'>
-            <img src={logo} className="w-32 h-32 m-4"></img>
-            <h1 className="text-3xl text-center dark:text-white">Welcome to Isle of Madden<br/>Week {week}</h1>
+            <img src={logo} className="w-32 h-32 m-4 lg:hidden"></img>
+            <h1 className="mt-5 text-3xl font-bold text-center text-white">Welcome to Isle of Madden<br/>Week {week}</h1>
             {games.map(game=> {
                 return (
-                        <div className="flex justify-center w-full m-2 lg:w-1/2 bg-gray dark:text-white">
+                        <div className="flex justify-center w-full m-5 text-white lg:w-1/2 bg-gray">
                             <div className='flex items-center justify-center w-1/3 border-8 rounded-l-3xl border-purple'>
                             <div className="flex flex-col items-center justify-center w-full p-2 mt-4 mb-4 ml-4 text-center rounded-l-3xl" style={{backgroundColor: colors[game.awayTeam]}}>
                                 <div className='flex items-center justify-center w-24 h-24'>

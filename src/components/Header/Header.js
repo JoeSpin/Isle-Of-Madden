@@ -51,7 +51,7 @@ export default function Header(props) {
   }, [props.active])
 
   return (
-    <div className="flex-col items-center justify-center hidden w-full xl:flex">
+    <div className="flex-col items-center justify-center hidden w-full xl:flex bg-gray">
       <div className="m-5 w-36">
         <img src={logo}></img>
       </div>

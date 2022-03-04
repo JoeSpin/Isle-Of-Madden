@@ -75,13 +75,13 @@ function PlayerSearch(){
 
 
     return ( 
-        <div className="overflow-x-hidden dark:bg-gray">
+        <div className="overflow-x-hidden bg-gray">
         <div className="flex justify-center py-3">
         <form className="flex flex-col md:flex-row"> 
-            <label className="font-semibold py-1 dark:text-white">Name: 
+            <label className="font-semibold py-1 text-white">Name: 
                 <input type="text" placeholder="Enter name" name="nameSubmit" onChange={e => updateSearchName(e)} className="mx-3 text-black border-2 rounded-md" />
             </label>
-            <label className="py-1 dark:text-white">Position: 
+            <label className="py-1 text-white">Position: 
                 <select id="positionSelect" name="positionSelect" onChange={e => updatePositionSelect(e)} className="mx-3 text-black">
                     <option value="Any">Any</option>
                     <optgroup label="Grouped Positions"> 
@@ -116,7 +116,7 @@ function PlayerSearch(){
                     </optgroup>
                 </select>
             </label>
-            <label className="py-1 dark:text-white">Team:
+            <label className="py-1 text-white">Team:
                 <select id="teamSelect" name="teamSelect" onChange={e => updateTeamSelect(e)} className="mx-3 text-black">
                     <option value="Any">Any</option>
                     <option value="980680711">ARI</option>

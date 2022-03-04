@@ -25,7 +25,7 @@ export default function TeamSchedule(props) {
                     index++ 
                     return ( 
                        <Link to={`/game/${week.scheduleId}`}>
-                        <div className="flex flex-row bg-white bg-opacity-10 rounded m-2 py-2 hover:bg-purple hover:bg-opacity-100">
+                        <div className="flex flex-row py-2 m-2 bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100">
                                 <div className="w-1/5 text-center ">
                                     <h2>{week.awayScore}</h2>
                                 </div>
@@ -48,11 +48,11 @@ export default function TeamSchedule(props) {
                     index+= 2; 
                     return (
                     <div>
-                        <div className="bg-gray bg-opacity-10 rounded m-2 py-2">
+                        <div className="py-2 m-2 rounded bg-gray bg-opacity-10">
                             <h3 className="text-center">BYE</h3>
                         </div>
                         <Link to={`/game/${week.scheduleId}`}>
-                            <div className="flex flex-row bg-white bg-opacity-10 rounded m-2 py-2 hover:bg-purple hover:bg-opacity-100">
+                            <div className="flex flex-row py-2 m-2 bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100">
                                     <div className="w-1/5 text-center ">
                                         <h2>{week.awayScore}</h2>
                                     </div>
