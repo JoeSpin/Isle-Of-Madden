@@ -14,6 +14,11 @@ export default function PlayerCard(props) {
     const [seasonStats, setSeasonStats] = useState(); 
     const [weeklyStats, setWeeklyStats] = useState([]); 
     let {playerId} = useParams();
+
+    const setTitle = (fn, ln, ovr, pos) => {
+        document.title(`Isle of Madden - ${fn} ${ln} - ${pos} ${ovr}OVR`)
+    }
+
     const getData = () => { 
         axios.get(`https://isle-of-madden-test.herokuapp.com/api/player/${playerId}`).then(response => {
             if (response.data.player.teamName === "Football Team") { 
@@ -26,6 +31,7 @@ export default function PlayerCard(props) {
             setWeeklyStats(response.data.weeklyStats);
             setLoading(false);
             setLowerComponent(<WeeklyStats position={response.data.player.position} playerId={response.data.player.playerId} teamcolor={teamColorCodes[response.data.player.teamName]} weeklystats={response.data.weeklyStats} />)
+            document.title = `IoM - ${response.data.player.firstName} ${response.data.player.lastName} - ${response.data.player.position} ${response.data.player.playerBestOvr}`;
          })
     }
     useEffect(() => {
@@ -59,14 +65,13 @@ export default function PlayerCard(props) {
         }
 
 
-
     if (loading) {
-        return <div className="py-16 text-5xl font-extrabold text-center App bg-gray text-white">Loading...</div>;
+        return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
       }
    
     return (
-        <div className="flex flex-col items-center bg-gray text-white">
-            <div style={{backgroundColor: teamColorCodes[player.teamName]}} className="flex flex-wrap w-full lg:w-1/2 p-2 text-white rounded-3xl" style={{backgroundColor: teamColorCodes[player.teamName]}}>
+        <div className="flex flex-col items-center text-white bg-gray">
+            <div style={{backgroundColor: teamColorCodes[player.teamName]}} className="flex flex-wrap w-full p-2 text-white lg:w-1/2 rounded-3xl" style={{backgroundColor: teamColorCodes[player.teamName]}}>
                 <div className='flex flex-col items-center justify-center w-1/3'>
                 <div className='m-2 rounded-t-full bg-gray'>
                     <img src={`https://madden-assets-cdn.pulse.ea.com/madden22/portraits/128/${player.portraitId}.png`}></img>
@@ -102,8 +107,6 @@ export default function PlayerCard(props) {
  
 
             {lowerComponent}
-       
         </div>
-
     )    
 }
