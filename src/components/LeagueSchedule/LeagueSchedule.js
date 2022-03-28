@@ -161,7 +161,7 @@ function LeagueSchedule(props) {
     return (
         <div className='m-auto lg:w-1/2'>
             <div className='flex visible lg:hidden'>
-                <select onChange={event => getCustomWeek('dropdown')} id='weekDropdown' className='m-auto'>
+                <select onChange={() => getCustomWeek('dropdown')} id='weekDropdown' className='m-auto'>
                     {btnList.map(btn => {
                         if (btn.id === activeButtonId){
                             return <option value={btn.id} selected={true}>{btn.title}</option>

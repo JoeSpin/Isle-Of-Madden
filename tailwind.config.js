@@ -11,7 +11,9 @@ module.exports = {
         '1/8':'12.5%',
         'logo':'64px',
         '1/16':'6%',
-        '2/3': '66%'
+        '2/3': '66%',
+        'scheduleBox' : '200px',
+        '9/10': '90%'
       },
       maxWidth: {
         '1/4': '25%'
@@ -26,6 +28,8 @@ module.exports = {
         '1/2screen' : '50vh',
         '3/4screen' : '75vh',
         'bgvideo' : '38rem',
+        'scheduleBox': '200px',
+        '9/10': '90%'
       },
     },
     screens: {

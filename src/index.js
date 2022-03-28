@@ -13,20 +13,10 @@ import GameStatsPage from './pages/GameStatsPage';
 import PlayerPage from './pages/player/PlayerPage';
 import StandingsPage from './components/Standings/StandingsPage';
 import LeagueLeaderPage from './components/LeagueLeaders/LeagueLeaderPage';
-import Helmet from 'react-helmet';
 
 
 ReactDOM.render(
   <>
-  <Helmet>
-    <title>Isle of Madden</title>
-    <meta
-      name="description"
-      content="The #1 PC Madden Franchise."
-    />
-    <meta property="og:image" content="https://www.isleofmadden.com/logo.png" />
-    <meta property="og:title" content="Isle of Madden"></meta>
-  </Helmet>
   <Router>
     <Route exact path="/" render={Home} />
     <Route exact path="/team/:tn" render={TeamPage} />
