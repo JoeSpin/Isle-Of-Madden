@@ -11,45 +11,9 @@ export default function GameStats() {
     const [isLoading, setIsLoading] = useState(true);
     const [winner, setWinner] = useState(0); 
     const { gameId }  = useParams();
-    const teamIDToName = new Map([
-		[980680704, '49ers'],
-		[980680705, 'Bears'],
-		[980680706, 'Bengals'],
-		[980680707, 'Bills'],
-		[980680708, 'Broncos'],
-		[980680709, 'Browns'],
-		[980680710, 'Buccaneers'],
-		[980680711, 'Cardinals'],
-		[980680744, 'Chargers'],
-		[980680745, 'Chiefs'],
-		[980680746, 'Colts'],
-		[980680747, 'Cowboys'],
-		[980680748, 'Dolphins'],
-		[980680749, 'Eagles'],
-		[980680750, 'Falcons'],
-		[980680751, 'Football Team'],
-		[980680753, 'Giants'],
-		[980680755, 'Jaguars'],
-		[980680756, 'Jets'],
-		[980680757, 'Lions'],
-		[980680759, 'Packers'],
-		[980680760, 'Panthers'],
-		[980680761, 'Patriots'],
-		[980680762, 'Raiders'],
-		[980680763, 'Rams'],
-		[980680764, 'Ravens'],
-		[980680765, 'Saints'],
-		[980680766, 'Seahawks'],
-		[980680767, 'Steelers'],
-		[980680768, 'Texans'],
-		[980680769, 'Titans'],
-		[980680770, 'Vikings'],
-	]);
+
     useEffect(() => {
         generateData()
-        console.log(homeData); 
-        console.log(awayData);
-        console.log(gameData);
     }, [])
 
     const generateData = () => {
@@ -67,7 +31,6 @@ export default function GameStats() {
         }; 
         axios.get(`https://isle-of-madden-test.herokuapp.com/api/gamestats/${gameId}`).then(response => {
             setGameData(response.data.game[0]);
-            console.log(response.data);
             if (response.data.game[0].homeScore > response.data.game[0].awayScore){
                 setWinner(response.data.game[0].homeTeamId);
             }else {
@@ -187,17 +150,17 @@ export default function GameStats() {
       }
 
     if (isLoading) {
-        return <div className="App">Loading...</div>;
-      }
+        return <div className="py-16 text-5xl font-extrabold text-center App bg-gray text-white">Loading...</div>;
+    }
 
     return (
         <div className="flex justify-center w-screen">
-            <div className='flex items-center justify-center w-full bg-gray rounded-3xl'>
-                <div className='flex flex-col items-center w-1/3 p-2 m-2 border-8 text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.awayTeamId)]}}>
-                    <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.awayTeamId)]}}>
+            <div className='lg:flex lg:items-center lg:justify-center lg:w-full lg:bg-gray lg:rounded-3xl'>
+                <div className='flex flex-col items-center w-full lg:w-1/3 p-2 m-2 border-8 text-white rounded-3xl h-3/4screen' style={{borderColor: colors[gameData.awayTeam]}}>
+                    <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[gameData.awayTeam]}}>
                     <div className="flex items-center justify-between w-3/5">
-                    <img src={require(`../../src/img/logos/${getLogo(teamIDToName.get(gameData.awayTeamId))}`).default} className="w-20 ml-5" />
-                        <h2 className='ml-5 text-4xl font-semibold text-white'>{teamIDToName.get(gameData.awayTeamId)}</h2>
+                    <img src={require(`../../src/img/logos/${getLogo(gameData.awayTeam)}`).default} className="w-20 ml-5" />
+                        <h2 className='ml-5 text-4xl font-semibold text-white'>{gameData.awayTeam}</h2>
                     </div>
                         <h2 className='text-4xl font-extrabold'>{gameData.awayScore}</h2>                        
                     </div>
@@ -207,7 +170,6 @@ export default function GameStats() {
                         {awayData.passing.map(player =>(
                             <h5 className='text-center'>{displayPassingStats(player)}</h5>
                         ))}
-                        {console.log(homeData)}
                         <h3 className='text-xl font-bold text-center'>Rushing</h3>
                         <hr className="w-1/6 m-auto" />
                         {awayData.rushing.map(player =>(
@@ -225,11 +187,11 @@ export default function GameStats() {
                         ))}
                         </div>
                 </div>
-                <div className='flex flex-col items-center w-1/3 p-2 m-2 border-8 text-white rounded-3xl h-3/4screen' style={{borderColor: colors[convertIDToName(gameData.homeTeamId)]}}>
-                    <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[convertIDToName(gameData.homeTeamId)]}}>
+                <div className='flex flex-col items-center w-full lg:w-1/3 p-2 m-2 border-8 text-white rounded-3xl h-3/4screen' style={{borderColor: colors[gameData.homeTeam]}}>
+                    <div className='flex items-center justify-between w-full p-5 mb-5 rounded-xl h-1/6' style={{backgroundColor: colors[gameData.homeTeam]}}>
                     <div className="flex items-center justify-between w-3/5">
-                    <img src={require(`../../src/img/logos/${getLogo(teamIDToName.get(gameData.homeTeamId))}`).default} className="w-20 ml-5 " />
-                        <h2 className='ml-5 text-4xl font-semibold text-white'>{teamIDToName.get(gameData.homeTeamId)}</h2>
+                    <img src={require(`../../src/img/logos/${getLogo(gameData.homeTeam)}`).default} className="w-20 ml-5 " />
+                        <h2 className='ml-5 text-4xl font-semibold text-white'>{gameData.homeTeam}</h2>
                     </div>
                         <h2 className='text-4xl font-extrabold'>{gameData.homeScore}</h2>                        
                     </div>
@@ -239,7 +201,6 @@ export default function GameStats() {
                         {homeData.passing.map(player =>(
                             <h5 className='text-center'>{displayPassingStats(player)}</h5>
                         ))}
-                        {console.log(homeData)}
                         <h3 className='text-xl font-bold text-center'>Rushing</h3>
                         <hr className="w-1/6 m-auto" />
                         {homeData.rushing.map(player =>(
