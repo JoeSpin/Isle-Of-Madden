@@ -1,16 +1,16 @@
 import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import colors from "../../resources/hslTeamColorCodes.json";
+import React, {useState, useEffect} from 'react'; 
+import colors  from "../../resources/teamColorCodes.json";
 import logo from "../../img/logo.png"
 
 function HomeSchedule(props) {
     const [loading, setLoading] = useState(true);
     const [week, setWeek] = useState(1);
     const [games, setGames] = useState([]);
-    const [activeButtonId, setActiveButtonId] = useState(1);
+    const [activeButtonId, setActiveButtonId] = useState(1); 
     const getDefaultWeek = async () => {
-        let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/`);
+        let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/`); 
         console.log(response.data.weekIndex);
         console.log(response.data);
         setGames(response.data.games);
@@ -22,32 +22,32 @@ function HomeSchedule(props) {
     const getCustomWeek = async (event) => {
         if (event === 'dropdown') {
             let dropdownEl = document.querySelector("#weekDropdown");
-            let weekIndex = dropdownEl.options[dropdownEl.selectedIndex].value;
+            let weekIndex = dropdownEl.options[dropdownEl.selectedIndex].value; 
             let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${weekIndex}`)
             setActiveButtonId(response.data.weekIndex);
             setWeek(response.data.weekIndex);
             setActiveButtonId(response.data.weekIndex);
-            setGames(response.data.games);
-        } else {
-            let weekIndex = event.target.id;
-            let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${weekIndex}`);
+            setGames(response.data.games); 
+        }else {
+            let weekIndex = event.target.id; 
+            let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${weekIndex}`); 
             setActiveButtonId(response.data.weekIndex);
             setWeek(response.data.weekIndex);
             setActiveButtonId(response.data.weekIndex);
-            setGames(response.data.games);
+            setGames(response.data.games); 
         }
-
-
+        
+ 
     }
 
-    const inactiveButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl';
+    const inactiveButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl'; 
     const activeButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-lightgray bg-purple rounded-2xl'
 
-    useEffect(() => {
+    useEffect(() => { 
         if (loading) {
             getDefaultWeek();
         }
-    }, [])
+    }, [activeButtonId])
 
 
     if (loading) {
@@ -55,81 +55,48 @@ function HomeSchedule(props) {
     }
 
     const getLogo = (teamn) => {
-        if (teamn === "Football Team") {
-            return `wft.svg`
-        } else if (teamn === "Buccaneers") {
-            return 'bucs.svg'
+        if (teamn === "Football Team"){ 
+          return `wft.svg` 
+        } else if (teamn === "Buccaneers"){
+          return 'bucs.svg'
         } else {
-            return `${teamn.toLowerCase()}.svg`
-        }
-    }
+          return `${teamn.toLowerCase()}.svg`
+        } 
+      }
 
-
-    // flex flex-col items-center justify-center w-full p-2 mt-4 mb-4 ml-4 text-center rounded-l-3xl
-    // flex flex-col items-center justify-center w-full p-2 mt-4 mb-4 mr-4 text-center rounded-r-3xl
-
-
-    // flex items-center justify-center w-scheduleBox h-scheduleBox border-8 rounded-3xl border-purple
-    // flex items-center justify-center w-scheduleBox h-scheduleBox border-8 rounded-3xl border-purple
     return (
-        <div>
-            <h1 className="mt-5 text-3xl font-bold text-center text-white">Welcome to Isle of Madden<br />Week {week}</h1>
-            <div className='flex flex-wrap items-center justify-center w-full'>
-                <img src={logo} className="w-32 h-32 m-4 lg:hidden"></img>
-
-                {games.map(game => {
-                    let homeColors = colors[game.homeTeam];
-                    let awayColors = colors[game.awayTeam];
-                    let homeStyle = {} 
-                    let awayStyle = {};
-                    let homeLogoStyle = {}; 
-                    let awayLogoStyle = {}; 
-                    // Make the losing team's backgroundColor darker
-                    if (game.weekStatus === 2){// away won
-                        homeColors[2] = homeColors[2] * .2;
-                        homeLogoStyle['filter'] = 'brightness(50%)'; 
-                        homeStyle['backgroundColor'] = `hsl(${homeColors[0]}, ${homeColors[1]}%, ${homeColors[2]}%)`;
-                        awayStyle['backgroundColor'] = `hsl(${awayColors[0]}, ${awayColors[1]}%, ${awayColors[2]}%)`; 
-                    }else if (game.weekStatus === 3){ // home won
-                        awayColors[2] = Math.floor(awayColors[2] * .2); 
-                        awayLogoStyle['filter'] = 'brightness(50%)'; 
-                        awayStyle['backgroundColor'] = `hsl(${awayColors[0]}, ${awayColors[1]}%, ${awayColors[2]}%)`; 
-                        homeStyle['backgroundColor'] = `hsl(${homeColors[0]}, ${homeColors[1]}%, ${homeColors[2]}%)`;
-                    }else { // in case of an unplayed game
-                        awayStyle['backgroundColor'] = `hsl(${awayColors[0]}, ${awayColors[1]}%, ${awayColors[2]}%)`; 
-                        homeStyle['backgroundColor'] = `hsl(${homeColors[0]}, ${homeColors[1]}%, ${homeColors[2]}%)`;
-                    }
-                    console.log(awayStyle); 
-                    return (
-                        <div className="flex justify-center w-full m-5 text-white border-8 rounded-3xl border-purple lg:w-1/4 bg-gray">
-                            <div className='flex items-center justify-center w-scheduleBox h-scheduleBox ' >
-                                <div className="flex flex-col items-center justify-center w-9/10 h-9/10 text-center rounded-3xl" style={awayStyle}>
-                                    <div className='flex items-center justify-center w-20 h-20'>
-                                        <img src={require(`../../img/logos/${getLogo(game.awayTeam)}`).default} style={awayLogoStyle}className="p-3" />
-                                    </div>
-                                    <h3 className='text-lg font-semibold'>{game.awayTeam}</h3>
-                                    <h2 className='text-lg' >{game.awayScore}</h2>
+        <div className='flex flex-col items-center justify-center w-full'>
+            <img src={logo} className="w-32 h-32 m-4 lg:hidden"></img>
+            <h1 className="mt-5 text-3xl font-bold text-center text-white">Welcome to Isle of Madden<br/>Week {week}</h1>
+            {games.map(game=> {
+                return (
+                        <div className="flex justify-center w-full m-5 text-white lg:w-1/2 bg-gray">
+                            <div className='flex items-center justify-center w-1/3 border-8 rounded-l-3xl border-purple'>
+                            <div className="flex flex-col items-center justify-center w-full p-2 mt-4 mb-4 ml-4 text-center rounded-l-3xl" style={{backgroundColor: colors[game.awayTeam]}}>
+                                <div className='flex items-center justify-center w-24 h-24'>
+                                <img src={require(`../../img/logos/${getLogo(game.awayTeam)}`).default} className="w-32 p-3" />
                                 </div>
+                                <h3 className='text-lg font-semibold'>{game.awayTeam}</h3>
+                                <h2 className='text-lg'>{game.awayScore}</h2>
                             </div>
-                            <div className={`flex items-center justify-center`}>
+                            </div>
+                            <div className={`flex items-center justify-center bg-purple`}>
                                 <p className='p-3 text-xl font-black'>@</p>
                             </div>
-                            <div className='flex items-center justify-center w-scheduleBox h-scheduleBox ' >
-                                <div className="flex flex-col items-center justify-center w-9/10 h-9/10 text-center rounded-3xl" style={homeStyle}>
-                                    <div className='flex items-center justify-center w-20 h-20'>
-                                        <img src={require(`../../img/logos/${getLogo(game.homeTeam)}`).default} style={homeLogoStyle} className="p-3" />
-                                    </div>
-                                    <h3 className='text-lg font-semibold' >{game.homeTeam}</h3>
-                                    <h2 className='text-lg'>{game.homeScore}</h2>
+                            <div className='flex items-center justify-center w-1/3 border-8 rounded-r-3xl border-purple'>
+                            <div className="flex flex-col items-center justify-center w-full p-2 mt-4 mb-4 mr-4 text-center rounded-r-3xl" style={{backgroundColor: colors[game.homeTeam]}}>
+                                <div className='flex items-center justify-center w-24 h-24'>
+                                <img src={require(`../../img/logos/${getLogo(game.homeTeam)}`).default} className="w-32 p-3" />
                                 </div>
+                                <h3 className='text-lg font-semibold'>{game.homeTeam}</h3>
+                                <h2 className='text-lg'>{game.homeScore}</h2>
+                            </div>
                             </div>
                         </div>
-
-                    )
-                })}
-            </div>
+                    
+            )})}
         </div>
-
+        
     )
 }
 

@@ -62,7 +62,7 @@ export default function Header(props) {
         <div className={(active === "teams") ? `group ${navActive}` : `group ${navContainer}`}>
           <button className={navLink}>
             TEAMS
-           <i className="fa-solid fa-angle-down ml-2"></i>
+           <i class="fa-solid fa-angle-down ml-2"></i>
           </button>
           <div className={`group-hover:opacity-100 group-hover:visible invisible flex transition-opacity duration-700 opacity-0 flex-col justify-center items-center absolute p-3 z-50 bg-gray border-4 border-purple rounded-xl border-solid`}>
             <div className="flex items-center justify-between w-full pb-3">
@@ -155,7 +155,7 @@ export default function Header(props) {
         <div className={(active === "info") ? `group ${navActive}` : `group ${navContainer}`}>
           <button className={navLink}>
             LEAGUE INFO
-           <i className="fa-solid fa-angle-down ml-2"></i>
+           <i class="fa-solid fa-angle-down ml-2"></i>
           </button>
           <div className={`group-hover:opacity-100 group-hover:visible invisible flex transition-opacity duration-700 opacity-0 flex-col justify-center items-center absolute p-3 z-50 bg-gray border-4 border-purple rounded-xl border-solid`}>
             <div className={dropdownnavContainer}><a href="/rules" className={navLink}>RULES</a></div>

@@ -15,8 +15,8 @@ export default function TeamCard(props) {
   const [teamComponent, setTeamComponent] = useState("");
   const [roster, setRoster] = useState([]); 
   const { tn } = useParams();
-  const navContainer = `px-5 py-3 mx-3 my-2 text-white duration-500 transition-border ease-in-out hover:border-white cursor-pointer border-4 rounded-xl border-purple`;
-  const navLink = `text-xl font-bold`;
+  const navContainer = `px-5 py-3 mx-3 my-2 text-white duration-500 transition-border ease-in-out hover:border-white border-4 rounded-xl border-purple`;
+  const navLink = `text-xl font-bold cursor-pointer`;
   const navActive = `text-white text-xl font-bold border-purple border-4 rounded-xl px-5 py-3`;
 
   const showTeamRoster = () => {
@@ -83,13 +83,13 @@ export default function TeamCard(props) {
         </div>
         <div id="teamlinks">
           <ul id="navigation" className="flex items-center justify-center pt-5 font-black">
-          <li className={navContainer} onClick={showTeamSchedule}>
+          <li className={navContainer}>
           <a className={navLink} onClick={showTeamSchedule}>SCHEDULE</a>
           </li>
-          <li className={navContainer} onClick={showTeamRoster} >
+          <li className={navContainer}>
           <a className={navLink} onClick={showTeamRoster}>ROSTER</a>
           </li>
-          <li className={navContainer} onClick={showTeamStats}>
+          <li className={navContainer}>
           <a className={navLink} onClick={showTeamStats}>STATS</a>
           </li>
           </ul>
