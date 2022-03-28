@@ -26,40 +26,40 @@ export default function Abilities(props){
 
     if (devTrait === 3){
         return (
-            <>
-                <h3 className='text-center w-full text-2xl text-bold'>Abilities</h3>
-                <div className='w-full'>
-                    <h4 className='text-center text-xl'>{xfAbility.abilityTitle}</h4>
-                    <p>{xfAbility.abilityDescription}</p>
+            <div className='flex flex-col items-center justify-center m-5 lg:w-3/4'>
+                <h3 className='w-full text-3xl font-black text-center'>Abilities</h3>
+                <div className='p-2 m-2 border-2 md:w-2/3 border-lightgray rounded-xl'>
+                    <h4 className='m-2 text-xl font-bold text-center'>{xfAbility.abilityTitle}</h4>
+                    <p className='text-center'>{xfAbility.abilityDescription}</p>
                 </div>
-                <div className='flex flex-row content-center justify-between'>
+                <div className='flex flex-col flex-wrap items-center justify-center w-full lg:flex-row'>
                     {ssAbilities.map(ability => (
-                        <div className={`w-1/${ssAbilities.length}`}>
-                            <h4 className='text-center text-xl mr-2 ml-1'>{ability.abilityTitle}</h4> 
-                            <p className='mr-2 ml-2'>{ability.abilityDescription}</p>
+                        <div className={`border-lightgray border-2 rounded-xl m-2 p-2 md:w-2/3 lg:w-1/4 lg:min-h-52`}>
+                            <h4 className='m-2 text-xl font-bold text-center'>{ability.abilityTitle}</h4> 
+                            <p className='mx-2 text-center'>{ability.abilityDescription}</p>
                         </div>
                         
                     ))}
                 </div>
-            </>
+            </div>
             
         )
     }
 
     return (
-        <>
-            <h3 className='text-center w-full text-lg text-bold'>Abilities</h3>
+        <div className='flex flex-col items-center justify-center m-5 lg:w-3/4'>
+            <h3 className='w-full text-3xl font-black text-center'>Abilities</h3>
 
-            <div className='flex flex-row'>
+            <div className='flex flex-col flex-wrap items-center justify-center w-full lg:flex-row'>
 
                 {ssAbilities.map(ability => (
-                    <div>
-                        <h4 className='text-center w-full'>{ability.abilityTitle}</h4>
-                        <p>{ability.abilityDescription}</p>
+                    <div className={`border-lightgray border-2 rounded-xl m-2 p-2 md:w-2/3 lg:w-1/4 lg:min-h-52`}>
+                        <h4 className='m-2 text-xl font-bold text-center'>{ability.abilityTitle}</h4>
+                        <p className='mx-2 text-center'>{ability.abilityDescription}</p>
                     </div>
                 ))}
             </div>
-        </>
+        </div>
 
     )
 

@@ -22,6 +22,9 @@ module.exports = {
         'fit': 'fit-content',
         'att': '180px'
       },
+      minHeight:{
+        '52': '13rem'
+      },
       height:{
         'logo':'64px',
         '1/4screen' : '25vh',
