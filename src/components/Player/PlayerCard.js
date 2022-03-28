@@ -6,6 +6,8 @@ import axios from 'axios';
 import PlayerCoreAttributes from './PlayerCoreAttributes';
 import WeeklyStats from './WeeklyStats';
 import PlayerFullAttributes from './PlayerFullAttributes'; 
+import { Helmet } from 'react-helmet';
+import Abilities from './Abilities';
 
 export default function PlayerCard(props) { 
     const [player, setPlayer] = useState();
@@ -13,11 +15,8 @@ export default function PlayerCard(props) {
     const [lowerComponent, setLowerComponent] = useState(""); 
     const [seasonStats, setSeasonStats] = useState(); 
     const [weeklyStats, setWeeklyStats] = useState([]); 
+    const [abilities, setAbilities] = useState([]); 
     let {playerId} = useParams();
-
-    const setTitle = (fn, ln, ovr, pos) => {
-        document.title(`Isle of Madden - ${fn} ${ln} - ${pos} ${ovr}OVR`)
-    }
 
     const getData = () => { 
         axios.get(`https://isle-of-madden-test.herokuapp.com/api/player/${playerId}`).then(response => {
@@ -31,8 +30,10 @@ export default function PlayerCard(props) {
             setWeeklyStats(response.data.weeklyStats);
             setLoading(false);
             setLowerComponent(<WeeklyStats position={response.data.player.position} playerId={response.data.player.playerId} teamcolor={teamColorCodes[response.data.player.teamName]} weeklystats={response.data.weeklyStats} />)
-            document.title = `IoM - ${response.data.player.firstName} ${response.data.player.lastName} - ${response.data.player.position} ${response.data.player.playerBestOvr}`;
-         })
+            if (response.data.abilities){
+                setAbilities(response.data.abilities); 
+            }
+        })
     }
     useEffect(() => {
         getData();
@@ -68,9 +69,15 @@ export default function PlayerCard(props) {
     if (loading) {
         return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
       }
-   
+    
+
+    
     return (
         <div className="flex flex-col items-center text-white bg-gray">
+            <Helmet>
+                <meta charSet='utf-8' />
+                <title>{`${player.firstName} ${player.lastName} - ${player.position} ${player.playerBestOvr}`}</title>
+            </Helmet>
             <div style={{backgroundColor: teamColorCodes[player.teamName]}} className="flex flex-wrap w-full p-2 text-white lg:w-1/2 rounded-3xl" style={{backgroundColor: teamColorCodes[player.teamName]}}>
                 <div className='flex flex-col items-center justify-center w-1/3'>
                 <div className='m-2 rounded-t-full bg-gray'>
@@ -97,7 +104,7 @@ export default function PlayerCard(props) {
                     <h5>Years Left: {player.contractYearsLeft}</h5>
                     <h5>Yearly Salary: {player.teamId !== 1 ? calcContract(calcYearlySalary(player.contractSalary, player.contractLength)): '0'}</h5>   
                 </div>
-                
+                {abilities.length > 0 ? <Abilities abilities={abilities} devTrait={player.devTrait}/> : ''}
             </div>
             <PlayerCoreAttributes player={player} position={player.position}/> 
             <div className="flex justify-center">
