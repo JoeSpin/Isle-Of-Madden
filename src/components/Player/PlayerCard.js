@@ -105,7 +105,7 @@ export default function PlayerCard(props) {
                     <h5>Yearly Salary: {player.teamId !== 1 ? calcContract(calcYearlySalary(player.contractSalary, player.contractLength)): '0'}</h5>   
                 </div>
             </div>
-            <PlayerCoreAttributes player={player} position={player.position}/> 
+            <PlayerCoreAttributes player={player} position={player.position}/>
             {abilities.length > 0 ? <Abilities abilities={abilities} devTrait={player.devTrait} /> : ''}
             <div className="flex justify-center">
                 <button onClick={showWeeklyStats} className='px-3 mx-2 my-2 text-2xl transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl'>Weekly Stats</button>

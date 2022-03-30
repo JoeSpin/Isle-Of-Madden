@@ -19,27 +19,6 @@ function HomeSchedule(props) {
         setLoading(false);
     }
 
-    const getCustomWeek = async (event) => {
-        if (event === 'dropdown') {
-            let dropdownEl = document.querySelector("#weekDropdown");
-            let weekIndex = dropdownEl.options[dropdownEl.selectedIndex].value;
-            let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${weekIndex}`)
-            setActiveButtonId(response.data.weekIndex);
-            setWeek(response.data.weekIndex);
-            setActiveButtonId(response.data.weekIndex);
-            setGames(response.data.games);
-        } else {
-            let weekIndex = event.target.id;
-            let response = await axios.get(`https://isle-of-madden-test.herokuapp.com/api/leagueschedule/${weekIndex}`);
-            setActiveButtonId(response.data.weekIndex);
-            setWeek(response.data.weekIndex);
-            setActiveButtonId(response.data.weekIndex);
-            setGames(response.data.games);
-        }
-
-
-    }
-
     const inactiveButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl';
     const activeButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-lightgray bg-purple rounded-2xl'
 
@@ -64,6 +43,22 @@ function HomeSchedule(props) {
         }
     }
 
+    const fixWeek = (week) => {
+        if (week < 19){
+            return `Week ${week}`;
+        }else if(week === 19){
+            return 'Playoffs - Wild Card'
+        }else if(week === 20){
+            return 'Playoffs - Divisional Round'
+        }else if(week === 21){
+            return 'Playoffs - Conference Championships'
+        }else if(week === 22){
+            return 'Pro Bowl Week'
+        }else if(week === 23){
+        return 'Super Bowl Week'
+        }
+    }
+
 
     // flex flex-col items-center justify-center w-full p-2 mt-4 mb-4 ml-4 text-center rounded-l-3xl
     // flex flex-col items-center justify-center w-full p-2 mt-4 mb-4 mr-4 text-center rounded-r-3xl
@@ -73,7 +68,7 @@ function HomeSchedule(props) {
     // flex items-center justify-center w-scheduleBox h-scheduleBox border-8 rounded-3xl border-purple
     return (
         <div>
-            <h1 className="mt-5 text-3xl font-bold text-center text-white">Welcome to Isle of Madden<br />Week {week}</h1>
+            <h1 className="mt-5 text-3xl font-bold text-center text-white">Welcome to Isle of Madden<br />{fixWeek(week)}</h1>
             <div className='flex flex-wrap items-center justify-center w-full'>
                 <img src={logo} className="w-32 h-32 m-4 lg:hidden"></img>
 
@@ -103,7 +98,7 @@ function HomeSchedule(props) {
                     return (
                         <div className="flex justify-center w-full m-5 text-white border-8 rounded-3xl border-purple lg:w-1/4 bg-gray">
                             <div className='flex items-center justify-center w-scheduleBox h-scheduleBox ' >
-                                <div className="flex flex-col items-center justify-center w-9/10 h-9/10 text-center rounded-3xl" style={awayStyle}>
+                                <div className="flex flex-col items-center justify-center text-center w-9/10 h-9/10 rounded-3xl" style={awayStyle}>
                                     <div className='flex items-center justify-center w-20 h-20'>
                                         <img src={require(`../../img/logos/${getLogo(game.awayTeam)}`).default} style={awayLogoStyle}className="p-3" />
                                     </div>
@@ -115,7 +110,7 @@ function HomeSchedule(props) {
                                 <p className='p-3 text-xl font-black'>@</p>
                             </div>
                             <div className='flex items-center justify-center w-scheduleBox h-scheduleBox ' >
-                                <div className="flex flex-col items-center justify-center w-9/10 h-9/10 text-center rounded-3xl" style={homeStyle}>
+                                <div className="flex flex-col items-center justify-center text-center w-9/10 h-9/10 rounded-3xl" style={homeStyle}>
                                     <div className='flex items-center justify-center w-20 h-20'>
                                         <img src={require(`../../img/logos/${getLogo(game.homeTeam)}`).default} style={homeLogoStyle} className="p-3" />
                                     </div>

@@ -153,6 +153,21 @@ function LeagueSchedule(props) {
         },
     ]
 
+    const fixWeek = (week) => {
+        if (week < 19){
+            return `Week ${week}`;
+        }else if(week === 19){
+            return 'Playoffs - Wild Card'
+        }else if(week === 20){
+            return 'Playoffs - Divisional Round'
+        }else if(week === 21){
+            return 'Playoffs - Conference Championships'
+        }else if(week === 22){
+            return 'Pro Bowl Week'
+        }else if(week === 23){
+        return 'Super Bowl Week'
+        }
+    }
 
     if (loading) {
         return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
@@ -194,7 +209,7 @@ function LeagueSchedule(props) {
                     )
                 })}
             </div>
-            <h1 className="text-3xl text-center text-white">Week {week}</h1>
+            <h1 className="text-3xl text-center text-white">{fixWeek(week)}</h1>
             {games.map(game=> {
                 return (
                         <div className="flex flex-row py-2 m-auto text-white bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100">
