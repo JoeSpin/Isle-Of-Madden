@@ -26,41 +26,38 @@ export default function Abilities(props){
 
     if (devTrait === 3){
         return (
-            <div className='flex flex-col items-center justify-center m-5 lg:w-3/4'>
-                <h3 className='w-full text-3xl font-black text-center'>Abilities</h3>
-                <div className='p-2 m-2 border-2 md:w-2/3 border-lightgray rounded-xl'>
+            <>
+            <h3 className='text-3xl font-black text-center'>Abilities</h3>
+            <div className='grid grid-cols-4 grid-rows-auto lg:w-1/3'>
+                <div className='col-span-4 p-2 m-2 border-2 border-lightgray rounded-xl'>
                     <h4 className='m-2 text-xl font-bold text-center'>{xfAbility.abilityTitle}</h4>
                     <p className='text-center'>{xfAbility.abilityDescription}</p>
                 </div>
-                <div className='flex flex-col flex-wrap items-center justify-center w-full lg:flex-row'>
                     {ssAbilities.map(ability => (
-                        <div className={`border-lightgray border-2 rounded-xl m-2 p-2 md:w-2/3 lg:w-1/4 lg:min-h-52`}>
+                        <div className={`border-lightgray border-2 rounded-xl m-2 p-2 col-span-4`}>
                             <h4 className='m-2 text-xl font-bold text-center'>{ability.abilityTitle}</h4> 
                             <p className='mx-2 text-center'>{ability.abilityDescription}</p>
                         </div>
                         
                     ))}
-                </div>
             </div>
-            
+            </>
         )
     }
 
     return (
-        <div className='flex flex-col items-center justify-center m-5 lg:w-3/4'>
-            <h3 className='w-full text-3xl font-black text-center'>Abilities</h3>
-
-            <div className='flex flex-col flex-wrap items-center justify-center w-full lg:flex-row'>
+        <>
+        <h3 className='text-3xl font-black text-center'>Abilities</h3>
+        <div className='grid grid-cols-4 grid-rows-1 lg:w-1/2'>
 
                 {ssAbilities.map(ability => (
-                    <div className={`border-lightgray border-2 rounded-xl m-2 p-2 md:w-2/3 lg:w-1/4 lg:min-h-52`}>
+                    <div className={`col-span-4 p-2 m-2 border-2 border-lightgray rounded-xl`}>
                         <h4 className='m-2 text-xl font-bold text-center'>{ability.abilityTitle}</h4>
                         <p className='mx-2 text-center'>{ability.abilityDescription}</p>
                     </div>
                 ))}
             </div>
-        </div>
-
+                    </>
     )
 
 }

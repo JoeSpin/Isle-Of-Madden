@@ -73,7 +73,7 @@ export default function PlayerCard(props) {
 
     
     return (
-        <div className="flex flex-col items-center text-white bg-gray">
+        <div className="flex flex-col items-center m-5 text-white bg-gray">
             <Helmet>
                 <meta charSet='utf-8' />
                 <title>{`${player.firstName} ${player.lastName} - ${player.position} ${player.playerBestOvr}`}</title>

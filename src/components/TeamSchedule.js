@@ -19,27 +19,21 @@ export default function TeamSchedule(props) {
         } 
       }
     return (
-        <div className="w-full">
+        <div className="flex flex-col items-center justify-center w-full">
             { data.map((week) => {
                 if (week.weekIndex == index) {
                     index++ 
                     return ( 
-                       <Link to={`/game/${week.scheduleId}`}>
-                        <div className="flex flex-row py-2 m-2 bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100">
-                                <div className="w-1/5 text-center ">
-                                    <h2>{week.awayScore}</h2>
+                       <Link className='w-1/2 m-5 duration-300 ease-in-out bg-opacity-50 md:w-1/3 bg-lightgray hover:bg-purple rounded-2xl' to={`/game/${week.scheduleId}`}>
+                        <div className="flex items-center justify-around">
+                                <div className="flex flex-col items-center justify-center">
+                                    <img className='w-16 h-16 m-4' src={require(`../../src/img/logos/${getLogo(week.awayTeam)}`).default}></img>
+                                    <h2 className='m-2 text-2xl font-black'>{week.awayScore}</h2>
                                 </div>
-                                <div className="w-1/5 text-center">
-                                    <h3>{week.awayTeam}</h3>
-                                </div>
-                                <div className="w-1/5 text-center">
-                                    <p>VS</p>
-                                </div>
-                                <div className="w-1/5 text-center">
-                                    <h3>{week.homeTeam}</h3>
-                                </div>
-                                <div className="w-1/5 text-center">
-                                    <h2>{week.homeScore}</h2>
+                                    <p className='text-3xl font-black'>VS</p>
+                                <div className="flex flex-col items-center justify-center">
+                                    <img className='w-16 h-16 m-4' src={require(`../../src/img/logos/${getLogo(week.homeTeam)}`).default}></img>
+                                    <h2 className='m-2 text-2xl font-black'>{week.homeScore}</h2>
                                 </div>
                             </div>
                         </Link>
@@ -47,26 +41,20 @@ export default function TeamSchedule(props) {
                 }else {
                     index+= 2; 
                     return (
-                    <div>
+                    <div className='flex flex-col items-center justify-center w-full'>
                         <div className="py-2 m-2 rounded bg-gray bg-opacity-10">
-                            <h3 className="text-center">BYE</h3>
+                            <h3 className='text-3xl font-black'>BYE</h3>
                         </div>
-                        <Link to={`/game/${week.scheduleId}`}>
-                            <div className="flex flex-row py-2 m-2 bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100">
-                                    <div className="w-1/5 text-center ">
-                                        <h2>{week.awayScore}</h2>
+                        <Link className='w-1/2 m-5 duration-300 ease-in-out bg-opacity-50 md:w-1/3 bg-lightgray hover:bg-purple rounded-2xl' to={`/game/${week.scheduleId}`}>
+                            <div className="flex justify-around">
+                                    <div className="flex flex-col items-center justify-center">
+                                        <img className='w-16 h-16 m-4' src={require(`../../src/img/logos/${getLogo(week.awayTeam)}`).default}></img>
+                                        <h2 className='m-2 text-2xl font-black'>{week.awayScore}</h2>
                                     </div>
-                                    <div className="w-1/5 text-center">
-                                        <h3>{week.awayTeam}</h3>
-                                    </div>
-                                    <div className="w-1/5 text-center">
-                                        <p>VS</p>
-                                    </div>
-                                    <div className="w-1/5 text-center">
-                                        <h3>{week.homeTeam}</h3>
-                                    </div>
-                                    <div className="w-1/5 text-center">
-                                        <h2>{week.homeScore}</h2>
+                                     <p className='m-2 text-3xl font-black'>VS</p>
+                                    <div className="flex flex-col items-center justify-center">
+                                        <img className='w-16 h-16 m-4' src={require(`../../src/img/logos/${getLogo(week.homeTeam)}`).default}></img>
+                                        <h2 className='m-2 text-2xl font-black'>{week.homeScore}</h2>
                                     </div>
                                 </div>
                             </Link>

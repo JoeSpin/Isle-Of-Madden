@@ -32,6 +32,9 @@ export const qbCore = [{
 }, {
     Header: 'Acceleration',
     accessor: 'accelRating'
+}, {
+    Header: 'Injury',
+    accessor: 'injuryRating'
 }]
 
 export const hbCore = [{
@@ -50,7 +53,7 @@ export const hbCore = [{
     Header: 'Carry',
     accessor: 'carryRating'
 },{
-    Header: 'Back Cut Vision',
+    Header: 'Ball Carr. Vis.',
     accessor: 'bCVRating'
 },{
     Header: 'Truck',
@@ -96,6 +99,18 @@ export const fbCore = [{
 },{
     Header: 'Carry',
     accessor: 'carryRating'
+},{
+    Header: 'Truck',
+    accessor: 'truckRating'
+},{
+    Header: 'Stiff Arm',
+    accessor: 'stiffArmRating'
+},{
+    Header: 'Break Tackle',
+    accessor: 'breakTackleRating'
+},{
+    Header: 'Injury',
+    accessor: 'injuryRating'
 }]
 
 export const wrCore = [{

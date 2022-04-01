@@ -25,28 +25,22 @@ export default function PlayerCoreAttributes(props) {
 
 
     const calcRatingColor = (rating) => {
-        if (rating >= 95)
-            return '#008450'
-        else if (rating < 95 && rating >= 90)
-            return '#789e28'
-        else if (rating < 90 && rating >= 85)
-            return '#b3aa14'
-        else if (rating < 85 && rating >= 80)
-            return '#efb700'
-        else if (rating < 80 && rating >= 75)
-            return '#e19005'
-        else if (rating < 75 && rating >= 70)
-            return '#d46a0a'
-        else if (rating < 70 && rating >= 60)
-            return '#c33c0f'
+        if (rating >= 92)
+            return '#2cba00'
+        else if (rating < 92 && rating >= 83)
+            return '#a3ff00'
+        else if (rating < 82 && rating >= 71)
+            return '#fff400'
+        else if (rating < 71 && rating >= 60)
+            return '#ffa700'
         else
-            return '#b81d13'
+            return '#ff0000'
     }
 
-    const containerStyle = "flex flex-wrap content-center justify-center w-full lg:w-7/12";
-    const attributeBorderStyle = "flex flex-col items-center justify-center w-36 m-1 border-2 rounded-2xl border-lightgray";
-    const attributeHeaderStyle = 'text-lg text-center';
-    const attributeNumberStyle = 'flex items-center justify-center w-16 h-16 m-2 text-3xl font-black text-center border-4 rounded-full bg-lightgray';
+    const containerStyle = "grid grid-cols-2 grid-rows-4 md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-3 m-5";
+    const attributeBorderStyle = "flex flex-col items-center justify-center m-1 w-32 border-2 rounded-2xl border-lightgray";
+    const attributeHeaderStyle = 'text-sm text-center';
+    const attributeNumberStyle = 'flex items-center justify-center w-12 h-12 m-1 text-lg font-black text-center border-4 rounded-full bg-lightgray';
 
 
     if (position === "QB") { 
