@@ -1,16 +1,5 @@
 import React, { useEffect, useState } from 'react'; 
-import { qbCore, hbCore, fbCore, teCore, olCore, wrCore, deCore, dtCore, olbCore, mlbCore, cbCore, sCore, stCore} from './CoreAttributes';
-
-/*
-stageone:'#008450',
-      stagetwo:'#789e28',
-      stagethree:'#b3aa14',
-      stagefour:'#efb700',
-      stagefive:'#e19005',
-      stagesix:'#d46a0a',
-      stageseven:'#c33c0f',
-      stageeight:'#b81d13',
-*/
+import { qbCore, hbCore, fbCore, teCore, olCore, wrCore, dlCore, olbCore, mlbCore, cbCore, sCore, stCore} from './CoreAttributes';
 
 export default function PlayerCoreAttributes(props) { 
     const [player, setPlayer] = useState({}); 
@@ -37,7 +26,7 @@ export default function PlayerCoreAttributes(props) {
             return '#ff0000'
     }
 
-    const containerStyle = "grid grid-cols-2 grid-rows-4 md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-3 m-5";
+    const containerStyle = "grid grid-cols-2 grid-rows-4 md:grid-cols-3 lg:grid-cols-6 lg:grid-rows-2 m-5";
     const attributeBorderStyle = "flex flex-col items-center justify-center m-1 w-32 border-2 rounded-2xl border-lightgray";
     const attributeHeaderStyle = 'text-sm text-center';
     const attributeNumberStyle = 'flex items-center justify-center w-12 h-12 m-1 text-lg font-black text-center border-4 rounded-full bg-lightgray';
@@ -109,20 +98,9 @@ export default function PlayerCoreAttributes(props) {
               
         </div>
         )
-    }else if (position === "LE" || position === "RE"){
+    }else if (position === "DT" || position === "LE" || position === "RE"){ 
         return (
-            <div className={containerStyle}>{deCore.map((attribute) => (
-                <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
-                    <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
-                    <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>
-                </div>
-            ))}
-              
-        </div>
-        )
-    }else if (position === "DT"){ 
-        return (
-            <div className={containerStyle}>{dtCore.map((attribute) => (
+            <div className={containerStyle}>{dlCore.map((attribute) => (
                 <div className={attributeBorderStyle} style={{borderColor:'gray'}}>
                     <h3 className={attributeHeaderStyle}>{attribute.Header}</h3>  
                     <p className={attributeNumberStyle} style={{borderColor:calcRatingColor(player[attribute.accessor])}}>{player[attribute.accessor]}</p>

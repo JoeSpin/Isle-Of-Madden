@@ -182,12 +182,6 @@ export const teCore = [{
     Header: 'Impact Block',
     accessor: 'impactBlockRating'
 },{
-    Header: 'Pass Block',
-    accessor: 'passBlockRating'
-},{
-    Header: 'Lead Block',
-    accessor: 'leadBlockRating'
-},{
     Header: 'Break Tackle',
     accessor: 'breakTackleRating'
 }]
@@ -222,9 +216,15 @@ export const olCore = [{
 },{
     Header: 'Awareness',
     accessor: 'awareRating'
+},{
+    Header: 'Speed',
+    accessor: 'speedRating'
+},{
+    Header: 'Acceleration',
+    accessor: 'accelRating'
 }]
 
-export const deCore = [{
+export const dlCore = [{
     Header: 'Power Moves',
     accessor: 'powerMovesRating'
 },{
@@ -254,35 +254,12 @@ export const deCore = [{
 },{
     Header: 'Awareness',
     accessor: 'awareRating'
-}]
-
-export const dtCore = [{
-    Header: 'Strength',
-    accessor: 'strengthRating'
 },{
-    Header: 'Block Shed',
-    accessor: 'blockShedRating'
+    Header: 'Pursuit',
+    accessor: 'pursuitRating'
 },{
-    Header: 'Power Moves',
-    accessor: 'powerMovesRating'
-},{
-    Header: 'Finesse Moves',
-    accessor: 'finesseMovesRating'
-},{
-    Header: 'Tackle',
-    accessor: 'tackleRating'
-},{
-    Header: 'Play Rec',
-    accessor: 'playRecRating'
-},{
-    Header: 'Awareness',
-    accessor: 'awareRating'
-},{
-    Header: 'Speed',
-    accessor: 'speedRating'
-},{
-    Header: 'Acceleration',
-    accessor: 'accelRating'
+    Header: 'Hit Power',
+    accessor: 'hitPowerRating'
 }]
 
 export const olbCore = [{
@@ -353,6 +330,12 @@ export const mlbCore = [{
 },{
     Header: 'Zone Coverage',
     accessor: 'zoneCoverRating'
+},{
+    Header: 'COD',
+    accessor: 'changeOfDirectionRating'
+},{
+    Header: 'Catching',
+    accessor: 'catchRating'
 }]
 
 export const cbCore = [{
@@ -385,6 +368,12 @@ export const cbCore = [{
 },{
     Header: 'Catching',
     accessor: 'catchRating'
+},{
+    Header: 'COD',
+    accessor: 'changeOfDirectionRating'
+},{
+    Header: 'Awareness',
+    accessor: 'awareRating'
 }]
 
 export const sCore = [{
@@ -417,6 +406,12 @@ export const sCore = [{
 },{
     Header: 'Awareness',
     accessor: 'awareRating'
+},{
+    Header: 'COD',
+    accessor: 'changeOfDirectionRating'
+},{
+    Header: 'Tackle',
+    accessor: 'tackleRating'
 }]
 
 export const stCore = [{
@@ -434,15 +429,6 @@ export const stCore = [{
 },{
     Header: 'Acceleration',
     accessor: 'accelRating'
-},{
-    Header: 'Agility',
-    accessor: 'agilityRating'
-},{
-    Header: 'Strength',
-    accessor: 'strengthRating'
-},{
-    Header: 'Throw Power',
-    accessor: 'throwPowerRating'
 },{
     Header: 'Short Throw Accuracy',
     accessor: 'throwAccShortRating'
