@@ -40,7 +40,7 @@ module.exports = {
       'md': '640px',
       'lg': '1000px',
       'xl': '1024px',
-      '2xl': '1536px',
+      '2xl': '1280px',
     },
     colors:{
       purple:'#522888',

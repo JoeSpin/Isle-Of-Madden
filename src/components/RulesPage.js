@@ -4,7 +4,7 @@ import Header from "./Header/Header";
 
 export default function RulesPage() {
   return (
-    <>
+    <div className="flex flex-col justify-center">
       <Header active="rules" />
       <div className="flex flex-col items-center justify-center text-center bg-gray">
         <div className="flex flex-col items-center justify-center w-2/3 text-white">
@@ -773,6 +773,6 @@ export default function RulesPage() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }

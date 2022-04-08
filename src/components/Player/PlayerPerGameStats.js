@@ -47,7 +47,7 @@ export function PlayerPerGameStats(props) {
             <table {...getTableProps()} style={{
                 backgroundColor: props.teamcolor,
                 border: '1px solid black',
-                width: '50%'
+                width: '100%'
             }}> 
                 <thead>
                     {headerGroups.map((headerGroup) => (

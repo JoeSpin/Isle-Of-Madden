@@ -24,11 +24,11 @@ export default function WeeklyStats(props){
     
     if (props.position === "QB") { 
         return (
-            <div className="flex flex-wrap w-full lg:w-3/6 content-center">
+            <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
                     <PlayerPerGameStats games={weeklyStats} position={props.position} color={teamColor}/>
                 </div>
-                 <div className="w-full lg:w-3/6">
+                 <div className="w-full">
                     <h2>Pass Yards Per Game</h2> 
                         <ResponsiveContainer width="90%" height={400}>
                             <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -40,7 +40,7 @@ export default function WeeklyStats(props){
                             </LineChart>
                         </ResponsiveContainer>
                  </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>TDs Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -52,7 +52,7 @@ export default function WeeklyStats(props){
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>Passer Rating Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -71,11 +71,11 @@ export default function WeeklyStats(props){
         )
     }else if (props.position === "HB" ||  props.position === "FB"){
         return (
-            <div className="flex flex-wrap w-full lg:w-3/6 content-center">
+            <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
                     <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                <h2>Pass Yards Per Game</h2> 
                    <ResponsiveContainer width="90%" height={500}>
                        <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -87,7 +87,7 @@ export default function WeeklyStats(props){
                        </LineChart>
                    </ResponsiveContainer>
             </div>
-           <div className="w-full lg:w-3/6">
+           <div className="w-full">
                <h2>TDs Per Game</h2>
                <ResponsiveContainer width="90%" height={400}>
                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -99,7 +99,7 @@ export default function WeeklyStats(props){
                    </LineChart>
                </ResponsiveContainer>
            </div>
-           <div className="w-full lg:w-3/6">
+           <div className="w-full">
                <h2>Passer Rating Per Game</h2>
                <ResponsiveContainer width="90%" height={400}>
                    <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -115,11 +115,11 @@ export default function WeeklyStats(props){
         )
     }else if (props.position === "TE" || props.position === "WR"){
         return (
-        <div className="flex flex-wrap w-full lg:w-3/6 content-center">
+        <div className="flex flex-wrap content-center w-full lg:w-3/4">
             <div className="w-full">
                     <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
             </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                 <h2>Receiving Yards Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -131,7 +131,7 @@ export default function WeeklyStats(props){
                     </LineChart>
                 </ResponsiveContainer> 
             </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                 <h2>Receiving TDs Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -143,7 +143,7 @@ export default function WeeklyStats(props){
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                 <h2>Catches Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -155,7 +155,7 @@ export default function WeeklyStats(props){
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                 <h2>Longest Reception Per Game </h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -171,11 +171,11 @@ export default function WeeklyStats(props){
         )
     }else if (props.position === "LE" || props.position === "RE" || props.position === "DT"){
         return (
-            <div className="flex flex-wrap w-full lg:w-3/6 content-center">
+            <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
                     <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>Tackles Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -187,7 +187,7 @@ export default function WeeklyStats(props){
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>Sacks Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -203,11 +203,11 @@ export default function WeeklyStats(props){
         )
     }else if (props.position === "ROLB" || props.position === "MLB" || props.position === "LOLB"){
         return (
-        <div className="flex flex-wrap w-full lg:w-3/6 content-center">
+        <div className="flex flex-wrap content-center w-full lg:w-3/4">
             <div className="w-full">
                 <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
             </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                 <h2>Tackles Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -219,7 +219,7 @@ export default function WeeklyStats(props){
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                 <h2>Sacks Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -231,7 +231,7 @@ export default function WeeklyStats(props){
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-3/6">
+            <div className="w-full">
                 <h2>Interceptions Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -247,11 +247,11 @@ export default function WeeklyStats(props){
         )
     }else if (props.position === "CB" || props.position === "FS" || props.position === "SS"){
         return (
-            <div className="flex flex-wrap w-full lg:w-3/6 content-center">
+            <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
                     <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>Pass Deflections Per Game</h2>
                     <ResponsiveContainer width="90%" height={400} >
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -263,7 +263,7 @@ export default function WeeklyStats(props){
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>Passes Allowed Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -275,7 +275,7 @@ export default function WeeklyStats(props){
                         </LineChart>    
                     </ResponsiveContainer> 
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>Interceptions Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -291,11 +291,11 @@ export default function WeeklyStats(props){
         )
     }else if (props.position === "K"){
         return (
-            <div className="flex flex-wrap w-full lg:w-3/6 content-center">
+            <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
                     <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>FGs Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>
@@ -307,7 +307,7 @@ export default function WeeklyStats(props){
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
-                <div className="w-full lg:w-3/6">
+                <div className="w-full">
                     <h2>Longest FG Per Game</h2>
                     <ResponsiveContainer width="90%" height={400}>
                         <LineChart data={weeklyStats} margin={{top:0,right:0,left:0,bottom:50}}>

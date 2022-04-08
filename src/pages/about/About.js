@@ -4,10 +4,10 @@ import Footer from "../../components/Footer/Footer";
 
 function About() {
   return(
-    <>
+    <div className="flex flex-col justify-center">
     <Header active="about"/>
-    <div className="w-screen bg-gray">
-  <div className="flex flex-col items-center justify-between w-screen bg-gray">
+    <div className="bg-gray">
+  <div className="flex flex-col items-center justify-between bg-gray">
     <div className="flex flex-col items-center justify-center w-2/3 text-white text-semibold md:w-1/2 bg-gray center">
       <h2 className="pt-10 text-3xl text-center">Who We Are</h2>
       <p className="text-base text-center">
@@ -35,7 +35,7 @@ function About() {
   </div>
   </div>
   <Footer />
-  </>
+  </div>
   )
 }
 

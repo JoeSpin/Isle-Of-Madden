@@ -16,7 +16,7 @@ import LeagueLeaderPage from './components/LeagueLeaders/LeagueLeaderPage';
 
 
 ReactDOM.render(
-  <>
+  <div className='flex items-center justify-center max-w-screen-2xl bg-gray'>
   <Router>
     <Route exact path="/" render={Home} />
     <Route exact path="/team/:tn" render={TeamPage} />
@@ -40,6 +40,6 @@ ReactDOM.render(
       <LeagueLeaderPage />
     </Route>
   </Router>
-  </>,
+  </div>,
   document.getElementById('root')
 );

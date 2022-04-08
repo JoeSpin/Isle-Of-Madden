@@ -8,7 +8,7 @@ import PlayerCard from '../../components/Player/PlayerCard';
 export default function PlayerPage() { 
 
     return ( 
-        <div className=" bg-gray flex flex-col justify-between">
+        <div className="">
             <Header active="players" />
             <PlayerCard/>
             <Footer />

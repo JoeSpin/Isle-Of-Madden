@@ -10,8 +10,8 @@ export default function TeamStats(props) {
         setData(props.weeklyStats);       
     })
     return (
-        <div id="teamStatsDiv" className="bg-gray bg-opacity-50">
-            <div className="w-full lg:w-1/4" >
+        <div id="teamStatsDiv" className="w-full bg-opacity-50 bg-gray">
+            <div className="w-full lg:w-1/2" >
                 <h2>Offensive Yards Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart  data={data}> 
@@ -25,7 +25,7 @@ export default function TeamStats(props) {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-1/4">
+            <div className="w-full lg:w-1/2">
                 <h2>Offensive Pass Yards Per Game </h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={data}>
@@ -37,7 +37,7 @@ export default function TeamStats(props) {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-1/4">
+            <div className="w-full lg:w-1/2">
                 <h2>Offensive Rush Yards Per Game </h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={data}>
@@ -49,7 +49,7 @@ export default function TeamStats(props) {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-1/4">
+            <div className="w-full lg:w-1/2">
                 <h2>Turnovers Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={data}>
@@ -61,7 +61,7 @@ export default function TeamStats(props) {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-1/4">
+            <div className="w-full lg:w-1/2">
                 <h2>Defensive Total Yards Allowed Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={data}> 
@@ -73,7 +73,7 @@ export default function TeamStats(props) {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-1/4">
+            <div className="w-full lg:w-1/2">
                 <h2>Defensive Pass Yards Allowed Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={data} >
@@ -85,7 +85,7 @@ export default function TeamStats(props) {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-1/4">
+            <div className="w-full lg:w-1/2">
                 <h2>Defensive Rush Yards Allowed Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={data}> 
@@ -97,7 +97,7 @@ export default function TeamStats(props) {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <div className="w-full lg:w-1/4">
+            <div className="w-full lg:w-1/2">
                 <h2>Takeaways per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>
                     <LineChart data={data}> 

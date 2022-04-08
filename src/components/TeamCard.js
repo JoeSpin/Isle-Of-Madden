@@ -69,11 +69,11 @@ export default function TeamCard(props) {
 
 
   return (
-    <div className="flex justify-center py-6 text-white App bg-gray">
+    <div className="py-6 text-white bg-gray">
       <Helmet>
         <title>{`Isle of Madden - ${team.teamName}`}</title>
       </Helmet>
-      <div id="body" className="flex flex-col items-center md:w-full">
+      <div className="flex flex-col items-center">
         <div style={{borderColor: colors[team.teamName]}} className="w-4/5 border-8 md:w-3/5 rounded-3xl">
         <div id="teamcard" style={{backgroundColor: colors[team.teamName]}} className="flex flex-col items-center py-5 m-2 text-white rounded-xl">
           <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-32 p-3" />

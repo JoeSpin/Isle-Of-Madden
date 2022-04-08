@@ -7,7 +7,7 @@ export default function TeamRoster(props) {
         setData(props.data);
     }, [props.data])
     return (
-        <div className="w-screen">
+        <div className="w-full">
             <PlayerSearchTable data={data} columns={"Team"} pageSize={10}/>
         </div>
     )
