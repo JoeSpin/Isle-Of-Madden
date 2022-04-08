@@ -6,6 +6,7 @@ import TeamRoster from "./TeamRoster";
 import TeamSchedule from "./TeamSchedule";
 import TeamStats from "./TeamStats";
 import colors  from "../resources/teamColorCodes.json";
+import Helmet from "react-helmet";
 
 export default function TeamCard(props) {
   const [isLoading, setLoading] = useState(true);
@@ -69,6 +70,9 @@ export default function TeamCard(props) {
 
   return (
     <div className="flex justify-center py-6 text-white App bg-gray">
+      <Helmet>
+        <title>{`Isle of Madden - ${team.teamName}`}</title>
+      </Helmet>
       <div id="body" className="flex flex-col items-center md:w-full">
         <div style={{borderColor: colors[team.teamName]}} className="w-4/5 border-8 md:w-3/5 rounded-3xl">
         <div id="teamcard" style={{backgroundColor: colors[team.teamName]}} className="flex flex-col items-center py-5 m-2 text-white rounded-xl">

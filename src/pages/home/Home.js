@@ -7,7 +7,7 @@ import HomeSchedule from '../../components/LeagueSchedule/HomeSchedule';
 function Home() { 
     
   return(
-   <div className="relative w-screen overflow-x-hidden md:overflow-y-auto bg-gray">
+   <div className="relative w-screen overflow-x-hidden md:overflow-y-auto">
     <Header active="home" />
     <HomeSchedule />
     <Footer />

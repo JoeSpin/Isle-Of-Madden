@@ -67,7 +67,7 @@ function HomeSchedule(props) {
     // flex items-center justify-center w-scheduleBox h-scheduleBox border-8 rounded-3xl border-purple
     // flex items-center justify-center w-scheduleBox h-scheduleBox border-8 rounded-3xl border-purple
     return (
-        <div>
+        <div className='min-h-screen'>
             <h1 className="mt-5 text-3xl font-bold text-center text-white">Welcome to Isle of Madden<br />{fixWeek(week)}</h1>
             <div className='flex flex-wrap items-center justify-center w-full'>
                 <img src={logo} className="w-32 h-32 m-4 lg:hidden"></img>
