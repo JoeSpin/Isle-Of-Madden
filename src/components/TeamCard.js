@@ -15,6 +15,7 @@ export default function TeamCard(props) {
   const [teamSchedule, setTeamSchedule] = useState([]);
   const [teamComponent, setTeamComponent] = useState("");
   const [roster, setRoster] = useState([]); 
+  const [coach, setCoach] = useState(""); 
   const { tn } = useParams();
   const navContainer = `px-5 py-3 mx-3 my-2 text-white duration-500 transition-border ease-in-out hover:border-white cursor-pointer border-4 rounded-xl border-purple`;
   const navLink = `text-xl font-bold`;
@@ -33,11 +34,11 @@ export default function TeamCard(props) {
   useEffect(() => {
     axios.get(`https://isle-of-madden-test.herokuapp.com/api/team/${tn}`).then(response => {
       setTeamData(response.data.teamInfo[0]);
-      console.log(response.data);
       setTeamWeeklyStats(response.data.teamStats);
       setRoster(response.data.roster);
       setTeamSchedule(response.data.schedule);
       setLoading(false);
+      setCoach(response.data.coach[0].coachName); 
       setTeamComponent(<TeamSchedule data={response.data.schedule}/>)
     });
   }, [tn]);
@@ -78,7 +79,7 @@ export default function TeamCard(props) {
         <div id="teamcard" style={{backgroundColor: colors[team.teamName]}} className="flex flex-col items-center py-5 m-2 text-white rounded-xl">
           <img src={require(`../../src/img/logos/${getLogo(team.teamName)}`).default} className="w-32 p-3" />
           <h1 className="w-full text-2xl font-black text-center">{team.cityName} {team.teamName}</h1>
-          <CoachCard />
+          <CoachCard coach={coach}/>
           <h3 className="text-center">{team.divisionName}</h3>
           <h3 className="text-center">Overall: {team.teamOvr}</h3>
           <h3 className="text-center">Record: ({team.totalWins} - {team.totalLosses} - {team.totalTies})</h3>

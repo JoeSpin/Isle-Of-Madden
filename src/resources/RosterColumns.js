@@ -12,7 +12,7 @@ export const defaultColumns = [{
 }, {
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Dev Trait',
@@ -55,7 +55,7 @@ export const qbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -120,7 +120,7 @@ export const hbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -192,7 +192,7 @@ export const fbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -264,7 +264,7 @@ export const teColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -341,7 +341,7 @@ export const wrColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -409,7 +409,7 @@ export const olColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -467,7 +467,7 @@ export const dlColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Dev Trait',
@@ -536,7 +536,7 @@ export const deColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Dev Trait',
@@ -610,7 +610,7 @@ export const olbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -684,7 +684,7 @@ export const mlbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -760,7 +760,7 @@ export const lbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -832,7 +832,7 @@ export const cbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -898,7 +898,7 @@ export const sColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -968,7 +968,7 @@ export const dbColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',
@@ -1039,7 +1039,7 @@ export const stColumns = [{
 },{
     Header: 'Team',
     accessor: row => { 
-        return `${row.teamname}`;
+        return `${row.teamName}`;
     }   
 },{
     Header: 'Age',

@@ -2,24 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 
-export default function CoachCard() {
+export default function CoachCard(props) {
     const [isLoading, setLoading] = useState(true);
-    const [team, setCoachData] = useState();
+    const [coach, setCoach] = useState();
     const { tn } = useParams();
 
     useEffect(() => {
-        axios.get(`https://isle-of-madden-test.herokuapp.com/api/coach/${tn}`).then(response => {
-          setCoachData(response.data[0]);
-          setLoading(false);
-        });
-      }, []);
-      if (isLoading) {
-        return <div className="App">Loading...</div>;
-      }
+      console.log(props);
+      setCoach(props.coach);
+      }, [props.coach]);
 
     return (
         <div className="w-full text-center">
-            <h3>Coach: {team.coachName}</h3>
+            <h3>Coach: {coach}</h3>
         </div>
     )
 }

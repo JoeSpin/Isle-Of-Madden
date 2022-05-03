@@ -7,8 +7,9 @@ export default function TeamSchedule(props) {
     const [data, setData] = useState([]); 
     let index = 1;
     useEffect(() => {
+        console.log(props.data);
         setData(props.data);
-    })
+    }, [props.data])
     const getLogo = (teamn) => {
         if (teamn === "Football Team"){ 
           return `wft.svg` 
