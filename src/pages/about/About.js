@@ -6,9 +6,9 @@ function About() {
   return(
     <div className="flex flex-col justify-center">
     <Header active="about"/>
-    <div className="bg-gray">
-  <div className="flex flex-col items-center justify-between bg-gray">
-    <div className="flex flex-col items-center justify-center w-2/3 text-white text-semibold md:w-1/2 bg-gray center">
+    <div className="">
+  <div className="flex flex-col items-center justify-between ">
+    <div className="flex flex-col items-center justify-center w-2/3 text-semibold md:w-1/2 center">
       <h2 className="pt-10 text-3xl text-center">Who We Are</h2>
       <p className="text-base text-center">
         Founded in 2020 by dedicated users, Isle of Madden is a PC Madden Franchise that aims to bring a simulation-style experience

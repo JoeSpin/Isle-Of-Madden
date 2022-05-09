@@ -41,14 +41,14 @@ export default function TeamListCards() {
   const flexCenter=`flex flex-col items-center justify-center`;
   const teamLinkContainer =`m-2 text-sm font-medium`;
   const gridTemplate = `grid grid-cols-2 grid-rows-2 p-2`;
-  const teamDropdown = `w-full p-1 rounded-xl text-white transition-all ease-in-out border-4 border-solid border-purple hover:bg-purple hover:border-gray flex items-center`;
+  const teamDropdown = `w-full p-1 rounded-xl transition-all ease-in-out border-4 border-solid border-purple hover:bg-purple hover:border-gray flex items-center`;
 
   return (
     <div className="">
-    <div className={`flex justify-center items-center p-3 bg-gray`}>
-            <div className="flex flex-col items-center justify-center w-full pb-3">
+    <div className={`flex lg:flex-col justify-center items-center p-3`}>
+            <div className="flex flex-col items-center justify-center w-full pb-3 lg:flex-row">
               <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">AFC North</h4></div>
+              <div><h4 className="font-bold">AFC North</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Ravens" className={teamLinkContainer}><div className={teamDropdown}><img src={ravens} className="w-12 h-12"></img></div></a>
               <a href="/team/Browns" className={teamLinkContainer}><div className={teamDropdown}><img src={browns} className="w-12 h-12"></img></div></a>
@@ -57,7 +57,7 @@ export default function TeamListCards() {
               </div>
             </div>
             <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">AFC West</h4></div>
+              <div><h4 className="font-bold">AFC West</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Broncos" className={teamLinkContainer}><div className={teamDropdown}><img src={broncos} className="w-12 h-12"></img></div></a>
               <a href="/team/Chiefs" className={teamLinkContainer}><div className={teamDropdown}><img src={chiefs} className="w-12 h-12"></img></div></a>
@@ -66,7 +66,7 @@ export default function TeamListCards() {
               </div>
             </div>
             <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">AFC East</h4></div>
+              <div><h4 className="font-bold">AFC East</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Bills" className={teamLinkContainer}><div className={teamDropdown}><img src={bills} className="w-12 h-12"></img></div></a>
               <a href="/team/Dolphins" className={teamLinkContainer}><div className={teamDropdown}><img src={dolphins} className="w-12 h-12"></img></div></a>
@@ -75,7 +75,7 @@ export default function TeamListCards() {
               </div>
             </div>
             <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">AFC South</h4></div>
+              <div><h4 className="font-bold">AFC South</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Texans" className={teamLinkContainer}><div className={teamDropdown}><img src={texans} className="w-12 h-12"></img></div></a>
               <a href="/team/Colts" className={teamLinkContainer}><div className={teamDropdown}><img src={colts} className="w-12 h-12"></img></div></a>
@@ -84,9 +84,9 @@ export default function TeamListCards() {
               </div>
             </div>
             </div>
-            <div className="flex flex-col items-center justify-center w-full">
+            <div className="flex flex-col items-center justify-center w-full lg:flex-row">
             <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">NFC North</h4></div>
+              <div><h4 className="font-bold">NFC North</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Bears" className={teamLinkContainer}><div className={teamDropdown}><img src={bears} className="w-12 h-12"></img></div></a>
               <a href="/team/Lions" className={teamLinkContainer}><div className={teamDropdown}><img src={lions} className="w-12 h-12"></img></div></a>
@@ -95,7 +95,7 @@ export default function TeamListCards() {
               </div>
             </div>
             <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">NFC West</h4></div>
+              <div><h4 className="font-bold">NFC West</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Cardinals" className={teamLinkContainer}><div className={teamDropdown}><img src={cardinals} className="w-12 h-12"></img></div></a>
               <a href="/team/Rams" className={teamLinkContainer}><div className={teamDropdown}><img src={rams} className="w-12 h-12"></img></div></a>
@@ -104,7 +104,7 @@ export default function TeamListCards() {
               </div>
             </div>
             <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">NFC East</h4></div>
+              <div><h4 className="font-bold">NFC East</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Cowboys" className={teamLinkContainer}><div className={teamDropdown}><img src={cowboys} className="w-12 h-12"></img></div></a>
               <a href="/team/Giants" className={teamLinkContainer}><div className={teamDropdown}><img src={giants} className="w-12 h-12"></img></div></a>
@@ -113,7 +113,7 @@ export default function TeamListCards() {
               </div>
             </div>
             <div className={flexCenter}>
-              <div><h4 className="font-bold text-white">NFC South</h4></div>
+              <div><h4 className="font-bold">NFC South</h4></div>
               <div className={gridTemplate}>
               <a href="/team/Falcons" className={teamLinkContainer}><div className={teamDropdown}><img src={falcons} className="w-12 h-12"></img></div></a>
               <a href="/team/Panthers" className={teamLinkContainer}><div className={teamDropdown}><img src={panthers} className="w-12 h-12"></img></div></a>

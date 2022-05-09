@@ -67,43 +67,45 @@ export default function PlayerCard(props) {
 
 
     if (loading) {
-        return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
+        return <div className="py-16 text-5xl font-extrabold text-center App ">Loading...</div>;
       }
     
 
     
     return (
-        <div className="flex flex-col items-center m-5 text-white bg-gray">
+        <div className="flex flex-col items-center m-5 ">
             <Helmet>
                 <meta charSet='utf-8' />
                 <title>{`${player.firstName} ${player.lastName} - ${player.position} ${player.playerBestOvr}`}</title>
             </Helmet>
-            <div className="flex flex-wrap w-full p-2 text-white lg:w-1/2 rounded-3xl" style={{backgroundColor: teamColorCodes[player.teamName]}}>
-                <div className='flex flex-col items-center justify-center w-1/3'>
-                <div className='m-2 rounded-t-full bg-gray'>
+            <div className="flex flex-col items-center w-full p-2 text-white rounded-md lg:w-3/4" style={{backgroundColor: teamColorCodes[player.teamName]}}>
+            <div className='flex items-center justify-between w-11/12'>
+                <div className='flex flex-col items-center'>
+                <div className='m-1 rounded-t-full '>
                     <img src={`https://madden-assets-cdn.pulse.ea.com/madden22/portraits/128/${player.portraitId}.png`}></img>
                 </div>
                 <h3 className='text-2xl font-black'>{player.firstName} {player.lastName}</h3>
                 <h3>{player.position} #{player.jerseyNum}</h3>
                 </div>
-                <div className='flex flex-col items-start justify-center w-1/3 text-xl'>
-                    <div className='flex justify-between'>
-                        <h5>Team: </h5>
-                        <img src={require(`../../img/logos/${player.teamName.toLowerCase()}.svg`).default} style={{height: '28px', width: '40px'}}/>
-                    </div>
+                <div className='flex flex-col items-start justify-center text-xl'>
                     <h5>Overall: {player.playerBestOvr}</h5>
                     <h5>Height: {convertHeight(player.height)}</h5>
                     <h5>Weight: {player.weight} lbs</h5>
                     <h5>Dev Trait: {convertTrait(player.devTrait)}</h5>
                     <h5>Age: {player.age}</h5>
                 </div>
-                <div className='flex flex-col items-start justify-center w-1/3 text-l'> 
+                <div className='flex flex-col items-start justify-center text-xl'> 
                     <h5>Total Years: {player.contractLength}</h5>
                     <h5>Total Salary: {player.teamId !== 1 ? calcContract(player.contractSalary): '0'}</h5>
                     <h5>Bonus: {player.teamId !== 1 ? calcContract(player.contractBonus): '0'}</h5>
                     <h5>Years Left: {player.contractYearsLeft}</h5>
                     <h5>Yearly Salary: {player.teamId !== 1 ? calcContract(calcYearlySalary(player.contractSalary, player.contractLength)): '0'}</h5>   
                 </div>
+                <div className='flex justify-between'>
+                        <img src={require(`../../img/logos/${player.teamName.toLowerCase()}.svg`).default} style={{height: '96px', width: '96px'}}/>
+                    </div>
+                    </div>
+                
             </div>
             <PlayerCoreAttributes player={player} position={player.position}/>
             {abilities.length > 0 ? <Abilities abilities={abilities} devTrait={player.devTrait} /> : ''}

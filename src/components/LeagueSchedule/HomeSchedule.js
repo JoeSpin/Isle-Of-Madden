@@ -30,7 +30,7 @@ function HomeSchedule(props) {
 
 
     if (loading) {
-        return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
+        return <div className="py-16 font-extrabold text-center text-9xl App">Loading...</div>;
     }
 
     const getLogo = (teamn) => {
@@ -68,9 +68,8 @@ function HomeSchedule(props) {
     // flex items-center justify-center w-scheduleBox h-scheduleBox border-8 rounded-3xl border-purple
     return (
         <div className='min-h-screen'>
-            <h1 className="mt-5 text-3xl font-bold text-center text-white">Welcome to Isle of Madden<br />{fixWeek(week)}</h1>
+            <h1 className="mt-5 text-3xl text-center">Isle of Madden - {fixWeek(week)}</h1>
             <div className='flex flex-wrap items-center justify-center w-full'>
-                <img src={logo} className="w-32 h-32 m-4 lg:hidden"></img>
 
                 {games.map(game => {
                     let homeColors = colors[game.homeTeam];
@@ -96,26 +95,23 @@ function HomeSchedule(props) {
                     }
                     console.log(awayStyle); 
                     return (
-                        <div className="flex justify-center w-full m-5 text-white border-8 rounded-3xl border-purple lg:w-1/4 bg-gray">
-                            <div className='flex items-center justify-center w-scheduleBox h-scheduleBox ' >
-                                <div className="flex flex-col items-center justify-center text-center w-9/10 h-9/10 rounded-3xl" style={awayStyle}>
-                                    <div className='flex items-center justify-center w-20 h-20'>
+                        <div className="flex items-center justify-center w-11/12 m-1 text-white border-2 md:border-4 md:p-1 md:m-2 md:rounded-2xl border-purple lg:w-2/3">
+                            <div className='flex items-center justify-center w-1/2 h-full ' >
+                                <div className="flex items-center justify-between w-full pr-2 text-center md:pr-10 h-9/10 md:rounded-l-2xl" style={awayStyle}>
+                                    <div className='flex items-center justify-center w-16 h-16 md:w-20 md:h-20'>
                                         <img src={require(`../../img/logos/${getLogo(game.awayTeam)}`).default} style={awayLogoStyle}className="p-3" />
                                     </div>
-                                    <h3 className='text-lg font-semibold'>{game.awayTeam}</h3>
-                                    <h2 className='text-lg' >{game.awayScore}</h2>
+                                    <h3 className='font-normal md:text-lg md:font-semibold'>{game.awayTeam}</h3>
+                                    <h2 className='text-2xl font-black md:text-3xl' >{game.awayScore}</h2>
                                 </div>
                             </div>
-                            <div className={`flex items-center justify-center`}>
-                                <p className='p-3 text-xl font-black'>@</p>
-                            </div>
-                            <div className='flex items-center justify-center w-scheduleBox h-scheduleBox ' >
-                                <div className="flex flex-col items-center justify-center text-center w-9/10 h-9/10 rounded-3xl" style={homeStyle}>
-                                    <div className='flex items-center justify-center w-20 h-20'>
+                            <div className='flex items-center justify-center w-1/2 h-full' >
+                                <div className="flex flex-row-reverse items-center justify-between w-full pl-2 text-center md:pl-10 h-9/10 md:rounded-r-2xl" style={homeStyle}>
+                                    <div className='flex items-center justify-center w-16 h-16 md:w-20 md:h-20'>
                                         <img src={require(`../../img/logos/${getLogo(game.homeTeam)}`).default} style={homeLogoStyle} className="p-3" />
                                     </div>
-                                    <h3 className='text-lg font-semibold' >{game.homeTeam}</h3>
-                                    <h2 className='text-lg'>{game.homeScore}</h2>
+                                    <h3 className='font-normal md:text-lg md:font-semibold' >{game.homeTeam}</h3>
+                                    <h2 className='text-2xl font-black md:text-3xl'>{game.homeScore}</h2>
                                 </div>
                             </div>
                         </div>

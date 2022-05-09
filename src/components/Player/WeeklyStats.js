@@ -26,7 +26,7 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
-                    <PlayerPerGameStats games={weeklyStats} position={props.position} color={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} />
                 </div>
                  <div className="w-full">
                     <h2>Pass Yards Per Game</h2> 
@@ -73,7 +73,7 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
-                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} team/>
                 </div>
             <div className="w-full">
                <h2>Pass Yards Per Game</h2> 
@@ -117,7 +117,7 @@ export default function WeeklyStats(props){
         return (
         <div className="flex flex-wrap content-center w-full lg:w-3/4">
             <div className="w-full">
-                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} team/>
             </div>
             <div className="w-full">
                 <h2>Receiving Yards Per Game</h2>
@@ -173,7 +173,7 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
-                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} team/>
                 </div>
                 <div className="w-full">
                     <h2>Tackles Per Game</h2>
@@ -205,7 +205,7 @@ export default function WeeklyStats(props){
         return (
         <div className="flex flex-wrap content-center w-full lg:w-3/4">
             <div className="w-full">
-                <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
+                <PlayerPerGameStats games={weeklyStats} position={props.position} team/>
             </div>
             <div className="w-full">
                 <h2>Tackles Per Game</h2>
@@ -249,7 +249,7 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
-                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} team/>
                 </div>
                 <div className="w-full">
                     <h2>Pass Deflections Per Game</h2>
@@ -293,7 +293,7 @@ export default function WeeklyStats(props){
         return (
             <div className="flex flex-wrap content-center w-full lg:w-3/4">
                 <div className="w-full">
-                    <PlayerPerGameStats games={weeklyStats} position={props.position} teamcolor={teamColor}/>
+                    <PlayerPerGameStats games={weeklyStats} position={props.position} team/>
                 </div>
                 <div className="w-full">
                     <h2>FGs Per Game</h2>

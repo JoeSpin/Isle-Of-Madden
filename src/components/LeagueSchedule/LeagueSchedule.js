@@ -1,6 +1,7 @@
 import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'; 
+import colors from '../../resources/teamColorCodes.json';
 
 function LeagueSchedule(props) {
     const [loading, setLoading] = useState(true);
@@ -37,8 +38,18 @@ function LeagueSchedule(props) {
  
     }
 
-    const inactiveButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-purple bg-lightgray rounded-2xl'; 
-    const activeButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-black hover:bg-lightgray bg-purple rounded-2xl'
+    const getLogo = (teamn) => {
+        if (teamn === "Football Team") {
+            return `wft.svg`
+        } else if (teamn === "Buccaneers") {
+            return 'bucs.svg'
+        } else {
+            return `${teamn.toLowerCase()}.svg`
+        }
+    }
+
+    const inactiveButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:bg-purple hover:text-white  bg-lightgray rounded-2xl'; 
+    const activeButtonClass = 'px-3 mx-2 transition-colors duration-500 ease-in cursor-pointer hover:text-white hover:bg-lightgray bg-purple rounded-2xl text-white'
 
     useEffect(() => { 
         if (loading) {
@@ -174,7 +185,7 @@ function LeagueSchedule(props) {
     }
 
     return (
-        <div className='min-h-screen m-auto lg:w-1/2'>
+        <div className='flex flex-col items-center justify-center w-full min-h-screen'>
             <div className='flex visible lg:hidden'>
                 <select onChange={() => getCustomWeek('dropdown')} id='weekDropdown' className='m-auto'>
                     {btnList.map(btn => {
@@ -209,26 +220,29 @@ function LeagueSchedule(props) {
                     )
                 })}
             </div>
-            <h1 className="m-5 text-3xl text-center text-white">{fixWeek(week)}</h1>
+            <h1 className="m-5 text-3xl text-center">{fixWeek(week)}</h1>
             {games.map(game=> {
                 return (
-                        <div className="flex flex-row py-2 m-auto text-white bg-white rounded bg-opacity-10 hover:bg-purple hover:bg-opacity-100">
-                            <div className="w-1/5 text-center ">
-                                <h2 className='ml-3'>{game.awayScore}</h2>
+                    <div className="flex items-center justify-center w-11/12 m-1 text-white border-2 md:border-4 md:p-1 md:m-2 md:rounded-2xl border-purple lg:w-2/3">
+                    <div className='flex items-center justify-center w-1/2 h-full ' >
+                        <div className="flex items-center justify-between w-full pr-2 text-center md:pr-10 h-9/10 md:rounded-l-2xl" style={{backgroundColor: colors[game.awayTeam]}}>
+                            <div className='flex items-center justify-center w-16 h-16 md:w-20 md:h-20'>
+                                <img src={require(`../../img/logos/${getLogo(game.awayTeam)}`).default} className="p-3" />
                             </div>
-                            <div className="w-1/5 pl-3 text-center">
-                                <h3>{game.awayTeam}</h3>
-                            </div>
-                            <div className="w-1/5 text-center">
-                                <p>@</p>
-                            </div>
-                            <div className="w-1/5 text-center ">
-                                <h3 className='mr-3'>{game.homeTeam}</h3>
-                            </div>
-                            <div className="w-1/5 text-center ">
-                                <h2>{game.homeScore}</h2>
-                            </div>
+                            <h3 className='font-normal md:text-lg md:font-semibold'>{game.awayTeam}</h3>
+                            <h2 className='text-2xl font-black md:text-3xl' >{game.awayScore}</h2>
                         </div>
+                    </div>
+                    <div className='flex items-center justify-center w-1/2 h-full' >
+                        <div className="flex flex-row-reverse items-center justify-between w-full pl-2 text-center md:pl-10 h-9/10 md:rounded-r-2xl" style={{backgroundColor: colors[game.homeTeam]}}>
+                            <div className='flex items-center justify-center w-16 h-16 md:w-20 md:h-20'>
+                                <img src={require(`../../img/logos/${getLogo(game.homeTeam)}`).default} className="p-3" />
+                            </div>
+                            <h3 className='font-normal md:text-lg md:font-semibold' >{game.homeTeam}</h3>
+                            <h2 className='text-2xl font-black md:text-3xl'>{game.homeScore}</h2>
+                        </div>
+                    </div>
+                </div>
                     
             )})}
 

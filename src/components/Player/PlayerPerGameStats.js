@@ -54,7 +54,7 @@ export function PlayerPerGameStats(props) {
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map( column => (
-                                    <th {...column.getHeaderProps()} className='p-2'>{column.render('Header')}</th>
+                                    <th {...column.getHeaderProps()} className='p-2 bg-gray2'>{column.render('Header')}</th>
                                 ))
                             }
                         </tr>

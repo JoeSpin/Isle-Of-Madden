@@ -10,7 +10,7 @@ export default function TeamStats(props) {
         setData(props.weeklyStats);       
     })
     return (
-        <div id="teamStatsDiv" className="w-full bg-opacity-50 bg-gray">
+        <div id="teamStatsDiv" className="w-full bg-opacity-50">
             <div className="w-full lg:w-1/2" >
                 <h2>Offensive Yards Per Game</h2>
                 <ResponsiveContainer width="90%" height={400}>

@@ -57,16 +57,17 @@ export default function LeagueLeaderCard(props) {
 
 
     return (
-        <div className='flex flex-col w-full lg:w-1/2 text-white'>
+        <div className='flex flex-col w-full lg:w-5/12 '>
             <div className='w-full'>
-            <h1 className='text-center bg-purple'>{title}</h1>
-            <table {...getTableProps()} className="w-4/5 overflow-x-scroll lg:table" style={{marginLeft: '10%', marginRight: '10%'}}>
+            
+            <table {...getTableProps()} className="w-4/5 m-3 overflow-x-scroll lg:table" style={{marginLeft: '10%', marginRight: '10%'}}>
+                <thead><th colSpan={4}><h1 className='w-full text-center bg-gray2' colspan='2'>{title}</h1></th></thead>
                 <thead>
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map(column => (
-                                    <th {...column.getHeaderProps()} className="bg-opacity-30 bg-gray text-white">{column.render('Header')}</th>
+                                    <th {...column.getHeaderProps()} className="bg-opacity-30 bg-gray ">{column.render('Header')}</th>
                                 ))
                             }
                         </tr>
@@ -76,7 +77,7 @@ export default function LeagueLeaderCard(props) {
                     {rows.map((row) => {
                         prepareRow(row);
                         return (
-                            <tr {...row.getRowProps()} className="text-white">
+                            <tr {...row.getRowProps()} className="">
                                 {row.cells.map((cell) => {
                                     return <td {...cell.getCellProps()} className="text-center">{cell.render('Cell')}</td>
                                 })}

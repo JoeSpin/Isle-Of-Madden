@@ -17,9 +17,9 @@ export default function TeamCard(props) {
   const [roster, setRoster] = useState([]); 
   const [coach, setCoach] = useState(""); 
   const { tn } = useParams();
-  const navContainer = `px-5 py-3 mx-3 my-2 text-white duration-500 transition-border ease-in-out hover:border-white cursor-pointer border-4 rounded-xl border-purple`;
+  const navContainer = `px-5 py-3 mx-3 my-2  duration-500 transition-border ease-in-out hover:border-black cursor-pointer border-4 rounded-xl border-purple`;
   const navLink = `text-xl font-bold`;
-  const navActive = `text-white text-xl font-bold border-purple border-4 rounded-xl px-5 py-3`;
+  const navActive = ` text-xl font-bold border-purple border-4 rounded-xl px-5 py-3`;
 
   const showTeamRoster = () => {
     setTeamComponent(<TeamRoster data={roster}/>)
@@ -43,7 +43,7 @@ export default function TeamCard(props) {
     });
   }, [tn]);
   if (isLoading) {
-    return <div className="py-16 text-5xl font-extrabold text-center text-white App bg-gray">Loading...</div>;
+    return <div className="py-16 text-5xl font-extrabold text-center App ">Loading...</div>;
   }
 
   const calcCap = (capAvail) => {
@@ -70,7 +70,7 @@ export default function TeamCard(props) {
 
 
   return (
-    <div className="py-6 text-white bg-gray">
+    <div className="py-6 ">
       <Helmet>
         <title>{`Isle of Madden - ${team.teamName}`}</title>
       </Helmet>

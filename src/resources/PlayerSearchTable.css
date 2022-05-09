@@ -8,5 +8,5 @@ table, th, tr, td   {
 }
 
 tr:nth-of-type(2n){
-  background-color: gray;
+  background-color: #d5d5d5;
 }
