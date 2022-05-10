@@ -86,8 +86,8 @@ function PlayerSearchTable(props){
     )
     
     return (
-        <div className="flex flex-col items-center text-base">
-        <table {...getTableProps()} className="block w-10/12 overflow-x-scroll md:table md:w-4/5">
+        <div className="flex flex-col items-center text-base ">
+        <table {...getTableProps()} className="relative block overflow-x-scroll w-96 md:table md:w-4/5">
            <thead>
                {headerGroups.map((headerGroup) => (
                    <tr {...headerGroup.getHeaderGroupProps()} className="playerSearchTableRow">
@@ -105,7 +105,7 @@ function PlayerSearchTable(props){
                   return ( 
                       <tr {...row.getRowProps()} className="">
                       {row.cells.map((cell) => {
-                          return <td {...cell.getCellProps()} className="text-center">{cell.render('Cell')}</td>
+                          return <td {...cell.getCellProps()} className="text-sm text-center md:text-base">{cell.render('Cell')}</td>
                       })}
                       </tr>
                   )

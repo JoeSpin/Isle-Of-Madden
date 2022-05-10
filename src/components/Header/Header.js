@@ -11,7 +11,7 @@ export default function Header(props) {
   }, [props.active])
 
   return (
-    <div className={`${isOpen ? "h-screen fixed z-10 bg-gray1":""}`}>
+    <div className={`${isOpen ? "bg-gray1 h-screen fixed z-10 top-0":""}`}>
     <div className="flex items-center">
       <img src={logo} alt="Isle of Madden" className="w-20 h-20 mx-5 my-1 md:w-16 md:h-16 lg:w-20 lg:h-20" />
       <ul className="hidden list-none md:flex">
