@@ -3,14 +3,21 @@ import axios from "axios";
 import { standingsColumns } from "./StandingsColums";
 import { useTable } from "react-table";
 
-export default function ConferenceStandings() {
-    const [conference, setConference] = useState("NFC");
+export default function ConferenceStandings(props) {
+    const [conference, setConference] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState([]);
     const [columns, setColumns] = useState(standingsColumns);
+    const [titleColor, setTitleColor] = useState(""); 
     const getData = () => {
-        axios.get(`https://isle-of-madden-test.herokuapp.com/api/conferencestandings/${conference}`).then(response => {
+        console.log(`${props.conferenceprop} confprop`)
+        axios.get(`https://isle-of-madden-test.herokuapp.com/api/conferencestandings/${props.conferenceprop}`).then(response => {
             setData(response.data.standings);
+            if (props.conferenceprop === 'NFC'){
+                setTitleColor('Blue');
+            }else if (props.conferenceprop === 'AFC'){
+                setTitleColor('Red');
+            }
             setIsLoading(false);
         })
     }
@@ -21,61 +28,24 @@ export default function ConferenceStandings() {
 
     useEffect(() => {
         getData();
-    }, [conference])
+    }, [props.conference])
 
 
-    
-    const { 
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow
-    } = useTable (
-        {
-            columns,
-            data,
-        }
-    )
-    
     if (isLoading) {
         return <div className="py-16 text-5xl font-extrabold text-center App bg-gray text-white">Loading...</div>;
       }
 
     return (
-        <div>
-            <h1 className='text-center'>{conference} Standings</h1>
-            <div>
-                <select onChange={(updateConference)}>
-                    <option>NFC</option>
-                    <option>AFC</option>
-                </select>
+        <div className='flex flex-col'>
+            <div className = 'w-100' >
+                <h1 className='text-center' style={{backgroundColor: titleColor}}>{props.conferenceprop}</h1>
             </div>
-            <table {...getTableProps()}> 
-                <thead>
-                    {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {
-                                headerGroup.headers.map( column => (
-                                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                                ))
-                            }
-                        </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {rows.map((row) => { 
-                        prepareRow(row);
-                        return ( 
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map((cell) => { 
-                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                })}
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+            {data.map(team => (
+                <div className = 'w-100'>
+                    <h4>{team.teamName}</h4>
+                    <p>{team.totalWins}-{team.totalLosses}-{team.totalTies} ({team.confWins}-{team.confLosses}-{team.confTies})</p>
+                </div>
+            ))}
         </div>
     )
 }

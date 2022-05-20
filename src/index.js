@@ -33,9 +33,6 @@ ReactDOM.render(
     <Route exact path="/game/:gameId" >
       <GameStatsPage key={Date.now()} />
     </Route>
-    <Route exact path="/standings">
-      <StandingsPage />
-    </Route>
     <Route exact path="/leagueleaders">
       <LeagueLeaderPage />
     </Route>
